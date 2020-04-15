@@ -16,7 +16,7 @@ last_modified_at: 2020-03-23T14:07:54-04:00
 toc: true
 ---
 
-Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your personal site, blog, or portfolio on GitHub or self-hosting on your own server. As the name implies --- styling is purposely minimalistic to be enhanced and customized by you :smile:.
+OPS 2.0 is a program that aims to bring the hardware engineering projects of IEEE at UCLA to collegiate engineering organizations throughout the world.
 
 {% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
 
