@@ -7,13 +7,13 @@
 
 remote_theme             : "mmistakes/minimal-mistakes@4.19.1"
 
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Minimal Mistakes"
+title                    : "OPS 2.0"
 title_separator          : "-"
-subtitle                 : "A Jekyll theme"
+subtitle                 : "Open Project Space Upgraded"
 name                     : &name "Michael Rose" # &name is a YAML anchor which can be *referenced later
 description              : &description "A flexible Jekyll theme for your blog or site with a minimalist aesthetic."
 url                      : https://mmistakes.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
