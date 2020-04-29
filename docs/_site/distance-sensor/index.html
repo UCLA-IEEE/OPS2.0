@@ -9,21 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Distance Sensor - OPS 2.0</title>
-<meta name="description" content="Minimal Mistakes is a flexible two-column Jekyll theme. ">
+<!-- begin _includes/seo.html --><title>Arduino Distance Sensor - OPS 2.0</title>
+<meta name="description" content="Learn how to build an Arduino Distance Sensor ">
 
 
-  <meta name="author" content="Michael Rose">
+  <meta name="author" content="UCLA IEEE">
 
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="Distance Sensor">
+<meta property="og:title" content="Arduino Distance Sensor">
 <meta property="og:url" content="http://localhost:4000/OPS2.0/distance-sensor/">
 
 
-  <meta property="og:description" content="Minimal Mistakes is a flexible two-column Jekyll theme. ">
+  <meta property="og:description" content="Learn how to build an Arduino Distance Sensor ">
 
 
 
@@ -32,8 +32,8 @@
 
 
   <meta name="twitter:site" content="@mmistakes">
-  <meta name="twitter:title" content="Distance Sensor">
-  <meta name="twitter:description" content="Minimal Mistakes is a flexible two-column Jekyll theme. ">
+  <meta name="twitter:title" content="Arduino Distance Sensor">
+  <meta name="twitter:description" content="Learn how to build an Arduino Distance Sensor ">
   <meta name="twitter:url" content="http://localhost:4000/OPS2.0/distance-sensor/">
 
   
@@ -185,18 +185,18 @@
   
     <div class="author__avatar">
       
-        <img src="/OPS2.0/assets/images/michael-rose.jpg" alt="Michael Rose" itemprop="image">
+        <img src="/OPS2.0/assets/images/ucla-ieee.jpg" alt="UCLA IEEE" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">Michael Rose</h3>
+      <h3 class="author__name" itemprop="name">UCLA IEEE</h3>
     
     
       <div class="author__bio" itemprop="description">
-        <p>Just another <em>boring</em>, <em>tattooed</em>, <em>time traveling</em>, <em>designer</em>.</p>
+        <p>The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program.</p>
 
       </div>
     
@@ -207,26 +207,22 @@
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Buffalo, NY</span>
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Los Angeles, CA</span>
         </li>
       
 
       
         
           
-            <li><a href="https://mademistakes.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Made Mistakes</a></li>
+            <li><a href="https://ieeebruins.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
           
         
           
-            <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+            <li><a href="https://github.com/UCLA-IEEE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
           
         
           
-            <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-          
-        
-          
-            <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+            <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
           
         
       
@@ -296,15 +292,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Distance Sensor">
-    <meta itemprop="description" content="Minimal Mistakes is a flexible two-column Jekyll theme.">
+    <meta itemprop="headline" content="Arduino Distance Sensor">
+    <meta itemprop="description" content="Learn how to build an Arduino Distance Sensor">
     
-    <meta itemprop="dateModified" content="2020-03-23T14:07:54-04:00">
+    <meta itemprop="dateModified" content="2020-04-28T14:07:54-04:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Distance Sensor
+          <h1 id="page-title" class="page__title" itemprop="headline">Arduino Distance Sensor
 </h1>
           
         </header>
@@ -316,136 +312,277 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu">
-  <li><a href="#notable-features">Notable Features</a></li>
-  <li><a href="#demo-pages">Demo Pages</a></li>
-  <li><a href="#credits">Credits</a>
+  <li><a href="#about-this-project">About this Project</a>
     <ul>
-      <li><a href="#icons--demo-images">Icons + Demo Images:</a></li>
-      <li><a href="#other">Other:</a></li>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
     </ul>
   </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#project-specifications">Project Specifications</a>
+    <ul>
+      <li><a href="#checkpoint-1-reading-ir-values">Checkpoint 1: Reading IR Values</a></li>
+      <li><a href="#checkpoint-2-noise-calibration-and-led-output">Checkpoint 2: Noise Calibration and LED Output</a></li>
+      <li><a href="#final-pseudocode">Final Pseudocode</a></li>
+      <li><a href="#checkpoint-3-soldering">Checkpoint 3: Soldering</a></li>
+    </ul>
+  </li>
+  <li><a href="#checkoff-questions">Checkoff Questions</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <p>Learn how to make an Arduino Distance Sensor</p>
+        <p align="center">
+  <img src="../assets/images/DistanceSensor.png" width="350" />
+</p>
 
-<figure class="third ">
-  
-    
-      <a href="/OPS2.0/assets/images/mm-layout-splash.png">
-          <img src="/OPS2.0/assets/images/mm-layout-splash.png" alt="splash layout example" />
-      </a>
-    
-  
-    
-      <a href="/OPS2.0/assets/images/mm-layout-single-meta.png">
-          <img src="/OPS2.0/assets/images/mm-layout-single-meta.png" alt="single layout with comments and related posts" />
-      </a>
-    
-  
-    
-      <a href="/OPS2.0/assets/images/mm-layout-archive.png">
-          <img src="/OPS2.0/assets/images/mm-layout-archive.png" alt="archive layout example" />
-      </a>
-    
-  
-  
-    <figcaption>Examples of included layouts <code class="language-plaintext highlighter-rouge">splash</code>, <code class="language-plaintext highlighter-rouge">single</code>, and <code class="language-plaintext highlighter-rouge">archive</code>.
-</figcaption>
-  
-</figure>
+<h2 id="about-this-project">About this Project</h2>
 
-<p><a href="/OPS2.0/docs/quick-start-guide/" class="btn btn--success btn--large">Install the Theme</a></p>
+<p>In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair.</p>
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1VUlLLkaEYgGI9jHbGtPi72Rsy_l05evFw3UaUrRYzW4/edit?usp=sharing">Lecture Slides</a></h3>
 
-<h2 id="notable-features">Notable Features</h2>
+<h3 id="prerequisites">Prerequisites</h3>
 
 <ul>
-  <li>Bundled as a “theme gem” for easier install/upgrading.</li>
-  <li>Compatible with GitHub Pages.</li>
-  <li>Support for Jekyll’s built-in Sass/SCSS preprocessor.</li>
-  <li>Nine different skins (color variations).</li>
-  <li>Several responsive layout options (single, archive index, search, splash, and paginated home page).</li>
-  <li>Optimized for search engines with support for <a href="https://dev.twitter.com/cards/overview">Twitter Cards</a> and <a href="http://ogp.me/">Open Graph</a> data</li>
-  <li>Optional <a href="https://mmistakes.github.io/minimal-mistakes/docs/layouts/#headers">header images</a>, <a href="https://mmistakes.github.io/minimal-mistakes/docs/layouts/#sidebars">custom sidebars</a>, <a href="https://mmistakes.github.io/minimal-mistakes/docs/helpers/#table-of-contents">table of contents</a>, <a href="https://mmistakes.github.io/minimal-mistakes/docs/helpers/#gallery">galleries</a>, related posts, <a href="https://mmistakes.github.io/minimal-mistakes/docs/configuration/#breadcrumb-navigation-beta">breadcrumb links</a>, <a href="https://mmistakes.github.io/minimal-mistakes/docs/helpers/#navigation-list">navigation lists</a>, and more.</li>
-  <li>Commenting support (powered by <a href="https://disqus.com/">Disqus</a>, <a href="https://developers.facebook.com/docs/plugins/comments">Facebook</a>, <a href="https://www.discourse.org/">Discourse</a>, <a href="https://utteranc.es/">utterances</a>, static-based via <a href="https://staticman.net/">Staticman v1 and v2</a>, and custom).</li>
-  <li><a href="https://www.google.com/analytics/">Google Analytics</a> support.</li>
-  <li>UI localized text in English (default), Brazilian Portuguese (Português brasileiro), Catalan, Chinese, Danish, Dutch, Finnish, French (Français), German (Deutsch), Greek, Hindi (हिंदी), Hungarian, Indonesian, Irish (Gaeilge), Italian (Italiano), Japanese, Korean, Malayalam, Nepali (Nepalese), Persian (فارسی), Polish, Punjabi (ਪੰਜਾਬੀ), Romanian, Russian, Slovak, Spanish (Español), Swedish, Thai, Turkish (Türkçe), and Vietnamese.</li>
+  <li>Intro to Arduino</li>
 </ul>
 
-<h2 id="demo-pages">Demo Pages</h2>
+<h3 id="skills-learned">Skills Learned</h3>
+
+<ul>
+  <li>Intermediate Arduino programming</li>
+  <li>Sensors</li>
+  <li>Transistors</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Estimated Cost</th>
+      <th>Example Vendor</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="/OPS2.0/layout-header-image-text-readability/">Post with Header Image</a></td>
-      <td>A post with a large header image.</td>
+      <td>Arduino Nano</td>
+      <td>1</td>
+      <td>$4.00</td>
+      <td><a href="https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&amp;ie=UTF8&amp;qid=1468042975&amp;sr=1-8&amp;keywords=arduino%20nano">Amazon</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/markup/markup-html-tags-and-formatting/">HTML Tags and Formatting Post</a></td>
-      <td>A variety of common markup showing how the theme styles them.</td>
+      <td>Mini USB Cable</td>
+      <td>1</td>
+      <td>$1.80</td>
+      <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/markup-syntax-highlighting/">Syntax Highlighting Post</a></td>
-      <td>Post displaying highlighted code.</td>
+      <td>Breadboard</td>
+      <td>1</td>
+      <td>$1.50</td>
+      <td><a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&amp;keywords=breadboard&amp;qid=1588123957&amp;s=electronics&amp;sr=1-3">Amazon</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/post%20formats/post-gallery/">Post with a Gallery</a></td>
-      <td>A post showing several images wrapped in <code class="language-plaintext highlighter-rouge">&lt;figure&gt;</code> elements.</td>
+      <td>JST Connector</td>
+      <td>1</td>
+      <td>$0.15</td>
+      <td><a href="https://www.digikey.com/product-detail/en/440055-2/A100043-ND/2077946">Digikey</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/recipes/chocolate-chip-cookies/">Sample Collection Page</a></td>
-      <td>Single page from a collection.</td>
+      <td>LED</td>
+      <td>1</td>
+      <td>$0.25</td>
+      <td><a href="https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580">Digikey</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/categories/">Categories Archive</a></td>
-      <td>Posts grouped by category.</td>
+      <td>IR Receivers (Phototransistors)</td>
+      <td>1</td>
+      <td>$0.27</td>
+      <td><a href="https://www.digikey.com/product-detail/en/PT334-6C/1080-1159-ND/2675650?curr=usd&amp;WT.z_cid=ref_octopart_dkc_buynow&amp;site=us">Digikey</a></td>
     </tr>
     <tr>
-      <td><a href="/OPS2.0/tags/">Tags Archive</a></td>
-      <td>Posts grouped by tag.</td>
+      <td>IR Emitters (IR LEDs)</td>
+      <td>1</td>
+      <td>$0.60</td>
+      <td><a href="https://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/SFH-4545/?qs=VcOkZLzzaubOJpq6Xyji1A==">Pololu</a></td>
+    </tr>
+    <tr>
+      <td>130 Ohm Resistor (for LEDs)</td>
+      <td>2</td>
+      <td>$0.03</td>
+      <td><a href="https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>10k Ohm Resistor (for LEDs)</td>
+      <td>1</td>
+      <td>$0.03</td>
+      <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338">Digikey</a></td>
     </tr>
   </tbody>
 </table>
 
-<p>For even more demo pages check the <a href="/OPS2.0/year-archive/">posts archive</a>.</p>
+<p><strong>Total estimated cost:</strong> $8.66 per member  s
+<em>If reusing Arduino/MiniUSB/Breadboard:</em> $1.36 per member</p>
 
-<hr />
+<h2 id="project-specifications">Project Specifications</h2>
 
-<h2 id="credits">Credits</h2>
+<p>The basis of this project is the interaction between two interesting and useful electronic components:</p>
+<ol>
+  <li>An Infrared (IR) light emitting LED. Looks like a black LED.</li>
+  <li>An IR phototransistor, or IR receiver. Looks like a clear LED (don’t mix them up!)<br />
+We will place these two components next to each other so that when an object is within a close enough proximity,
+IR light is reflected from the IR LED into the IR receiver.</li>
+</ol>
 
-<h3 id="icons--demo-images">Icons + Demo Images:</h3>
+<p>This can be seen in the image below:</p>
 
-<ul>
-  <li><a href="https://thenounproject.com">The Noun Project</a> – Garrett Knoll, Arthur Shlain, and <a href="https://thenounproject.com/tracytam">tracy tam</a></li>
-  <li><a href="http://fontawesome.io/">Font Awesome</a></li>
-  <li><a href="https://unsplash.com/">Unsplash</a></li>
-</ul>
+<p align="center">
+  <img src="../assets/images/distance-sensor-1.png" width="350" />
+</p>
 
-<h3 id="other">Other:</h3>
+<p>By designing our Arduino circuit properly, we’ll be able to tell when an object is in front of our
+Distance Sensor!</p>
 
-<ul>
-  <li><a href="https://jekyllrb.com/">Jekyll</a></li>
-  <li><a href="https://jquery.com/">jQuery</a></li>
-  <li><a href="http://susy.oddbird.net/">Susy</a></li>
-  <li><a href="http://breakpoint-sass.com/">Breakpoint</a></li>
-  <li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a></li>
-  <li><a href="http://fitvidsjs.com/">FitVids.JS</a></li>
-  <li>Greedy Navigation - <a href="https://codepen.io/lukejacksonn/pen/PwmwWV">lukejacksonn</a></li>
-  <li><a href="https://github.com/kswedberg/jquery-smooth-scroll">jQuery Smooth Scroll</a></li>
-  <li><a href="http://lunrjs.com">Lunr</a></li>
-</ul>
+<h3 id="checkpoint-1-reading-ir-values">Checkpoint 1: Reading IR Values</h3>
+<p>Schematic:</p>
+<p align="center">
+  <img src="../assets/images/distance-sensor-2.png" width="500" />
+</p>
 
-<hr />
+<p>Your first task is to build the schematic shown above on your breadboard. In order to power the circuit,
+we’ll be using a mini USB cable to provide power to our Arduino. Essentially, the IR Receiver
+acts as a variable resistor. When no IR light is sensed, it can be thought of as having a very <em>high</em> resistance.
+When a lot of IR light is sensed, it can be thought of as having a very <em>low</em> resistance. Since we are
+reading the voltage at the meeting point of the 10k Ohm Resistor and the IR receiver, we have essentially built
+a <strong>voltage divider</strong>! If we read the voltage at pin A4 with no object present, it will be near 0V. If we read
+it with an object present, it will be near 3.7V. We’ll use this to our advantage later.</p>
 
-<p>Minimal Mistakes is designed, developed, and maintained by Michael Rose. Just another boring, tattooed, designer from Buffalo New York.</p>
+<p>In order to get best results, make sure your <strong>IR LED</strong> and <strong>IR Receiver</strong> are located as close as possible
+to each other. Another thing to be wary of is the polarity of these various components, as they differ from
+regular LEDs. A summary is listed below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Positive(+)</th>
+      <th>Negative(-)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LED</td>
+      <td>Longer Lead<br />Round Edge</td>
+      <td>Shorter Lead<br />Flat Edge</td>
+    </tr>
+    <tr>
+      <td>IR Receiver/Phototransistor</td>
+      <td>Shorter Edge<br />Flat Edge</td>
+      <td>Longer Lead<br />Round Edge</td>
+    </tr>
+    <tr>
+      <td>IR Emitter/LED</td>
+      <td>Shorter Lead<br />Round Edge</td>
+      <td>Longer Lead<br />Flat Edge</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For the programming portion of this checkpoint, you will need to print out the value read by the IR Receiver to the serial monitor. As the object gets closer, the value that is read should increase.</p>
+
+<h3 id="checkpoint-2-noise-calibration-and-led-output">Checkpoint 2: Noise Calibration and LED Output</h3>
+
+<p>By nature of the way we have set up our IR pair, there is <strong>noise</strong>, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new “zero” value by taking the average background value from our IR Receiver over 100 samples.<br />
+An example code snippet is provided below:</p>
+
+<pre><code class="language-C++">#define IR 17
+long zero = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(IR, INPUT);
+  for (int i = 0; i &lt; 100; i++) {
+    zero += analogRead(IR);
+  }
+  zero /= 100;
+}
+</code></pre>
+
+<p>With this in mind, here are the main steps involved in our Arduino program:</p>
+<ol>
+  <li>First we read the raw IR receiver reading using analogRead()</li>
+  <li>Then we need to constrain this value to our new <em>calibrated</em> range. Our noise-adjusted “zero” value is our new minimum value. The high value will likely be around 1023, but should be adjusted for best results. The <strong>constrain()</strong> function will come in handy here.
+    <pre><code class="language-C++">  int new_reading = constrain(x, a, b);
+</code></pre>
+    <p>This will return:</p>
+    <ul>
+      <li>x <em>if a &lt; x &lt; b</em></li>
+      <li>a <em>if x &lt; a</em></li>
+      <li>b <em>if x &gt; b</em></li>
+    </ul>
+  </li>
+  <li>Finally, we will use the new constrained input reading to change our output LED brightness. When an object gets closer, we want the brightness to increase. However, analogWrite() takes a value from 0-255 while analogRead() returns a value from 0-1023. We’ll need to use the <strong>map()</strong> function to scale this down!
+    <pre><code class="language-C++">  mapped_value = map(raw_val, initial_min, initial_max, final_min, final_max);
+</code></pre>
+    <p>This returns <code class="language-plaintext highlighter-rouge">raw_val</code> scaled from the initial range to the final range.</p>
+  </li>
+</ol>
+
+<p>Example: Map val from 0-1023 to 0-255</p>
+<pre><code class="language-C++">  void loop()
+  {
+    int val = analogRead(0);
+    val = map(val, 0, 1023, 0, 255);
+    analogWrite(9, val);
+  }
+</code></pre>
+<h3 id="final-pseudocode">Final Pseudocode</h3>
+<pre><code class="language-C++">// define the pins
+
+// for calibration
+long zero = 0;
+
+void setup() {
+  // Set the Serial baud rate
+  // Set the pin modes
+  // Set the variable zero to the average of 100 samples
+}
+
+void loop() {
+  // 0 is no IR light, 1023 is max IR light being reflected
+  // Step 1: Read IR Reading
+  // Step 2: Constrain the raw IR reading from "zero"-1023
+  // Step 3: Map the reading to an output value, from "zero"-1023 to 0-255
+  // Step 4: Adjust brightness of LED based on new mapped reading
+}
+</code></pre>
+
+<p><strong>Project Completion:</strong><br />
+Show your fully functioning Distance Sensor, where the LED’s brightness smoothly scales from zero to full brightness as an object gets closer.</p>
+
+<h3 id="checkpoint-3-soldering">Checkpoint 3: Soldering</h3>
+<p>In order to solder this project, you will need a perfboard, female headers, and a soldering station in addition to the parts listed in the <strong>Parts List</strong> section.</p>
+
+<p>Notes:</p>
+<ol>
+  <li>Don’t solder your Arduino directly to the perfboard! Use female headers instead, allowing us to insert and remove our Arduino.</li>
+</ol>
+
+<h2 id="checkoff-questions">Checkoff Questions</h2>
+<p>Here are some questions you can use to test understanding of the concepts involved in the Distance Sensor project:</p>
+
+<ol>
+  <li>What are the three terminals of a transistor called, and which one does the phototransistor
+use to take in light?</li>
+  <li>Why should you keep the emitter and receiver close together?</li>
+  <li>What are the parameters to the map function and what does it do with them?</li>
+  <li>Why do we need to sample 100 IR values in setup()?</li>
+</ol>
 
         
       </section>
@@ -456,7 +593,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-23">March 23, 2020</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-28">April 28, 2020</time></p>
         
       </footer>
 

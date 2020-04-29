@@ -89,23 +89,20 @@ analytics:
 
 # Site Author
 author:
-  name             : *name # *name is a YAML reference pointing to the &anchor earlier
-  avatar           : "/assets/images/michael-rose.jpg"
-  bio              : "Just another *boring*, *tattooed*, *time traveling*, *designer*."
-  location         : "Buffalo, NY"
+  name             : UCLA IEEE # *name is a YAML reference pointing to the &anchor earlier
+  avatar           : "/assets/images/ucla-ieee.jpg"
+  bio              : "The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program."
+  location         : "Los Angeles, CA"
   links:
-    - label: "Made Mistakes"
+    - label: "IEEE at UCLA"
       icon: "fas fa-fw fa-link"
-      url: "https://mademistakes.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mmistakes"
+      url: "https://ieeebruins.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/mmistakes"
+      url: "https://github.com/UCLA-IEEE"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/mmistakes"
+      url: "https://www.instagram.com/uclaieee/"
 
 
 # Site Footer
