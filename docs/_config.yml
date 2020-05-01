@@ -96,7 +96,7 @@ author:
   links:
     - label: "IEEE at UCLA"
       icon: "fas fa-fw fa-link"
-      url: "https://ieeebruins.com"
+      url: "http://ieeebruins.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/UCLA-IEEE"
