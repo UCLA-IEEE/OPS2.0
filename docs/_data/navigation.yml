@@ -24,7 +24,9 @@ main:
     url: /about/
   - title: "Distance Sensor"
     url: /distance-sensor/
-
+  - title: "Redlight Greenlight"
+    url: /redlight-greenlight/
+    
 # documentation links
 docs:
   - title: Getting Started
