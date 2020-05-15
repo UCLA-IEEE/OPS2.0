@@ -12,13 +12,14 @@ toc: true
 ## About this Project
 
 In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair.
+
 ### [Lecture Slides](https://docs.google.com/presentation/d/1VUlLLkaEYgGI9jHbGtPi72Rsy_l05evFw3UaUrRYzW4/edit?usp=sharing)
 
-### Prerequisites
+### <ins>Prerequisites</ins>
 
 * Intro to Arduino
 
-### Skills Learned
+### <ins>Skills Learned</ins>
 
 * Intermediate Arduino programming
 * Sensors
@@ -36,12 +37,12 @@ In this project, you will be making a distance sensor using a phototransistor (I
 | IR Receivers (Phototransistors) | 1 | $0.27 | [Digikey](https://www.digikey.com/product-detail/en/PT334-6C/1080-1159-ND/2675650?curr=usd&WT.z_cid=ref_octopart_dkc_buynow&site=us) |
 | IR Emitters (IR LEDs) | 1 | $0.60 | [Pololu](https://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/SFH-4545/?qs=VcOkZLzzaubOJpq6Xyji1A==) |
 | 130 Ohm Resistor (for LEDs) | 2 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554) |
-| 10k Ohm Resistor (for LEDs) | 1 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338) |
+| 10k Ohm Resistor (for IR Receiver) | 1 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338) |
 
-**Total estimated cost:** $8.66 per member  
-*If reusing Arduino/MiniUSB/Breadboard:* $1.36 per member
+**<ins>Total estimated cost:</ins>** $8.66 per member  
+*<ins>If reusing Arduino/MiniUSB/Breadboard:</ins>* $1.36 per member
 
-## Project Specifications
+## Project Specification
 
 The basis of this project is the interaction between two interesting and useful electronic components:
 1. An Infrared (IR) light emitting LED. Looks like a black LED.
@@ -58,8 +59,8 @@ This can be seen in the image below:
 By designing our Arduino circuit properly, we'll be able to tell when an object is in front of our
 Distance Sensor!
 
-### Checkpoint 1: Reading IR Values
-Schematic:
+### <ins>Checkpoint 1: Reading IR Values</ins>
+<ins>Schematic:</ins>
 <p align="center">
   <img src="../assets/images/distance-sensor-2.png" width="500" />
 </p>
@@ -84,10 +85,11 @@ regular LEDs. A summary is listed below:
 
 For the programming portion of this checkpoint, you will need to print out the value read by the IR Receiver to the serial monitor. As the object gets closer, the value that is read should increase.
 
-### Checkpoint 2: Noise Calibration and LED Output
+### <ins>Checkpoint 2: Noise Calibration and LED Output</ins>
 
-By nature of the way we have set up our IR pair, there is **noise**, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new "zero" value by taking the average background value from our IR Receiver over 100 samples.  
-An example code snippet is provided below:
+By nature of the way we have set up our IR pair, there is **noise**, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new "zero" value by taking the average background value from our IR Receiver over 100 samples.
+
+<ins>An example code snippet is provided below:</ins>
 
 ```C++
 #define IR 17
@@ -119,7 +121,7 @@ With this in mind, here are the main steps involved in our Arduino program:
   ```
   This returns `raw_val` scaled from the initial range to the final range.  
 
-  Example: Map val from 0-1023 to 0-255
+  <ins>Example: Map val from 0-1023 to 0-255</ins>
   ```C++
   void loop()
   {
@@ -128,7 +130,7 @@ With this in mind, here are the main steps involved in our Arduino program:
     analogWrite(9, val);
   }
   ```
-### Final Pseudocode
+### <ins>Final Pseudocode</ins>
 ```C++
 // define the pins
 
@@ -150,10 +152,10 @@ void loop() {
 }
 ```
 
-**Project Completion:**  
+**<ins>Project Completion</ins>:**  
 Show your fully functioning Distance Sensor, where the LED's brightness smoothly scales from zero to full brightness as an object gets closer.
 
-### Checkpoint 3: Soldering
+### <ins>Checkpoint 3: Soldering</ins>
 In order to solder this project, you will need a perfboard, female headers, and a soldering station in addition to the parts listed in the **Parts List** section.
 
 Notes:

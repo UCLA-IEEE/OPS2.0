@@ -329,7 +329,7 @@
       <li><a href="#reference-material">Reference Material</a></li>
       <li><a href="#checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</a></li>
       <li><a href="#checkpoint-2-wiring-up-the-rest-of-the-hardware">Checkpoint 2: Wiring Up the rest of the Hardware</a></li>
-      <li><a href="#checkpoint-3-implementing-the-game-redlight-greenlight">Checkpoint 3: Implementing the game Redlight, Greenlight</a></li>
+      <li><a href="#checkpoint-3-implementing-the-game-red-light-green-light">Checkpoint 3: Implementing the game Red Light, Green Light</a></li>
       <li><a href="#game-requirements">Game Requirements</a></li>
       <li><a href="#bonus-pizzazz">Bonus Pizzazz</a></li>
     </ul>
@@ -358,12 +358,12 @@
 
 <h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture Slides</a></h3>
 
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 <ul>
   <li>Intro to Arduino</li>
 </ul>
 
-<h3 id="skills-learned">Skills Learned</h3>
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
 <ul>
   <li>Pull-up/pull-down resistor</li>
   <li>Serial protocol: UART (Universal Asynchronous Receiver Transmitter)</li>
@@ -389,7 +389,7 @@
     </tr>
     <tr>
       <td>Mini USB Cable</td>
-      <td>1</td>
+      <td>2</td>
       <td>$1.80</td>
       <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
     </tr>
@@ -444,13 +444,16 @@
   </tbody>
 </table>
 
+<p><strong><ins>Total estimated cost:</ins></strong> $16.89 per team of 2<br />
+<em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $2.29 per team of 2</p>
+
 <h2 id="project-specification">Project Specification</h2>
 
 <p>One microcontroller (representing the stoplight) will flash one of the two red/green LEDs and the other microcontroller (representing the Car and its gas/brake pedals) will have two tactile switches (fancy word for buttons). Press the gas at green lights and the brake at red lights in order to score points and move to the next intersection. Get it wrong and you lose!</p>
 
 <p>The goal of this project is to teach you how to use Serial communication and give you your first experience with communication protocols before we move on to more sophisticated and complex protocols.</p>
 
-<h3 id="reference-material">Reference Material</h3>
+<h3 id="reference-material"><ins>Reference Material</ins></h3>
 <p>This lab requires reading documentation and datasheets. Here are some resources that you will reference throughout the project.</p>
 
 <ol>
@@ -460,7 +463,9 @@
   <li><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Arduino Serial Library</a></li>
 </ol>
 
-<h3 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</h3>
+<h3 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart"><ins>Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</ins></h3>
+
+<p>This is a group project! Team up with a partner!</p>
 
 <ol>
   <li>
@@ -475,7 +480,7 @@
   </li>
 </ol>
 
-<h3 id="checkpoint-2-wiring-up-the-rest-of-the-hardware">Checkpoint 2: Wiring Up the rest of the Hardware</h3>
+<h3 id="checkpoint-2-wiring-up-the-rest-of-the-hardware"><ins>Checkpoint 2: Wiring Up the rest of the Hardware</ins></h3>
 
 <p><strong>Arduino Device 1: Creating the green and red lights:</strong>
 You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
@@ -484,7 +489,7 @@ You will need to hook up 2 different output LEDs (choose between red, yellow and
 Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino.</p>
 
 <blockquote>
-  <p><strong>NOTE: Button Debouncing.</strong><br />
+  <p><strong><ins>NOTE: Button Debouncing.</ins></strong><br />
 When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
 </blockquote>
 
@@ -495,7 +500,7 @@ When you press or release a button, it will “bounce” several times before re
 <p>Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).</p>
 
 <blockquote>
-  <p><strong>NOTE:</strong> This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
+  <p><strong><ins>NOTE:</ins></strong> This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
 </blockquote>
 
 <ol>
@@ -503,11 +508,11 @@ When you press or release a button, it will “bounce” several times before re
   <li>Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.</li>
 </ol>
 
-<h3 id="checkpoint-3-implementing-the-game-redlight-greenlight">Checkpoint 3: Implementing the game Redlight, Greenlight</h3>
+<h3 id="checkpoint-3-implementing-the-game-red-light-green-light"><ins>Checkpoint 3: Implementing the game Red Light, Green Light</ins></h3>
 
 <p>The final objective of this lab is to write a complete implementation of the Red Light Green Light game. The expectations for this game are as follows:</p>
 
-<h3 id="game-requirements">Game Requirements</h3>
+<h3 id="game-requirements"><ins>Game Requirements</ins></h3>
 <ul>
   <li>Two differently colored LEDs (Stoplight side; the game controller)</li>
   <li>One white LED (Carduino side; the player)</li>
@@ -520,12 +525,12 @@ When you press or release a button, it will “bounce” several times before re
 </ul>
 
 <blockquote>
-  <p><strong>NOTE:</strong> In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press  when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.</p>
+  <p><strong><ins>NOTE:</ins></strong> In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press  when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.</p>
 </blockquote>
 
-<p><strong>Project Completion:</strong> Implement the Red Light, Green Light game, adhering to the above requirements.</p>
+<p><strong><ins>Project Completion:</ins></strong> Implement the Red Light, Green Light game, adhering to the above requirements.</p>
 
-<h3 id="bonus-pizzazz">Bonus Pizzazz</h3>
+<h3 id="bonus-pizzazz"><ins>Bonus Pizzazz</ins></h3>
 <p>This part of the project, while strongly encouraged, is <em>optional</em>. If you have more pressing work to complete, you’re done! Feel free to skip this part.</p>
 
 <p>This is your chance to show us your game design skills by implementing whatever game elements you’d like in order to improve the Red Light, Green Light game. Here are a few ideas for features that can be implemented:</p>
@@ -539,19 +544,19 @@ When you press or release a button, it will “bounce” several times before re
 
 <h2 id="appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</h2>
 
-<h3 id="generating-a-random-number">Generating a random number</h3>
+<h3 id="generating-a-random-number"><ins>Generating a random number</ins></h3>
 <p>In setup(): randomSeed(analogRead(0));
 To get a random number: randNum = random(300); // random number from 0 to 299</p>
 
 <p>This will allow you to get a truly random number sequence because we are randomizing the seed of the random number generator. The seed being used is the reading of an analog pin that is not currently being used, which is essentially just constantly fluctuating noise.</p>
 
-<h3 id="timing">Timing</h3>
+<h3 id="timing"><ins>Timing</ins></h3>
 <p>millis(): returns the number of milliseconds that passed since program started</p>
 
-<h3 id="help-my-button-is-registering-multiple-button-presses">Help! My button is registering multiple button presses.</h3>
+<h3 id="help-my-button-is-registering-multiple-button-presses"><ins>Help! My button is registering multiple button presses.</ins></h3>
 <p>It is important to note that if you hold down the button for too long (i.e. for multiple iterations of the loop() code), then it will read HIGH for every iteration of the loop. Thus, when checking if a button has been pressed, it is not ideal to simply check of the pin is HIGH; you should only register a button press if the pin has changed from previously being LOW to now being HIGH. Try implementing software debouncing!</p>
 
-<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game">How do I begin the implementing the Red Light, Green Light game?</h3>
+<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game"><ins>How do I begin the implementing the Red Light, Green Light game?</ins></h3>
 <p>Don’t jump right into programming the game. Rather, think about the general structure of the game first and write some pseudocode to nail down the logical flow of the program. Then, begin implementing sections of the program in discrete blocks based on your pseudocode.</p>
 
 <h2 id="check-off-questions">Check off Questions</h2>

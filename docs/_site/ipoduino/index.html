@@ -315,12 +315,234 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#project-specification">Project Specification</a>
+    <ul>
+      <li><a href="#checkpoint-1-manually-create-pwm">Checkpoint 1: Manually Create PWM</a></li>
+      <li><a href="#checkpoint-2-sound-check">Checkpoint 2: Sound Check</a></li>
+      <li><a href="#checkpoint-3-interface">Checkpoint 3: Interface</a></li>
+      <li><a href="#checkpoint-4-display">Checkpoint 4: Display</a></li>
+      <li><a href="#further-understanding">Further Understanding</a></li>
+    </ul>
+  </li>
+  <li><a href="#member-examples">Member Examples</a></li>
+  <li><a href="#checkoff-questions">Checkoff Questions</a></li>
+</ul>
 
             </nav>
           </aside>
         
-        <p>Under Construction!</p>
+        <p align="center">
+  <img src="../assets/images/iPoduino.png" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>In this project, you will be making an iPod Arduino Music Player. It will contain 3 subsystems: a speaker that plays programmable music of your choice, a potentiometer interface that allows users to select 1 of 3 songs, and a display (which you design!) that indicates which song will play.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1hkNE5Nn44NZztGGcPjcDY4RFudZYH9aqfLh95K6g4Vg/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li>Intro to Arduino</li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Digital/Analog signals</li>
+  <li>Pulse Width Modulation (PWM)</li>
+  <li>Intermediate Arduino programming</li>
+  <li>Using library files</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Estimated Cost</th>
+      <th>Example Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Nano</td>
+      <td>1</td>
+      <td>$4.00</td>
+      <td><a href="https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&amp;ie=UTF8&amp;qid=1468042975&amp;sr=1-8&amp;keywords=arduino%20nano">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Mini USB Cable</td>
+      <td>1</td>
+      <td>$1.80</td>
+      <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard</td>
+      <td>1</td>
+      <td>$1.50</td>
+      <td><a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&amp;keywords=breadboard&amp;qid=1588123957&amp;s=electronics&amp;sr=1-3">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Speaker</td>
+      <td>1</td>
+      <td>$0.85</td>
+      <td><a href="https://www.digikey.com/product-detail/en/PSR-29F08S02-JQ/458-1128-ND/2071444/?itemSeq=293168811">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>Potentiometer</td>
+      <td>1</td>
+      <td>$1.00</td>
+      <td><a href="https://www.adafruit.com/product/562">Adafruit</a></td>
+    </tr>
+    <tr>
+      <td>82 Ohm Resistor (for Speaker)</td>
+      <td>2</td>
+      <td>$0.03</td>
+      <td><a href="https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CF14JT82R0/CF14JT82R0CT-ND/1830325">Digikey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition to the listed parts, you’ll also want to order assorted LEDs and resistors so that members can implement their own display designs.</p>
+<blockquote>
+  <p><ins><strong>Note:</strong></ins> The listed speakers do <ins>NOT</ins> come pre-soldered. You will need access to a soldering station to solder the two leads yourself.</p>
+</blockquote>
+
+<p><strong><ins>Total estimated cost:</ins></strong> $9.21 per member + assorted parts for display<br />
+<em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $1.91 per member + assorted parts for display</p>
+
+<h2 id="project-specification">Project Specification</h2>
+
+<p>In order build our own iPoduino and program a song of our choice on it, we will develop it subsystem by subsystem. But first, we will build a quick demo to demonstrate the magic of PWM!</p>
+
+<h3 id="checkpoint-1-manually-create-pwm"><ins>Checkpoint 1: Manually Create PWM</ins></h3>
+
+<p>Before we start creating our iPod, let’s test your understanding of PWM.</p>
+
+<p><strong>A quick recap:</strong> our Arduino Nano is not capable of producing true analog signals. Rather, it is only capable of producing digital outputs (either HIGH or LOW, nothing in between). However, by rapidly alternating between HIGH and LOW for a particular proportion of time (duty cycle), we can simulate an analog voltage!</p>
+
+<p align="center">
+  <img src="../assets/images/ipoduino-1.png" width="500" />
+</p>
+
+<p>As seen in the above figure, a duty cycle of 50% means that the signal is HIGH half the time and LOW half the time. This equations to an analog voltage value that is 50% of HIGH. By varying the duty cycle, we can also vary the resulting analog output. This is in fact what happens every time we call the <code class="language-plaintext highlighter-rouge">analogWrite(int x)</code> function: the integer parameter <code class="language-plaintext highlighter-rouge">x</code> gets mapped to a duty cycle!</p>
+
+<p><strong>Now onto the assignment:</strong> <br />
+You will need to control the brightness of an LED by generating a 1 kHz PWM square wave (<em>1 kHz corresponds to one wave every 1000 microseconds</em>). Think about what parameters you can change that will correspond to a change in the LED’s brightness.</p>
+
+<p>You’ll be restricted to using only two functions in your loop():</p>
+<ul>
+  <li>digitalWrite(pin#)</li>
+  <li>delayMicroseconds(#us)</li>
+</ul>
+
+<p><strong><ins>To get checked off:</ins></strong> create 3 different Arduino sketches, with each one clearly corresponding to a different brightness level.</p>
+
+<h3 id="checkpoint-2-sound-check"><ins>Checkpoint 2: Sound Check</ins></h3>
+
+<p>It’s time to build our iPoduino! The schematic is shown below for convenience. Note that the display interface that tells the user which song will play is not shown (since you’ll design it yourself!).</p>
+
+<p align="center">
+  <img src="../assets/images/ipoduino-2.png" width="700" />
+</p>
+
+<p>For the first part of the project, you will be programming your own song to play through a speaker. To do this, there are a few helpful Arduino functions:</p>
+<ul>
+  <li><strong>tone(pin, frequency):</strong> generates a 50% duty cycle PWM square wave at specified frequency.</li>
+  <li><strong>noTone(pin):</strong> stops PWM wave generated by tone()</li>
+</ul>
+
+<p>However, we’ve simplified the use of the two functions above for you by writing the following helper function, play():</p>
+
+<p align="center">
+  <img src="../assets/images/ipoduino-3.png" width="500" />
+</p>
+
+<p>Copy this code into the top of your program, putting your speaker output pin in the indicated field. This function takes a note frequency and its duration as input, and sends a PWM signal to the output pin aliased as SPEAKER.</p>
+
+<p>Please also download one of the following files and place it in the same folder as your Arduino iPod sketch:</p>
+<ul>
+  <li><a href="../assets/code/pitches.h" download="">pitches.h</a> - includes all notes</li>
+  <li><a href="../assets/code/basicpitches.h" download="">basicpitches.h</a> - includes only one octave for simplicity’s sake</li>
+</ul>
+
+<p>In your main Arduino iPod sketch, write <code class="language-plaintext highlighter-rouge">#include “pitches.h”</code> at the top of your program. These files include note frequencies (in Hz) represented by their common note name (e.g. 262Hz can now be called as NOTE_C4, with 4 indicating the octave number).</p>
+
+<p>Now, you will be able to play notes in the following format:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">play(NOTE_C4, 4)</code> —&gt; play middle C for 4 note durations</li>
+  <li>an n-beat rest can be programmed using <code class="language-plaintext highlighter-rouge">delay(NOTE_DUR*n)</code></li>
+  <li>By making repeated calls to play(), we can play songs through our speaker!</li>
+</ul>
+
+<p><strong><ins>To get checked off:</ins></strong> write a song (minimum 10 notes) and play it through your speaker. The song should play on start-up and when the reset button in the center of the Arduino is pressed. We encourage you to get creative and show us something cool! E-mail us at president@ieeebruins.com! :)</p>
+
+<p>For some inspiration: <a href="../assets/code/Despacito.h" download="">Despacito.h</a>. Copy and paste into your code and call Despacito() to see it go!</p>
+
+<h3 id="checkpoint-3-interface"><ins>Checkpoint 3: Interface</ins></h3>
+
+<p>For the next portion of the project, you will be implementing a potentiometer interface. Depending on what voltage is read from the potentiometer when the reset button is pressed, you will need to be able to switch between at least 3 songs. This means you’ll have to program more songs! Pseudocode for this portion is pictured below:</p>
+
+<p align="center">
+  <img src="../assets/images/ipoduino-4.png" width="500" />
+</p>
+
+<p>It might be helpful to create a separate function for each programmed song, to make your code more organized. Additionally, think about this: if a song is only being played when the reset button is pressed, where in our Arduino code should the songs be played?</p>
+
+<p><strong><ins>To get checked off:</ins></strong> be able to play 3 different songs by turning the Potentiometer dial and pressing the reset button.</p>
+
+<h3 id="checkpoint-4-display"><ins>Checkpoint 4: Display</ins></h3>
+
+<p>Alright, at this point you’ve accomplished quite a bit! You’ve programmed at least 3 songs, and can switch between them by turning your potentiometer dial and pressing the on-board reset button. However, which potentiometer settings correspond to which songs is a bit of a guessing game, since we don’t have real-time feedback until the button is already pressed.</p>
+
+<p>Much like a real iPod has a visual display indicating which song we are selecting, we’ll add a display to our iPoduino! Once your iPoduino is done playing music, it should indicate which song will play next when the reset button is pressed again. When your iPoduino <em>is</em> playing music, it need not display anything. It’s up to you to implement this, as there are multiple ways of going about this. For example, we could represent different songs with different colors, different brightnesses, etc.</p>
+
+<p><strong><ins>To get checked off and complete your iPoduino:</ins></strong> demo your fully functional Arduino iPod with the display system you designed.</p>
+
+<h3 id="further-understanding">Further Understanding</h3>
+
+<p>Think about each of our 3 subsystems: sound, interface, and display. Which of these utilizes Analog/Digital inputs and outputs? Which of these utilizes PWM signals?</p>
+
+<h2 id="member-examples">Member Examples</h2>
+
+<p>Some past OPS members have made some pretty dope iPoduinos! Turns out there are a ton of music nerds in engineering. Check out some standout projects below:</p>
+
+<p align="center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/jFWt276UH0s" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  <br />
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/GxeAPmE0bw4" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</p>
+
+<p>Send us yours for a chance to be featured too :-)</p>
+
+<h2 id="checkoff-questions">Checkoff Questions</h2>
+<p>Here are some questions you can use to test understanding of the concepts involved in Checkpoint #1 (manually creating PWM):</p>
+
+<ol>
+  <li>How did you ensure that your PWM signal has a frequency of 1 KHz?
+    <ul>
+      <li>1 KHz corresponds to a period of 1000 microseconds, so the amount of time that the LED is on AND off should add up to 1000 microseconds.</li>
+    </ul>
+  </li>
+  <li>Why does our frequency need to be so high? Why can’t we just use the regular delay() function instead of delayMicroseconds()?
+    <ul>
+      <li>The frequency needs to be high enough so that our eyes can perceive the blinking as a brightness. If we used delay() instead, we would get different blinking rates but not different brightnesses.</li>
+    </ul>
+  </li>
+</ol>
 
         
       </section>

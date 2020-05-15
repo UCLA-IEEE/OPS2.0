@@ -324,7 +324,7 @@
     </ul>
   </li>
   <li><a href="#parts-list">Parts List</a></li>
-  <li><a href="#project-specifications">Project Specifications</a>
+  <li><a href="#project-specification">Project Specification</a>
     <ul>
       <li><a href="#checkpoint-1-reading-ir-values">Checkpoint 1: Reading IR Values</a></li>
       <li><a href="#checkpoint-2-noise-calibration-and-led-output">Checkpoint 2: Noise Calibration and LED Output</a></li>
@@ -345,15 +345,16 @@
 <h2 id="about-this-project">About this Project</h2>
 
 <p>In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair.</p>
+
 <h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1VUlLLkaEYgGI9jHbGtPi72Rsy_l05evFw3UaUrRYzW4/edit?usp=sharing">Lecture Slides</a></h3>
 
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
 <ul>
   <li>Intro to Arduino</li>
 </ul>
 
-<h3 id="skills-learned">Skills Learned</h3>
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
 
 <ul>
   <li>Intermediate Arduino programming</li>
@@ -422,7 +423,7 @@
       <td><a href="https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554">Digikey</a></td>
     </tr>
     <tr>
-      <td>10k Ohm Resistor (for LEDs)</td>
+      <td>10k Ohm Resistor (for IR Receiver)</td>
       <td>1</td>
       <td>$0.03</td>
       <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338">Digikey</a></td>
@@ -430,10 +431,10 @@
   </tbody>
 </table>
 
-<p><strong>Total estimated cost:</strong> $8.66 per member<br />
-<em>If reusing Arduino/MiniUSB/Breadboard:</em> $1.36 per member</p>
+<p><strong><ins>Total estimated cost:</ins></strong> $8.66 per member<br />
+<em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $1.36 per member</p>
 
-<h2 id="project-specifications">Project Specifications</h2>
+<h2 id="project-specification">Project Specification</h2>
 
 <p>The basis of this project is the interaction between two interesting and useful electronic components:</p>
 <ol>
@@ -452,8 +453,8 @@ IR light is reflected from the IR LED into the IR receiver.</li>
 <p>By designing our Arduino circuit properly, we’ll be able to tell when an object is in front of our
 Distance Sensor!</p>
 
-<h3 id="checkpoint-1-reading-ir-values">Checkpoint 1: Reading IR Values</h3>
-<p>Schematic:</p>
+<h3 id="checkpoint-1-reading-ir-values"><ins>Checkpoint 1: Reading IR Values</ins></h3>
+<p><ins>Schematic:</ins></p>
 <p align="center">
   <img src="../assets/images/distance-sensor-2.png" width="500" />
 </p>
@@ -499,10 +500,11 @@ regular LEDs. A summary is listed below:</p>
 
 <p>For the programming portion of this checkpoint, you will need to print out the value read by the IR Receiver to the serial monitor. As the object gets closer, the value that is read should increase.</p>
 
-<h3 id="checkpoint-2-noise-calibration-and-led-output">Checkpoint 2: Noise Calibration and LED Output</h3>
+<h3 id="checkpoint-2-noise-calibration-and-led-output"><ins>Checkpoint 2: Noise Calibration and LED Output</ins></h3>
 
-<p>By nature of the way we have set up our IR pair, there is <strong>noise</strong>, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new “zero” value by taking the average background value from our IR Receiver over 100 samples.<br />
-An example code snippet is provided below:</p>
+<p>By nature of the way we have set up our IR pair, there is <strong>noise</strong>, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new “zero” value by taking the average background value from our IR Receiver over 100 samples.</p>
+
+<p><ins>An example code snippet is provided below:</ins></p>
 
 <pre><code class="language-C++">#define IR 17
 long zero = 0;
@@ -537,7 +539,7 @@ void setup() {
   </li>
 </ol>
 
-<p>Example: Map val from 0-1023 to 0-255</p>
+<p><ins>Example: Map val from 0-1023 to 0-255</ins></p>
 <pre><code class="language-C++">  void loop()
   {
     int val = analogRead(0);
@@ -545,7 +547,7 @@ void setup() {
     analogWrite(9, val);
   }
 </code></pre>
-<h3 id="final-pseudocode">Final Pseudocode</h3>
+<h3 id="final-pseudocode"><ins>Final Pseudocode</ins></h3>
 <pre><code class="language-C++">// define the pins
 
 // for calibration
@@ -566,10 +568,10 @@ void loop() {
 }
 </code></pre>
 
-<p><strong>Project Completion:</strong><br />
+<p><strong><ins>Project Completion</ins>:</strong><br />
 Show your fully functioning Distance Sensor, where the LED’s brightness smoothly scales from zero to full brightness as an object gets closer.</p>
 
-<h3 id="checkpoint-3-soldering">Checkpoint 3: Soldering</h3>
+<h3 id="checkpoint-3-soldering"><ins>Checkpoint 3: Soldering</ins></h3>
 <p>In order to solder this project, you will need a perfboard, female headers, and a soldering station in addition to the parts listed in the <strong>Parts List</strong> section.</p>
 
 <p>Notes:</p>

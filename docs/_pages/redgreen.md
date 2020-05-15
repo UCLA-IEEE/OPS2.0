@@ -15,10 +15,10 @@ In this project, you will be implementing a 2-Arduino game called Red Light, Gre
 
 ### [Lecture Slides](https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing)
 
-### Prerequisites
+### <ins>Prerequisites</ins>
 * Intro to Arduino
 
-### Skills Learned
+### <ins>Skills Learned</ins>
 * Pull-up/pull-down resistor
 * Serial protocol: UART (Universal Asynchronous Receiver Transmitter)
 
@@ -27,7 +27,7 @@ In this project, you will be implementing a 2-Arduino game called Red Light, Gre
 | Part                                  | Quantity | Unit Cost | Example Vendor |
 | ------------------------------------- | -------- | -------------- | --------------
 | Arduino Nano | 2 | $4.00 | [Amazon](https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&ie=UTF8&qid=1468042975&sr=1-8&keywords=arduino%20nano) |
-| Mini USB Cable | 1 | $1.80 | [Mouser](https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2) |
+| Mini USB Cable | 2 | $1.80 | [Mouser](https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2) |
 | Breadboard | 2 | $1.50 | [Amazon](https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&keywords=breadboard&qid=1588123957&s=electronics&sr=1-3) |
 | Green LED | 1 | $0.12 | [Digikey](https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580) |
 | Red LED | 1 | $0.14 | [DigiKey](https://www.digikey.com/product-detail/en/kingbright/WP7113ID/754-1264-ND/1747663) |
@@ -37,13 +37,16 @@ In this project, you will be implementing a 2-Arduino game called Red Light, Gre
 | 10kOhm Resistor | 2 | $0.10 | [DigiKey](https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338) |
 | 100nF(0.1uf) Capacitor | 2 | $0.45 | [DigiKey](https://www.digikey.com/product-detail/en/kemet/C320C104J5R5TA7301/399-9867-1-ND/3726105) |
 
+**<ins>Total estimated cost:</ins>** $16.89 per team of 2  
+*<ins>If reusing Arduino/MiniUSB/Breadboard:</ins>* $2.29 per team of 2
+
 ## Project Specification
 
 One microcontroller (representing the stoplight) will flash one of the two red/green LEDs and the other microcontroller (representing the Car and its gas/brake pedals) will have two tactile switches (fancy word for buttons). Press the gas at green lights and the brake at red lights in order to score points and move to the next intersection. Get it wrong and you lose!
 
 The goal of this project is to teach you how to use Serial communication and give you your first experience with communication protocols before we move on to more sophisticated and complex protocols.
 
-### Reference Material
+### <ins>Reference Material</ins>
 This lab requires reading documentation and datasheets. Here are some resources that you will reference throughout the project.
 
 1. [Lecture 7 Slides](https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing)
@@ -51,7 +54,9 @@ This lab requires reading documentation and datasheets. Here are some resources 
 3. [Arduino Nano Pinout](http://ops.ieeebruins.com/images/1/16/NanoPinout.png)
 4. [Arduino Serial Library](https://www.arduino.cc/reference/en/language/functions/communication/serial/)
 
-### Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART
+### <ins>Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</ins>
+
+This is a group project! Team up with a partner!
 
 1. **Wire up your MCUs so that we can get them talking using the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) library**. To read and write between hardware devices, use the Serial library’s read and write functions. Also, make sure that you are first checking that there is available serial data before reading from Serial. To print text to the screen of your computer use the print or println functions as we have done before. Remember that data transmitted by one MCU is data received by the other. Connect the Tx of one device to the Rx of the other device and vice versa. Make sure you also connect GND pins on both devices to each other so they share a common ground.
 
@@ -59,7 +64,7 @@ This lab requires reading documentation and datasheets. Here are some resources 
 
 2. **Write two sketches, one for each Arduino.** One sketch(transmitter) should send two different characters continuously in a loop with a small delay between sending each character. The other sketch(receiving) should turn on the onboard led (pin 13) when one of the characters is received and turn off the onboard led when the other character is received. Make sure to set the same baud rate for both sketches. Use 2 computers to observe the data going over more easily.
 
-### Checkpoint 2: Wiring Up the rest of the Hardware
+### <ins>Checkpoint 2: Wiring Up the rest of the Hardware</ins>
 
 **Arduino Device 1: Creating the green and red lights:**
 You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to <=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.
@@ -67,7 +72,7 @@ You will need to hook up 2 different output LEDs (choose between red, yellow and
 **Arduino Device 2: Pressing on the gas or break using buttons**
 Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino.
 
-> **NOTE: Button Debouncing.**  
+> **<ins>NOTE: Button Debouncing.</ins>**  
 When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:
 
 <p align="center">
@@ -76,16 +81,16 @@ When you press or release a button, it will “bounce” several times before re
 
 Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).
 
-> **NOTE:** This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.
+> **<ins>NOTE:</ins>** This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.
 
 1. Draw the full schematic (on paper). After you get checked off, continue onto..
 2. Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.
 
-### Checkpoint 3: Implementing the game Redlight, Greenlight
+### <ins>Checkpoint 3: Implementing the game Red Light, Green Light</ins>
 
 The final objective of this lab is to write a complete implementation of the Red Light Green Light game. The expectations for this game are as follows:
 
-### Game Requirements
+### <ins>Game Requirements</ins>
 - Two differently colored LEDs (Stoplight side; the game controller)
 - One white LED (Carduino side; the player)
 - The Stoplights (Game Controller) flashes one of the LEDs; the color chosen should be as random as possible (check the Appendix for help on this);
@@ -95,11 +100,11 @@ The final objective of this lab is to write a complete implementation of the Red
 - Should the player lose (by pressing the incorrect button), the white LED on the Car (Player Module) should turn on for 5 seconds, then start a new game (remember to reset score).
 - The serial monitor should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.
 
-> **NOTE:** In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press  when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.
+> **<ins>NOTE:</ins>** In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press  when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.
 
-**Project Completion:** Implement the Red Light, Green Light game, adhering to the above requirements.
+**<ins>Project Completion:</ins>** Implement the Red Light, Green Light game, adhering to the above requirements.
 
-### Bonus Pizzazz
+### <ins>Bonus Pizzazz</ins>
 This part of the project, while strongly encouraged, is *optional*. If you have more pressing work to complete, you’re done! Feel free to skip this part.
 
 This is your chance to show us your game design skills by implementing whatever game elements you’d like in order to improve the Red Light, Green Light game. Here are a few ideas for features that can be implemented:
@@ -111,19 +116,19 @@ This is your chance to show us your game design skills by implementing whatever 
 
 ## Appendix: Troubleshooting/Helpful Tips
 
-### Generating a random number
+### <ins>Generating a random number</ins>
 In setup(): randomSeed(analogRead(0));
 To get a random number: randNum = random(300); // random number from 0 to 299
 
 This will allow you to get a truly random number sequence because we are randomizing the seed of the random number generator. The seed being used is the reading of an analog pin that is not currently being used, which is essentially just constantly fluctuating noise.
 
-### Timing
+### <ins>Timing</ins>
 millis(): returns the number of milliseconds that passed since program started
 
-### Help! My button is registering multiple button presses.
+### <ins>Help! My button is registering multiple button presses.</ins>
 It is important to note that if you hold down the button for too long (i.e. for multiple iterations of the loop() code), then it will read HIGH for every iteration of the loop. Thus, when checking if a button has been pressed, it is not ideal to simply check of the pin is HIGH; you should only register a button press if the pin has changed from previously being LOW to now being HIGH. Try implementing software debouncing!
 
-### How do I begin the implementing the Red Light, Green Light game?
+### <ins>How do I begin the implementing the Red Light, Green Light game?</ins>
 Don’t jump right into programming the game. Rather, think about the general structure of the game first and write some pseudocode to nail down the logical flow of the program. Then, begin implementing sections of the program in discrete blocks based on your pseudocode.
 
 ## Check off Questions
