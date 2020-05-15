@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Redlight Greenlight Project - OPS 2.0</title>
+<!-- begin _includes/seo.html --><title>Red Light, Green Light Game - OPS 2.0</title>
 <meta name="description" content="A flexible Jekyll theme for your blog or site with a minimalist aesthetic. ">
 
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="Redlight Greenlight Project">
+<meta property="og:title" content="Red Light, Green Light Game">
 <meta property="og:url" content="http://localhost:4000/OPS2.0/redlight-greenlight/">
 
 
@@ -32,7 +32,7 @@
 
 
   <meta name="twitter:site" content="@mmistakes">
-  <meta name="twitter:title" content="Redlight Greenlight Project">
+  <meta name="twitter:title" content="Red Light, Green Light Game">
   <meta name="twitter:description" content="A flexible Jekyll theme for your blog or site with a minimalist aesthetic. ">
   <meta name="twitter:url" content="http://localhost:4000/OPS2.0/redlight-greenlight/">
 
@@ -148,9 +148,11 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/OPS2.0/about/">About</a>
             </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/ipoduino/">iPoduino</a>
+            </li><li class="masthead__menu-item">
               <a href="/OPS2.0/distance-sensor/">Distance Sensor</a>
             </li><li class="masthead__menu-item">
-              <a href="/OPS2.0/redlight-greenlight/">Redlight Greenlight</a>
+              <a href="/OPS2.0/redlight-greenlight/">Red Light, Green Light</a>
             </li></ul>
         
         <button class="search__toggle" type="button">
@@ -294,15 +296,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Redlight Greenlight Project">
+    <meta itemprop="headline" content="Red Light, Green Light Game">
     
     
-    
+    <meta itemprop="dateModified" content="2020-05-14T14:07:54-04:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Redlight Greenlight Project
+          <h1 id="page-title" class="page__title" itemprop="headline">Red Light, Green Light Game
 </h1>
           
         </header>
@@ -310,43 +312,64 @@
 
       <section class="page__content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#project-specification">Project Specification</a>
+    <ul>
+      <li><a href="#reference-material">Reference Material</a></li>
+      <li><a href="#checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</a></li>
+      <li><a href="#checkpoint-2-wiring-up-the-rest-of-the-hardware">Checkpoint 2: Wiring Up the rest of the Hardware</a></li>
+      <li><a href="#checkpoint-3-implementing-the-game-redlight-greenlight">Checkpoint 3: Implementing the game Redlight, Greenlight</a></li>
+      <li><a href="#game-requirements">Game Requirements</a></li>
+      <li><a href="#bonus-pizzazz">Bonus Pizzazz</a></li>
+    </ul>
+  </li>
+  <li><a href="#appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</a>
+    <ul>
+      <li><a href="#generating-a-random-number">Generating a random number</a></li>
+      <li><a href="#timing">Timing</a></li>
+      <li><a href="#help-my-button-is-registering-multiple-button-presses">Help! My button is registering multiple button presses.</a></li>
+      <li><a href="#how-do-i-begin-the-implementing-the-red-light-green-light-game">How do I begin the implementing the Red Light, Green Light game?</a></li>
+    </ul>
+  </li>
+  <li><a href="#check-off-questions">Check off Questions</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
         <p align="center">
   <img width="350" height="350" src="../assets/images/RedLightGreenLight.png" />
 </p>
 
+<h2 id="about-this-project">About this Project</h2>
+
+<p>In this project, you will be implementing a 2-Arduino game called Red Light, Green Light. In this game you are a carduino playing against a randomly generated stoplight: You must move at a green light, and stop at a red light; should you run over a red signal, or stay put at a green signal, you lose. If you get it right, you’ll gain a point and move to the next intersection.</p>
+
 <h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture Slides</a></h3>
 
-<h3 id="prerequisites"><strong>Prerequisites</strong></h3>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
   <li>Intro to Arduino</li>
 </ul>
 
-<h3 id="skills-learned"><strong>Skills Learned</strong></h3>
+<h3 id="skills-learned">Skills Learned</h3>
 <ul>
-  <li>Pull up/ pull down resistor</li>
-  <li>Serial protocol: UART (Universal Asynchronouse Receiver Transmitter)</li>
+  <li>Pull-up/pull-down resistor</li>
+  <li>Serial protocol: UART (Universal Asynchronous Receiver Transmitter)</li>
 </ul>
 
-<h3 id="parts-list"><strong>Parts List</strong></h3>
-
-<h2 id="project-specification"><strong>Project Specification</strong></h2>
-<p>In this lab, you will be implementing a 2-Arduino game called Red Light, Green Light. In this game you are a carduino playing against stoplights: You must move at a green light, and stop at a red light; should you run over a red signal, or stay put at a green signal, you lose. If you get it right, you’ll gain a point and move to the next intersection.</p>
-
-<p>One microcontroller will flash one of the two color LEDs and the other microcontroller will have two tactile switches (fancy word for buttons) that each correspond to one LED.</p>
-
-<p>The goal of this project is to teach you how to use Serial communication and give you your first experience with communication protocols before we move on to more sophisticated and complex protocols.</p>
-
-<h3 id="reference-material"><strong>Reference Material</strong></h3>
-<p>This lab requires reading documentation and datasheets. Here are some resources that you will need to look at throughout the project.</p>
-
-<ol>
-  <li><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture 7 Slides</a></li>
-  <li><a href="https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf">Arduino Nano DataSheet</a></li>
-  <li><a href="http://ops.ieeebruins.com/images/1/16/NanoPinout.png">Arduino Nano Pinout</a></li>
-  <li><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Arduino Serial Library</a></li>
-</ol>
-
-<h3 id="parts-required"><strong>Parts Required</strong></h3>
+<h2 id="parts-list">Parts List</h2>
 
 <table>
   <thead>
@@ -421,7 +444,23 @@
   </tbody>
 </table>
 
-<h2 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart"><strong>Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</strong></h2>
+<h2 id="project-specification">Project Specification</h2>
+
+<p>One microcontroller (representing the stoplight) will flash one of the two red/green LEDs and the other microcontroller (representing the Car and its gas/brake pedals) will have two tactile switches (fancy word for buttons). Press the gas at green lights and the brake at red lights in order to score points and move to the next intersection. Get it wrong and you lose!</p>
+
+<p>The goal of this project is to teach you how to use Serial communication and give you your first experience with communication protocols before we move on to more sophisticated and complex protocols.</p>
+
+<h3 id="reference-material">Reference Material</h3>
+<p>This lab requires reading documentation and datasheets. Here are some resources that you will reference throughout the project.</p>
+
+<ol>
+  <li><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture 7 Slides</a></li>
+  <li><a href="https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf">Arduino Nano DataSheet</a></li>
+  <li><a href="http://ops.ieeebruins.com/images/1/16/NanoPinout.png">Arduino Nano Pinout</a></li>
+  <li><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Arduino Serial Library</a></li>
+</ol>
+
+<h3 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</h3>
 
 <ol>
   <li>
@@ -436,7 +475,7 @@
   </li>
 </ol>
 
-<h2 id="checkpoint-2-wiring-up-the-rest-of-the-hardware"><strong>Checkpoint 2: Wiring Up the rest of the Hardware</strong></h2>
+<h3 id="checkpoint-2-wiring-up-the-rest-of-the-hardware">Checkpoint 2: Wiring Up the rest of the Hardware</h3>
 
 <p><strong>Arduino Device 1: Creating the green and red lights:</strong>
 You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
@@ -445,7 +484,7 @@ You will need to hook up 2 different output LEDs (choose between red, yellow and
 Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino.</p>
 
 <blockquote>
-  <p><strong>NOTE: Button Debouncing</strong>
+  <p><strong>NOTE: Button Debouncing.</strong><br />
 When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
 </blockquote>
 
@@ -464,7 +503,7 @@ When you press or release a button, it will “bounce” several times before re
   <li>Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.</li>
 </ol>
 
-<h2 id="checkpoint-3-implementing-the-game-redlight-greenlight"><strong>Checkpoint 3: Implementing the game Redlight, Greenlight</strong></h2>
+<h3 id="checkpoint-3-implementing-the-game-redlight-greenlight">Checkpoint 3: Implementing the game Redlight, Greenlight</h3>
 
 <p>The final objective of this lab is to write a complete implementation of the Red Light Green Light game. The expectations for this game are as follows:</p>
 
@@ -486,7 +525,7 @@ When you press or release a button, it will “bounce” several times before re
 
 <p><strong>Project Completion:</strong> Implement the Red Light, Green Light game, adhering to the above requirements.</p>
 
-<h2 id="bonus-pizzaz"><strong>Bonus Pizzaz</strong></h2>
+<h3 id="bonus-pizzazz">Bonus Pizzazz</h3>
 <p>This part of the project, while strongly encouraged, is <em>optional</em>. If you have more pressing work to complete, you’re done! Feel free to skip this part.</p>
 
 <p>This is your chance to show us your game design skills by implementing whatever game elements you’d like in order to improve the Red Light, Green Light game. Here are a few ideas for features that can be implemented:</p>
@@ -498,21 +537,21 @@ When you press or release a button, it will “bounce” several times before re
   <li>Be creative!</li>
 </ul>
 
-<h2 id="appendix-troubleshootinghelpful-tips"><strong>Appendix: Troubleshooting/Helpful Tips</strong></h2>
+<h2 id="appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</h2>
 
-<h3 id="generating-a-random-number"><strong>Generating a random number</strong></h3>
+<h3 id="generating-a-random-number">Generating a random number</h3>
 <p>In setup(): randomSeed(analogRead(0));
 To get a random number: randNum = random(300); // random number from 0 to 299</p>
 
 <p>This will allow you to get a truly random number sequence because we are randomizing the seed of the random number generator. The seed being used is the reading of an analog pin that is not currently being used, which is essentially just constantly fluctuating noise.</p>
 
-<h3 id="timing"><strong>Timing</strong></h3>
+<h3 id="timing">Timing</h3>
 <p>millis(): returns the number of milliseconds that passed since program started</p>
 
-<h3 id="help-my-button-is-registering-multiple-button-presses"><strong>Help! My button is registering multiple button presses.</strong></h3>
+<h3 id="help-my-button-is-registering-multiple-button-presses">Help! My button is registering multiple button presses.</h3>
 <p>It is important to note that if you hold down the button for too long (i.e. for multiple iterations of the loop() code), then it will read HIGH for every iteration of the loop. Thus, when checking if a button has been pressed, it is not ideal to simply check of the pin is HIGH; you should only register a button press if the pin has changed from previously being LOW to now being HIGH. Try implementing software debouncing!</p>
 
-<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game"><strong>How do I begin the implementing the Red Light, Green Light game?</strong></h3>
+<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game">How do I begin the implementing the Red Light, Green Light game?</h3>
 <p>Don’t jump right into programming the game. Rather, think about the general structure of the game first and write some pseudocode to nail down the logical flow of the program. Then, begin implementing sections of the program in discrete blocks based on your pseudocode.</p>
 
 <h2 id="check-off-questions">Check off Questions</h2>
@@ -571,7 +610,6 @@ To get a random number: randNum = random(300); // random number from 0 to 299</p
   </li>
 </ol>
 
-
         
       </section>
 
@@ -580,6 +618,8 @@ To get a random number: randNum = random(300); // random number from 0 to 299</p
         
 
 
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-14">May 14, 2020</time></p>
         
       </footer>
 

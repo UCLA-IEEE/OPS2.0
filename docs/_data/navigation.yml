@@ -22,11 +22,15 @@ foo:
 main:
   - title: "About"
     url: /about/
+  # - title: "Potentiometer Blink"
+  #   url: /potentiometer-blink/
+  - title: "iPoduino"
+    url: /ipoduino/
   - title: "Distance Sensor"
     url: /distance-sensor/
-  - title: "Redlight Greenlight"
+  - title: "Red Light, Green Light"
     url: /redlight-greenlight/
-    
+
 # documentation links
 docs:
   - title: Getting Started

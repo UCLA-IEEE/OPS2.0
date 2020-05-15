@@ -38,7 +38,7 @@ In this project, you will be making a distance sensor using a phototransistor (I
 | 130 Ohm Resistor (for LEDs) | 2 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554) |
 | 10k Ohm Resistor (for LEDs) | 1 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338) |
 
-**Total estimated cost:** $8.66 per member  s
+**Total estimated cost:** $8.66 per member  
 *If reusing Arduino/MiniUSB/Breadboard:* $1.36 per member
 
 ## Project Specifications
