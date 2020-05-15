@@ -4,35 +4,37 @@ permalink: /
 hidden: true
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/mm-home-page-feature.jpg
+  overlay_filter: rgba(0, 0, 0, 0.3)
+  overlay_image: /assets/images/splash.jpg
   actions:
-    - label: "<i class='fas fa-download'></i> Install now"
-      url: "/docs/quick-start-guide/"
+    - label: "About Us"
+      url: "/about/"
 excerpt: >
-  Bring Open Project Space to Your Campus Today<br />
+  <img src="./assets/images/OPSLogo-transparent.png" width="450"/><br/>
+  Bring Open Project Space to Your Campus Today<br/>
 
 feature_row:
-  - image_path: /assets/images/mm-customizable-feature.png
-    alt: "customizable"
-    title: "Super customizable"
-    excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter."
-    url: "/docs/configuration/"
+  - image_path: /assets/images/iPoduino-splash.png
+    alt: "iPoduino"
+    title: "iPoduino"
+    excerpt: "Think you've got what it takes to be the next Steve Jobs? Well, let's take it one step at a time-- learn about Arduino, PWM, and working with speakers by making an iPoduino."
+    url: "/ipoduino/"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/mm-responsive-feature.png
-    alt: "fully responsive"
-    title: "Responsive layouts"
-    excerpt: "Built with HTML5 + CSS3. All layouts are fully responsive with helpers to augment your content."
-    url: "/docs/layouts/"
+    btn_label: "Explore"
+  - image_path: /assets/images/DistanceSensor-splash.png
+    alt: "Distance Sensor"
+    title: "Distance Sensor"
+    excerpt: "How does motion detection work anyway? Learn how to use Infrared Sensors, transistors, and some nifty Arduino functions by building a Distance Sensor!"
+    url: "/distance-sensor"
     btn_class: "btn--primary"
-    btn_label: "Learn more"
-  - image_path: /assets/images/mm-free-feature.png
-    alt: "100% free"
-    title: "100% free"
-    excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
-    url: "/docs/license/"
+    btn_label: "Explore"
+  - image_path: /assets/images/RedLightGreenLight.png
+    alt: "Red Light, Green Light"
+    title: "Red Light, Green Light"
+    excerpt: "Team up with a friend and compete for a high score! Learn about UART communication, button debouncing, and flex those coding skills by making a stoplight simulator game!"
+    url: "/redlight-greenlight/"
     btn_class: "btn--primary"
-    btn_label: "Learn more"      
+    btn_label: "Explore"      
 ---
 
 {% include feature_row %}

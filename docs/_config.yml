@@ -42,9 +42,6 @@ reCaptcha:
   siteKey                : # "6LdRBykTAAAAAFB46MnIu6ixuxwu9W1ihFF8G60Q"
   secret                 : # "PznnZGu3P6eTHRPLORniSq+J61YEf+A9zmColXDM5icqF49gbunH51B8+h+i2IvewpuxtA9TFoK68TuhUp/X3YKmmqhXasegHYabY50fqF9nJh9npWNhvITdkQHeaOqnFXUIwxfiEeUt49Yoa2waRR7a5LdRAP3SVM8hz0KIBT4="
 
-atom_feed:
-  path                   : # blank (default) uses feed.xml
-
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : algolia # lunr (default), algolia
@@ -90,33 +87,39 @@ analytics:
 # Site Author
 author:
   name             : UCLA IEEE # *name is a YAML reference pointing to the &anchor earlier
-  avatar           : "/assets/images/ucla-ieee.jpg"
+  avatar           : "/assets/images/profile-picture.png"
   bio              : "The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program."
   location         : "Los Angeles, CA"
   links:
     - label: "IEEE at UCLA"
-      icon: "fas fa-fw fa-link"
-      url: "http://ieeebruins.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/UCLA-IEEE"
+      icon: "fas fa-fw fa-browser"
+      url: "http://ieeebruins.com/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/ieeeatucla/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/uclaieee/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/bryanjwong/OPS2.0"
 
 
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/mmistakes"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/mmistakes"
+    - label: "IEEE at UCLA"
+      icon: "fas fa-fw fa-browser"
+      url: "http://ieeebruins.com/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/ieeeatucla/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/mmistakes"
+      url: "https://www.instagram.com/uclaieee/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/bryanjwong/OPS2.0"
 
 
 # Reading Files
