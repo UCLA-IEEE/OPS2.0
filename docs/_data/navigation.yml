@@ -27,7 +27,7 @@ main:
   - title: "LED Circuit"
     url: /led-circuit/
   - title: "Auto-Flashlight"
-    url: /Auto-Flashlight/
+    url: /auto-flashlight/
   - title: "iPoduino"
     url: /ipoduino/
   - title: "Distance Sensor"
