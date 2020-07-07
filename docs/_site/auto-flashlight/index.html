@@ -1,0 +1,650 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Intro to Arduino: Auto Flashlight - OPS 2.0</title>
+<meta name="description" content="Step-by-step guide to making your first Arduino project! ">
+
+
+  <meta name="author" content="UCLA IEEE">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Intro to Arduino: Auto Flashlight">
+<meta property="og:url" content="http://localhost:4000/OPS2.0/auto-flashlight/">
+
+
+  <meta property="og:description" content="Step-by-step guide to making your first Arduino project! ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Intro to Arduino: Auto Flashlight">
+  <meta name="twitter:description" content="Step-by-step guide to making your first Arduino project! ">
+  <meta name="twitter:url" content="http://localhost:4000/OPS2.0/auto-flashlight/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/OPS2.0/auto-flashlight/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/OPS2.0/",
+      "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/OPS2.0/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/OPS2.0/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/OPS2.0/">
+          OPS 2.0
+          <span class="site-subtitle">Open Project Space Upgraded</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/OPS2.0/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/led-circuit/">LED Circuit</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/Auto-Flashlight/">Auto-Flashlight</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/ipoduino/">iPoduino</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/distance-sensor/">Distance Sensor</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/redlight-greenlight/">Red Light, Green Light</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/OPS2.0/assets/images/profile-picture.png" alt="UCLA IEEE" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">UCLA IEEE</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Los Angeles, CA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+          
+            <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Intro to Arduino: Auto Flashlight">
+    <meta itemprop="description" content="Step-by-step guide to making your first Arduino project!">
+    
+    <meta itemprop="dateModified" content="2020-07-07T16:45:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Intro to Arduino: Auto Flashlight
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#project-specification">Project Specification</a>
+    <ul>
+      <li><a href="#pinout">Pinout</a></li>
+      <li><a href="#checkpoint-1-the-led-circuit">Checkpoint 1: the LED Circuit</a></li>
+      <li><a href="#checkpoint-2-collecting-brightness-values-from-a-photoresistor">Checkpoint 2: Collecting Brightness Values from a Photoresistor</a></li>
+      <li><a href="#final-checkpoint-completing-your-auto-flashlight">Final Checkpoint: Completing Your Auto-Flashlight</a></li>
+    </ul>
+  </li>
+  <li><a href="#helpful-tipscommon-mistakes">Helpful Tips/Common Mistakes</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img src="../assets/images/autoflash.png" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>For this project you will be using the Arduino Uno with a photoresistor to make an LED circuit that turns on or off depending if there is light available. The project will have three checkpoints, please show an officer once you have completed each part, there will be concept questions asked once you have completed the final part.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1dF1dnGvYLE2jb-1WpLdWECvqcyMBTnF9DnB5DxhW08w/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li>Building a simple LED circuit</li>
+  <li>Understanding of variable resistors</li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Microcontrollers</li>
+  <li>Digital/Analog pins</li>
+  <li>Basic coding</li>
+  <li>Variable resistors</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<ul>
+  <li>Microcontroller Board</li>
+  <li>Breadboard</li>
+  <li>USB Cable</li>
+  <li>Jumper Wires</li>
+  <li>Resistor (Recall calculated resistance from Project 1)</li>
+  <li>LED</li>
+  <li>Photoresistor</li>
+</ul>
+
+<p align="center">
+  <img src="../assets/images/autoflash1.png" width="350" />
+</p>
+
+<h2 id="project-specification">Project Specification</h2>
+<h3 id="pinout">Pinout</h3>
+
+<p>The pinout gives information about the pins available to us when using the Arduino. Please refer to it when programming/wiring.</p>
+
+<p align="center">
+  <img src="../assets/images/autoflash2.png" width="350" />
+</p>
+
+<p>As you can see, each pin is labelled as Digital or Analog, these pins have different capabilities, you should first determine what kind of pin you need to complete the task. Additionally, each pin has an associated label (A0,A1,….,4,5,6,…,13), these labels will be how you refer to pins in the definition portion of your code.</p>
+
+<h3 id="checkpoint-1-the-led-circuit"><ins>Checkpoint 1: the LED Circuit</ins></h3>
+
+<p>For the first part of this project you will construct a LED circuit. You will recall that you have done this for the first project; however, for that you used the Arduino’s DC supply as if it was a battery. This time you must use one of the Arduino’s programmable pins to provide power to the LED. For this project the LED will only be in two states, thus we can choose any <strong>digital</strong> pin to be the source for our circuit. You must construct your LED circuit with a digital pin, resistor, LED, and finish your circuit by connecting it to ground on your Arduino.</p>
+
+<ol>
+  <li>To begin, plug the USB cable into your Arduino and connect it to your PC</li>
+  <li>Connect a jumper wire to the #8 pin on your Arduino, plug the other end into a horizontal row on your breadboard (not + or -).</li>
+  <li>From here connect your resistor and LED pair in series. Connect the end of your circuit to the ground rail (-).</li>
+  <li>Connect your ground rail (-) to the GND pin on your Arduino
+Right now your setup should look like this:</li>
+</ol>
+
+<p align="center">
+  <img src="../assets/images/autoflash3.png" width="350" />
+</p>
+
+<p>Now we will begin the coding portion of the project:</p>
+
+<ol>
+  <li>
+    <p>To begin, open up a new sketch in the Arduino IDE. Go to tools-&gt;Port and make sure the correct port is selected, if the USB cable is the only thing connected to your PC there should only be one option.</p>
+  </li>
+  <li>
+    <p>You should see a blank template with <code class="language-plaintext highlighter-rouge">void setup()</code> and <code class="language-plaintext highlighter-rouge">void loop()</code>. Above the <code class="language-plaintext highlighter-rouge">setup()</code> portion type the line <code class="language-plaintext highlighter-rouge">#define LED 8</code>. This will allow you to reference the #8 pin as ‘LED’ throughout the rest of the code.</p>
+  </li>
+  <li>
+    <p>Within the <code class="language-plaintext highlighter-rouge">setup()</code> portion, type the command <code class="language-plaintext highlighter-rouge">pinMode(LED,OUTPUT);</code>. This notifies the microcontroller that the pin will be used to send out values instead of collecting values. The #8 pin is a <strong>digital pin</strong> so it can only send out two values, HIGH or LOW.</p>
+  </li>
+  <li>
+    <p>Within the <code class="language-plaintext highlighter-rouge">loop()</code> portion call the function <code class="language-plaintext highlighter-rouge">digitalWrite(LED,HIGH);</code>. This function tells the LED pin to send out a HIGH voltage. If you type LOW instead the pin will have no voltage and the LED will not be powered.</p>
+  </li>
+</ol>
+
+<p>For this checkpoint you must show an officer a powered LED circuit that utilizes a digital pin to power it.</p>
+
+<h3 id="checkpoint-2-collecting-brightness-values-from-a-photoresistor"><ins>Checkpoint 2: Collecting Brightness Values from a Photoresistor</ins></h3>
+
+<p>For the second part of the project you will use the Arduino to collect “brightness values”. You can leave the LED circuit but you may want to comment out the <code class="language-plaintext highlighter-rouge">digitalWrite</code> line to turn off your LED while you work on this part.</p>
+
+<ol>
+  <li>Use a wire to connect the 3.3V source on your Arduino to a positive (+) rail.</li>
+  <li>Use a resistor (I used 330 ohms, but anything in this relative range should work) to connect the positive rail to a horizontal row. Note: this part of the circuit should be independent of the LED circuit, so do not connect it to the same rows as the LED circuit.</li>
+  <li>Grab a new wire, connect one end to the A0 pin in your Arduino. Connect the other end to the same row (node) as the second end of the resistor. This will be the point of your circuit where you take voltage readings from.</li>
+  <li>Next, connect one end of your photoresistor to the same row (node) and the other to a ground rail.</li>
+  <li>To complete your circuit, use a wire to connect the ground rail to the ground on your Arduino. If this ground rail is different from the ground rail you used for your LED you should ‘short’ your grounds by connecting them with a wire.
+This is roughly what your circuit should look like:</li>
+</ol>
+
+<p align="center">
+  <img src="../assets/images/autoflash4.png" width="350" />
+</p>
+
+<p>(Your LED circuit should still be wired up, it is not included in the picture for simplicity)</p>
+
+<ol>
+  <li>Now you will begin the coding portion, begin by defining the A0 pin for convenience.</li>
+  <li>Set the A0 pin as an input pin. If you have not already done so, you will also need to begin serial communication in order to use the serial monitor. This can be done with <code class="language-plaintext highlighter-rouge">Serial.begin(9600);</code></li>
+  <li>We want to continously print voltage readings on the A0 pin. To do this, use <code class="language-plaintext highlighter-rouge">analogRead(&lt;pin&gt;)</code>. Recall <code class="language-plaintext highlighter-rouge">analogRead</code> outputs an integer value between [0, 1023] depending on the voltage it reads between 0-5 votls. You may want to store this value in a variable.</li>
+  <li>Now use <code class="language-plaintext highlighter-rouge">Serial.println(&lt;val&gt;)</code> to view the values being picked up by the analog pin.</li>
+  <li>Observe how the values change as you change the brightness. 
+Try putting the photoresistor really close to a light, try covering it with your finger. Your values will be highly susceptible to change, they will also change depending on the resistor you end up choosing, so don’t expect the same values that your best friend in OPS is getting. You should notice the value increase when there is less light available, and the value decrease when there is more light.</li>
+</ol>
+
+<p>For this checkpoint you must show an officer your photoresistor voltage divider and with the serial monitor displaying values that change based on brightness available.</p>
+
+<h3 id="final-checkpoint-completing-your-auto-flashlight"><ins>Final Checkpoint: Completing Your Auto-Flashlight</ins></h3>
+<p>You’re almost there! Combine what you’ve learned from the previous checkpoints to make the flashlight work properly.</p>
+<ol>
+  <li>You must determine a good transition value for turning your flashlight on/off. To do this you must explore how the value changes based on the surrounding light. Find the point where you’d want the LED to transition between on/off. (Note: there is no one correct value; additionally, there is no correct brightness level it should work with as long as your implementation makes sense and is done correctly).</li>
+  <li>Once you decide the transition value you can save it as a variable as you need. ex)<code class="language-plaintext highlighter-rouge">int val = #</code>, where # is what you decide.</li>
+  <li>Notice how the analog value increases when brightness decreases, this gives us guidance on how we should set up the conditionals. You can use the following if-else statement to get the behavior you want:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(x&gt;val)
+{
+ digitalWrite(LED,HIGH);
+}
+else
+{
+ digitalWrite(LED,LOW);
+}
+</code></pre></div>    </div>
+    <p>These conditionals simply say that if our reading is greater than the transition value, the LED should turn on, and if it is less than or equal to the transition value, LED should turn off.</p>
+  </li>
+</ol>
+
+<p>For the final checkpoint you must show an officer your circuit and demonstrate the LED turning on and off with a change in surrounding light. The officer will ask you related questions to test your understanding.</p>
+
+<h2 id="helpful-tipscommon-mistakes">Helpful Tips/Common Mistakes</h2>
+
+<ul>
+  <li>If you are using two different ground rails, make sure they are connected via a wire so that you have a common ground</li>
+  <li>If you are working on this project across multiple days, the light in your environment may change and the transition value you chose before may no longer work.</li>
+  <li>If the resistance you choose for the voltage divider is too large, you will not see a noticeable difference in analog readings when the brightness changes.</li>
+  <li>Verify your code often, this checks to see if it will compile. The earlier you catch a coding mistake the better.</li>
+  <li>Remember the LED is polarized, make sure you place it in the correct orientation.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-07-07">July 7, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div align="center" style="margin: 1em 0;">
+        <ins class="adsbygoogle"
+             style="display:block; border-bottom: initial;"
+             data-ad-client="ca-pub-7328585512091257"
+             data-ad-slot="3049671934"
+             data-ad-format="auto"></ins>
+        </div>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/OPS2.0/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/OPS2.0/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<!-- Including InstantSearch.js library and styling -->
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+// Instanciating InstantSearch.js with Algolia credentials
+const search = instantsearch({
+  appId: 'QB6HVGBSBA',
+  apiKey: '9d5014e5bbc77372547bce778dfa5663',
+  indexName: 'minimal_mistakes',
+  searchParameters: {
+    restrictSearchableAttributes: [
+      'title',
+      'content'
+    ]
+  }
+});
+
+const hitTemplate = function(hit) {
+  const url = hit.url;
+  const title = hit._highlightResult.title.value;
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="list__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline"><a href="/OPS2.0${url}">${title}</a></h2>
+        <div class="archive__item-excerpt" itemprop="description">${content}</div>
+      </article>
+    </div>
+  `;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '.search-searchbar',
+    poweredBy: true,
+    placeholder: 'Enter your search term...'
+  })
+);
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '.search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

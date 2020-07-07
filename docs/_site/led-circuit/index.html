@@ -1,0 +1,588 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting Started: Simple LED Circuit - OPS 2.0</title>
+<meta name="description" content="Get your hands wet with the LED circuit ">
+
+
+  <meta name="author" content="UCLA IEEE">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Getting Started: Simple LED Circuit">
+<meta property="og:url" content="http://localhost:4000/OPS2.0/led-circuit/">
+
+
+  <meta property="og:description" content="Get your hands wet with the LED circuit ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Getting Started: Simple LED Circuit">
+  <meta name="twitter:description" content="Get your hands wet with the LED circuit ">
+  <meta name="twitter:url" content="http://localhost:4000/OPS2.0/led-circuit/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/OPS2.0/led-circuit/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/OPS2.0/",
+      "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/OPS2.0/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/OPS2.0/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/OPS2.0/">
+          OPS 2.0
+          <span class="site-subtitle">Open Project Space Upgraded</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/OPS2.0/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/led-circuit/">LED Circuit</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/Auto-Flashlight/">Auto-Flashlight</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/ipoduino/">iPoduino</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/distance-sensor/">Distance Sensor</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/redlight-greenlight/">Red Light, Green Light</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/OPS2.0/assets/images/profile-picture.png" alt="UCLA IEEE" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">UCLA IEEE</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Los Angeles, CA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+          
+            <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting Started: Simple LED Circuit">
+    <meta itemprop="description" content="Get your hands wet with the LED circuit">
+    
+    <meta itemprop="dateModified" content="2020-06-29T00:32:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Getting Started: Simple LED Circuit
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#project-specification">Project Specification</a>
+    <ul>
+      <li><a href="#schematic">Schematic</a></li>
+      <li><a href="#checkpoint-1-choose-your-resistor">Checkpoint 1: Choose Your Resistor</a></li>
+      <li><a href="#setting-up-your-power-source">Setting up your Power Source</a></li>
+      <li><a href="#helpful-tipscommon-mistakes">Helpful Tips/Common Mistakes</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img src="../assets/images/led-circuit.png" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>For this project you will be tasked with constructing a circuit that delivers power to an LED, making it light up. When you have completed it you must show it to an officer and they will ask you some questions about it.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1Ffw38JwpkiysFZLtaTBewk9dKj35dEf5Dzmhv943o0c/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+<ul>
+  <li>N/A</li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Voltage, Current, Resistance in a Circuit</li>
+  <li>Using Ohm’s Law</li>
+  <li>Converting a Schematic to a Circuit</li>
+  <li>Using Data Sheets</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<ul>
+  <li>Microcontroller Board</li>
+  <li>Breadboard</li>
+  <li>Jumper Wires</li>
+  <li>9V Battery</li>
+  <li>Battery Snap-on Connector</li>
+  <li>Resistor (you must calculate the resistance)</li>
+  <li>LED</li>
+</ul>
+
+<p align="center">
+  <img src="../assets/images/led1.png" width="350" />
+</p>
+
+<h2 id="project-specification">Project Specification</h2>
+<h3 id="schematic">Schematic</h3>
+
+<p>Use the following schematic for reference when constructing your circuit. Be aware that the orientation of the LED is important when entering it into your circuit on your breadboard. For the LEDs in your kits the cathode(-) should have a shorter lead and flat edge, whereas the anode(+) has a longer lead and rounded base.</p>
+
+<p align="center">
+  <img src="../assets/images/led2.png" width="350" />
+</p>
+
+<h3 id="checkpoint-1-choose-your-resistor"><ins>Checkpoint 1: Choose Your Resistor</ins></h3>
+
+<p>In order to determine the resistance needed for your circuit you must first determine the LED’s <strong>forward voltage</strong> and <strong>forward current</strong>. Please refer to the following datasheets depending on what color LED you use. Please use the value under ‘Typ’ as this is the typical value for the component. You then must apply Ohm’s Law to determine the proper resistance to create the forward voltage.</p>
+
+<ul>
+  <li>White LED: <a href="https://cdn-shop.adafruit.com/product-files/754/P754B_datasheet_FD-5TW-1.pdf">datasheet</a></li>
+  <li>Green LED: <a href="https://www.mouser.com/datasheet/2/216/WP793GD-52917.pdf">datasheet</a></li>
+  <li>Blue LED: <a href="https://www.mouser.com/datasheet/2/216/WP154A4SUREQBFZGC-1173568.pdf">datasheet</a></li>
+  <li>Yellow LED: <a href="https://www.arduino.cc/documents/datasheets/LEDY-L-7113YT.pdf">datasheet</a></li>
+  <li>Red LED: <a href="http://www.us.kingbright.com/images/catalog/SPEC/WP7113ID.pdf">datasheet</a></li>
+</ul>
+
+<h3 id="setting-up-your-power-source"><ins>Setting up your Power Source</ins></h3>
+<p><strong>NOTE</strong>: <em>Please read through this section and the common mistakes section completely before starting to avoid harming your Arduino.</em></p>
+
+<p align="center">
+  <img src="../assets/images/led3.png" width="350" />
+</p>
+
+<ol>
+  <li>Connect your battery to the snap-on adapter, then plug it into your Arduino. The onboard LEDs should light up to indicate your Arduino is powered. (You can also power your Arduino by connecting it to your PC via USB if your battery dies)</li>
+  <li>When powered, your Arduino has a built-in 3.3V and 5V power source, for this we project we will just use the 3.3V source.</li>
+  <li>Orientate your Arduino so that the power port is the top edge, on the left edge you should see a set of Power pins, connect a wire to the 3.3V pin and a different wire to one of the Ground (GND) pins.</li>
+  <li>Connect the 3.3V wire to one of the holes on your breadboards positive (+) rail. Connect the ground wire to one of the holes on the negative (-) rail.</li>
+  <li>Now you can build your circuit on the breadboard. Treat the positive rail as the positive end of the battery and ground as the negative end of the battery. <strong>Make sure there is always a resistor in your circuit, otherwise your power source will be short circuited causing problems/breaking your Arduino.</strong></li>
+</ol>
+
+<h3 id="helpful-tipscommon-mistakes">Helpful Tips/Common Mistakes</h3>
+<ul>
+  <li>The rows on the breadboard are shorted, don’t connect both leads from a component into the same row.</li>
+  <li>Construct your LED circuit before plugging in your battery.</li>
+  <li>If your calculated resistance is a value you don’t have it’s safer to round up instead of rounding down.</li>
+  <li>If you are unsure about your circuit, ask an officer before plugging it in</li>
+  <li>Double check your LED is oriented the correct way.</li>
+  <li>Unlike the LED, the resistor doesn’t have a specific orientation.</li>
+  <li>Always make sure there is a resistor in your circuit to avoid breaking your Arduino/LED</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-06-29">June 29, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div align="center" style="margin: 1em 0;">
+        <ins class="adsbygoogle"
+             style="display:block; border-bottom: initial;"
+             data-ad-client="ca-pub-7328585512091257"
+             data-ad-slot="3049671934"
+             data-ad-format="auto"></ins>
+        </div>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/OPS2.0/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/OPS2.0/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<!-- Including InstantSearch.js library and styling -->
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+// Instanciating InstantSearch.js with Algolia credentials
+const search = instantsearch({
+  appId: 'QB6HVGBSBA',
+  apiKey: '9d5014e5bbc77372547bce778dfa5663',
+  indexName: 'minimal_mistakes',
+  searchParameters: {
+    restrictSearchableAttributes: [
+      'title',
+      'content'
+    ]
+  }
+});
+
+const hitTemplate = function(hit) {
+  const url = hit.url;
+  const title = hit._highlightResult.title.value;
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="list__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline"><a href="/OPS2.0${url}">${title}</a></h2>
+        <div class="archive__item-excerpt" itemprop="description">${content}</div>
+      </article>
+    </div>
+  `;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '.search-searchbar',
+    poweredBy: true,
+    placeholder: 'Enter your search term...'
+  })
+);
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '.search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
