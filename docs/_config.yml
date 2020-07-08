@@ -16,7 +16,7 @@ title_separator          : "-"
 subtitle                 : "Open Project Space Upgraded"
 name                     : &name "IEEE at UCLA" # &name is a YAML anchor which can be *referenced later
 description              : &description "A flexible Jekyll theme for your blog or site with a minimalist aesthetic."
-url                      : https://bryanjwong.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://openproject.space # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "https://openproject.space" # the subpath of your site, e.g. "/blog"
 # repository               : "bryanjwong/OPS2.0"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
