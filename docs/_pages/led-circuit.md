@@ -14,7 +14,7 @@ toc: true
 
 For this project you will be tasked with constructing a circuit that delivers power to an LED, making it light up. When you have completed it you must show it to an officer and they will ask you some questions about it. 
 
-### [Lecture Slides](https://docs.google.com/presentation/d/1Ffw38JwpkiysFZLtaTBewk9dKj35dEf5Dzmhv943o0c/edit?usp=sharing)
+### [Lecture Slides](https://docs.google.com/presentation/d/1OxHna_e-XJ6a5GS27eOEYW-U805rmmh0WlCUKIdg-9o/edit?usp=sharing)
 
 ### <ins>Prerequisites</ins>
 * N/A

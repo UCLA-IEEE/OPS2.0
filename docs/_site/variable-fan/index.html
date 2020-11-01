@@ -1,0 +1,691 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arduino Variable Fan - OPS 2.0</title>
+<meta name="description" content="Build a Custom Fan ">
+
+
+  <meta name="author" content="UCLA IEEE">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Arduino Variable Fan">
+<meta property="og:url" content="http://localhost:4000/OPS2.0/variable-fan/">
+
+
+  <meta property="og:description" content="Build a Custom Fan ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Arduino Variable Fan">
+  <meta name="twitter:description" content="Build a Custom Fan ">
+  <meta name="twitter:url" content="http://localhost:4000/OPS2.0/variable-fan/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/OPS2.0/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/OPS2.0/variable-fan/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/OPS2.0/",
+      "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/OPS2.0/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/OPS2.0/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/OPS2.0/">
+          OPS 2.0
+          <span class="site-subtitle">Open Project Space Upgraded</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/OPS2.0/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/led-circuit/">LED Circuit</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/Auto-Flashlight/">Auto-Flashlight</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/ipoduino/">iPoduino</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/distance-sensor/">Distance Sensor</a>
+            </li><li class="masthead__menu-item">
+              <a href="/OPS2.0/redlight-greenlight/">Red Light, Green Light</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/OPS2.0/assets/images/profile-picture.png" alt="UCLA IEEE" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">UCLA IEEE</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Los Angeles, CA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+          
+            <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Arduino Variable Fan">
+    <meta itemprop="description" content="Build a Custom Fan">
+    
+    <meta itemprop="dateModified" content="2020-09-07T15:32:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Arduino Variable Fan
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts list</a></li>
+  <li><a href="#project-specification">Project Specification</a>
+    <ul>
+      <li><a href="#the-motor">The Motor</a></li>
+      <li><a href="#checkpoint-1-turn-the-motor-on-with-a-button">Checkpoint 1: Turn the Motor on with a Button</a></li>
+      <li><a href="#checkpoint-2-choosing-the-fan-speed-with-buttons">Checkpoint 2: Choosing the Fan Speed with Buttons</a></li>
+      <li><a href="#checkpoint-3-using-a-potentiometer-to-change-motor-speed">Checkpoint 3: Using a Potentiometer to Change Motor Speed</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img src="../assets/images/fan.png" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>In this project you will be making a fan that has three different speed settings: Low, Medium, and High; as well as an off state. In the first part of the project you will control the speed via three buttons. For the second part of the project you will control the speed via a potentiometer that will act as a dial. The purpose of this project is to introduce PWM/ analogWrite() functions in the Arduino, this will be what changes the speed of the fan motor.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1moI7U1xzFQstFh7E4rx5PRVGADOLG4JN7vBeHRrRPc8/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li>Intro to Arduino</li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Potentiometer</li>
+  <li>Push buttons</li>
+  <li>Voltage divider circuit</li>
+  <li>analogWrite()</li>
+</ul>
+
+<h2 id="parts-list">Parts list</h2>
+
+<ul>
+  <li>Microcontroller Board (Arduino)</li>
+  <li>Breadboard</li>
+  <li>USB Cable</li>
+  <li>Jumpter Wires</li>
+  <li>Resistors (3)</li>
+  <li>Push Buttons (3)</li>
+  <li>Fan Motor</li>
+  <li>Potentiometer</li>
+</ul>
+
+<h2 id="project-specification">Project Specification</h2>
+
+<h3 id="the-motor"><ins>The Motor</ins></h3>
+
+<ul>
+  <li>The motor has two leads attached to it (red and black)
+    <ul>
+      <li>Red lead should be connected to a power source</li>
+      <li>Black lead should be connected to ground</li>
+      <li><strong>Note</strong>: no need for a resistor between the leads since the motor has high internal resistance</li>
+    </ul>
+  </li>
+  <li>Connect the red wire to a digital PWM pin
+    <ul>
+      <li>PWM pins on the Arduino are marked with tildes (<code class="language-plaintext highlighter-rouge">~</code>)</li>
+      <li>PWM pins allow you to use <code class="language-plaintext highlighter-rouge">analogWrite()</code></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">analogWrite(&lt;pin_name&gt;, &lt;val&gt;)</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;val&gt;</code> must be in range [0, 255]</li>
+      <li>ex) <code class="language-plaintext highlighter-rouge">analogWrite(FAN, 105)</code>, where the FAN is the defined name for the PWM pin used (using <code class="language-plaintext highlighter-rouge">#define &lt;pin_name&gt;</code>)</li>
+    </ul>
+  </li>
+  <li>Experiment with different values of <code class="language-plaintext highlighter-rouge">&lt;val&gt;</code> in <code class="language-plaintext highlighter-rouge">analogWrite()</code>
+    <ul>
+      <li>Observe how teh <code class="language-plaintext highlighter-rouge">&lt;val&gt;</code> changes the behavior of the fan</li>
+      <li>Try to find three values to make the fan go at low, medium, and high speeds</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="checkpoint-1-turn-the-motor-on-with-a-button"><ins>Checkpoint 1: Turn the Motor on with a Button</ins></h3>
+
+<ul>
+  <li>Construct a program and a circuit that
+    <ul>
+      <li>turns <strong>on</strong> the motor when the button is <strong>pressed</strong></li>
+      <li>turns <strong>off</strong> the motor when the button is <strong>not</strong> being pressed</li>
+    </ul>
+  </li>
+  <li>You only need to wire the motor onece throughout this project</li>
+</ul>
+
+<ol>
+  <li>Connect the power source (5V) and ground to appropriate places</li>
+  <li>Add buttons to your breadboard
+    <ul>
+      <li>Make sure the pinson each side are in the same row (node) on the board</li>
+    </ul>
+  </li>
+  <li>Connect one end of the button to the power source</li>
+  <li>Connect the other end of the button to ground via a resistor
+    <ul>
+      <li>This resistor can be of any value &gt; 100Ω, it’s only used to prevent a short circuit</li>
+      <li>Use two diagnoal pins to connect to power and ground to prevent accidently shorting the button (see <a href="https://docs.google.com/presentation/d/13bLpWzn6QU92ZCCOJLvv7wSa92oNdqFwzb_4N0MIXZA/edit?usp=sharing">Lecture Slides: Buttons</a>)</li>
+    </ul>
+  </li>
+  <li>Connect the node on the butotn with the resistor connected to it to an analog input pin.
+    <ul>
+      <li>This will be used to detect when the button is pressed.</li>
+      <li>This analog pin will read
+        <ul>
+          <li>large voltage when the button is pressed</li>
+          <li>nothing (0) when the button isn’t pressed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>Now we need to program the microcontroller. Below is the how the loop portion will look:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop() {
+    // declare a speed
+    // read in the value from the BUTTON pin (hint: use analogRead())
+
+    //50 to account for noise
+    if (x &gt; 50) {
+        /* 
+        turn the FAN on by sending some voltage to the FAN pin 
+        (hint: use analogWrite())
+        */
+    }
+    else {
+        /*
+        turn the FAN off 
+        (hint: analogWrite(FAN, 0) will turn off voltage at the FAN pin)
+        */
+    }
+}
+</code></pre></div></div>
+
+<p><strong>Note</strong>: if your BUTTON is always reading high values (fan is always on), make sure your button is inserted the correct way (use 2 diagonal pins)</p>
+
+<h3 id="checkpoint-2-choosing-the-fan-speed-with-buttons"><ins>Checkpoint 2: Choosing the Fan Speed with Buttons</ins></h3>
+
+<p>We will now extend our design from the previous checkpoint to include 3 buttons. The buttons will let the user choose from three different speeds. The two buttons you add will be wired similarly to how you set up the first button. You will have to <code class="language-plaintext highlighter-rouge">#define</code> all 3 buttons.</p>
+
+<p>Modify the code you’ve already written for the previous checkpoint, to incorporate 3 buttons</p>
+
+<p>Here’s the pseudo-pseudocode: (Pseudocode describes the program in general, but the details will be filled in by you! Below is a bad example of pseudocode but it gives you a more detailed guideline ;))</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define the button pins
+in setup,
+    declare appropriate pins as inputs or outputs
+    declare 3 speeds (low, medium, high)
+in the loop,
+    read inputs from the buttons
+    if button1 is pressed, turn the fan on to low speed
+    else if button2 is pressed, turn the fan on to medium speed
+    else if button3 is pressed, turn the fan on to high speed
+    else, turn the fan off
+</code></pre></div></div>
+
+<p><strong>Note</strong>: Don’t worry about how the fan will behave if more than one button is pressed at once (unless you want to)</p>
+
+<h3 id="checkpoint-3-using-a-potentiometer-to-change-motor-speed"><ins>Checkpoint 3: Using a Potentiometer to Change Motor Speed</ins></h3>
+
+<p>Now replace the triple button setup with a potentiometer that will allow us to select different speeds. The wiring of the motor stays the same as before. Here’s how you might want to do that:</p>
+
+<ol>
+  <li>Connect power source (5V) and ground (GND) to appropriate places</li>
+  <li>Insert the potentiometer into the circuit
+    <ul>
+      <li><strong>Note</strong>: be careful not to short the pins of the potentiometer</li>
+      <li>See <a href="https://docs.google.com/presentation/d/1pO5jrERVdcT1o-FZ_Pr5I6MBcexDJQ8248tcjNygXOs/edit?usp=sharing">Lecture Slides: Potentiometer</a> for more on the potentiometer</li>
+    </ul>
+  </li>
+  <li>Print the values of the analog pin to see how it changes as you turn the potentiometer knob
+    <ul>
+      <li>If it doesn’t change as expected, doulbe check how you inserted the potentiometer to the circuit</li>
+    </ul>
+  </li>
+  <li>Use the potentiometer input values to change the speed of the fan!
+    <ul>
+      <li>There are multiple ways to do this, but here’s one way:
+        <ul>
+          <li>Declare threshold 3 values that will determine the fan setting (ex) 300, 600, 1023)</li>
+          <li>Read in the potentiometer value</li>
+          <li>Choose fan speeds by comparing the potentiometer input value to the threshold values</li>
+        </ul>
+      </li>
+      <li>Here’s another way (optional):
+        <ul>
+          <li>Read in the potentiometer value</li>
+          <li>Map the input value ([0, 1023]) to the output value ([0, 255]) using the Arduino <code class="language-plaintext highlighter-rouge">map()</code> function (<a href="https://www.arduino.cc/reference/en/language/functions/math/map/">Doc</a>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-09-07">September 7, 2020</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div align="center" style="margin: 1em 0;">
+        <ins class="adsbygoogle"
+             style="display:block; border-bottom: initial;"
+             data-ad-client="ca-pub-7328585512091257"
+             data-ad-slot="3049671934"
+             data-ad-format="auto"></ins>
+        </div>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-browser" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/OPS2.0/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/OPS2.0/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<!-- Including InstantSearch.js library and styling -->
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+// Instanciating InstantSearch.js with Algolia credentials
+const search = instantsearch({
+  appId: 'QB6HVGBSBA',
+  apiKey: '9d5014e5bbc77372547bce778dfa5663',
+  indexName: 'minimal_mistakes',
+  searchParameters: {
+    restrictSearchableAttributes: [
+      'title',
+      'content'
+    ]
+  }
+});
+
+const hitTemplate = function(hit) {
+  const url = hit.url;
+  const title = hit._highlightResult.title.value;
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="list__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline"><a href="/OPS2.0${url}">${title}</a></h2>
+        <div class="archive__item-excerpt" itemprop="description">${content}</div>
+      </article>
+    </div>
+  `;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '.search-searchbar',
+    poweredBy: true,
+    placeholder: 'Enter your search term...'
+  })
+);
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '.search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
