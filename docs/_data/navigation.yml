@@ -24,10 +24,10 @@ main:
     url: /about/
   # - title: "Potentiometer Blink"
   #   url: /potentiometer-blink/
-  - title: "LED Circuit"
-    url: /led-circuit/
-  - title: "Auto-Flashlight"
-    url: /auto-flashlight/
+  # - title: "LED Circuit"
+  #  url: /led-circuit/
+  #- title: "Auto-Flashlight"
+  #  url: /auto-flashlight/
   - title: "iPoduino"
     url: /ipoduino/
   - title: "Distance Sensor"

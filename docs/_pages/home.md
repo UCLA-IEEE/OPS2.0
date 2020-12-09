@@ -7,11 +7,11 @@ header:
   overlay_filter: rgba(0, 0, 0, 0.3)
   overlay_image: /assets/images/splash.jpg
   actions:
-    - label: "About Us"
+    - label: "How to Sign Up"
       url: "/about/"
 excerpt: >
   <img src="./assets/images/OPSLogo-transparent.png" width="450"/><br/>
-  Bring Open Project Space to Your Campus Today<br/>
+  Bring Open Project Space to Your Campus Today!<br/>
 
 feature_row:
   - image_path: /assets/images/iPoduino-splash.png

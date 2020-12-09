@@ -18,6 +18,21 @@ OPS remains a cornerstone of IEEE at UCLA, attracting and teaching over 100 new 
   <i>The OPS Capstone project, an automatic maze-solving car</i>
 </p>
 
+## OPS at Your School
 Now, we are launching OPS 2.0, a program that aims to bring the hardware engineering projects of IEEE at UCLA to collegiate engineering organizations throughout the world. Just as OPS has been pivotal in growing IEEE at UCLA, we hope that by offering our OPS curriculum and some of our club's best practices, you can find success!
 
-If you are interested, please do not hesitate to contact president@ieeebruins.com!
+Here is a list of resources that the OPS2.0 program offers:
+* A set of tried and true lecture slides and project specs that have been tested and fine-tuned over years of UCLA's OPS program
+* A detailed guide to actually running a projects program - from budgeting, to hosting events, to giving lectures and more
+* Personal guidance from our team of veteran project leads
+* Marketing materials to aid with member recruitment
+* Potential funding to help kickstart your program
+
+As of Fall 2020, we have successfully launched the OPS program to UCI's IEEE chapter. We hope you'll be next!
+
+## How to sign up
+If you are interested in bringing OPS to your school's IEEE chapter, please fill out the interest form below. Our team will contact you with details on how to apply.
+
+Questions? Feel free to contact <president@ieeebruins.com>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOSWum3EfZ7Lttogtaa2IrZrO22CP3bneSlE3UrruowJsPwA/viewform?embedded=true" width="640" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>B
