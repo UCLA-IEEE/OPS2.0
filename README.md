@@ -9,7 +9,7 @@ The root directory of the website is `docs`. Navigate into `docs` in your termin
 ```
 bundle exec jekyll serve
 ```
-Now, the website should be up and running on http://localhost:4000/OPS2.0/.
+Now, the website should be up and running on http://localhost:4000/.
 
 In order to modify general information that applies to the entire site, modify `_config.yml`. This includes information such as author details, social links, website configurations, etc. Note that the server must be restarted in order to reflect these changes.
 
