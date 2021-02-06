@@ -38,10 +38,10 @@ In this project, you will be making an LED light up! The first step will be to c
 | JST Connector | 1 | $0.15 | [Digikey](https://www.digikey.com/product-detail/en/440055-2/A100043-ND/2077946) |
 | LED | 1 | $0.25 | [Digikey](https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580) |
 | 130 Ohm Resistor | 1 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554) |
-| Perfboard | 1 | $4.95 | [Mouser](https://www.mouser.com/ProductDetail/Adafruit/2670?qs=sGAEpiMZZMufdu5QM0tCwbk7gse1KwnzzpqXpp259ss%3D&fbclid=IwAR0XSmT8mlgLUNFXttQ9rNivD7rDtmEtOCPXm3-jsaWjJ3TIhJ5x2jmg0qI) |
+| Perfboard | 1 | $4.95 (pack of 10) | [Mouser](https://www.mouser.com/ProductDetail/Adafruit/2670?qs=sGAEpiMZZMufdu5QM0tCwbk7gse1KwnzzpqXpp259ss%3D&fbclid=IwAR0XSmT8mlgLUNFXttQ9rNivD7rDtmEtOCPXm3-jsaWjJ3TIhJ5x2jmg0qI) |
 
-**<ins>Total estimated cost:</ins>** $14.83 per member  
-*<ins>If reusing Breadboard/3.7V Battery:</ins>* $5.38 per member
+**<ins>Total estimated cost:</ins>** $10.38 per member  
+*<ins>If reusing Breadboard/3.7V Battery:</ins>* $0.93 per member
 
 ## Project Specification Part 1 (Breadboarding)
 
