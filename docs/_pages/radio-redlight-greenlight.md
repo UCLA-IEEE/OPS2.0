@@ -1,13 +1,13 @@
 ---
 permalink: /radio-redlight-greenlight/
 title: "Radio Red Light Green Light & IMU Brightness Indicator"
-excerpt: ""
+excerpt: "Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation."
 last_modified_at: 2021-02-14T14:07:54-04:00
 toc: true
 ---
 
 <p align="center">
-  <img src="../assets/images/arduino-imu.jpg" width="350" />
+  <img src="../assets/images/arduino-imu.JPG" width="350" />
 </p>
 
 ## About this Project
@@ -24,9 +24,10 @@ In the second part of this lab, you will be briefly working with an IMU, which i
 
 ### <ins>Skills Learned</ins>
 
-* Wireless Radio Communications
-* SPI
-* I2C
+* Wireless radio communications
+* Serial Peripheral Interface (SPI)
+* Inertial measurement unit (IMU)
+* Inter-Integrated Circuit (I2C)
 
 ### <ins>Group Project - Outcomes and Expectations</ins>
 By the end of this lab, you should be familiar with how data is transmitted across a wireless communication link (through radio). In order to be “checked off” for this lab, you must complete each checkpoint. Every team member is expected to have contributed to the lab, and may be quizzed on any of the information covered. We will check off on an individual basis (i.e. if only 2 of your 3 members are present, the one who is not will need to come in at another time to get checked off).
