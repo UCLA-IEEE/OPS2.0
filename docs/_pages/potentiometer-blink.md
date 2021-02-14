@@ -34,11 +34,12 @@ In this project, you will be working with microcontrollers which is just a fancy
 | Potentiometer | 1 | $0.95 | [Adafruit](https://www.adafruit.com/product/1831) |
 | LED | 1 | $0.25 | [Digikey](https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580) |
 | 130 Ohm Resistor | 1 | $0.03 | [Digikey](https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554) |
-| Arduino Nano | 1 | $13.99 (pack of 3) | [Amazon](https://www.amazon.com/ELEGOO-Arduino-ATmega328P-Without-Compatible/dp/B0713XK923/ref=sr_1_4?dchild=1&keywords=arduino+nano&qid=1613290713&s=electronics&sr=1-4) |
-| Mini USB Cable | 1 | $3.84 | [Amazon](https://www.amazon.com/Monoprice-3-Feet-mini-B-28AWG-103896/dp/B003L18SHC/ref=sr_1_4?dchild=1&keywords=mini+usb+cable&qid=1613290753&s=electronics&sr=1-4) |
+| Arduino Nano | 1 | $4.00 | [Amazon](https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&ie=UTF8&qid=1468042975&sr=1-8&keywords=arduino%20nano) |
+| Mini USB Cable | 1 | $2.00 | [Mouser](https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2) |
 
-**<ins>Total estimated cost:</ins>** $11.23 per member  
-*<ins>If reusing Breadboard/Arduino Nano/Mini USB Cable:</ins>* $1.23 per member
+
+**<ins>Total estimated cost:</ins>** $8.73 per member  
+*<ins>If reusing Breadboard/Arduino/MiniUSB:</ins>* $1.23 per member
 
 ## Background
 
