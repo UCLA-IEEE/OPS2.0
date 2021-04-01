@@ -28,12 +28,8 @@ main:
   #  url: /led-circuit/
   #- title: "Auto-Flashlight"
   #  url: /auto-flashlight/
-  - title: "iPoduino"
-    url: /ipoduino/
-  - title: "Distance Sensor"
-    url: /distance-sensor/
-  - title: "Red Light, Green Light"
-    url: /redlight-greenlight/
+  - title: "Projects"
+    url: /projects/
 
 # documentation links
 docs:

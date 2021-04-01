@@ -1,6 +1,7 @@
 ---
 title: "Red Light, Green Light Game"
 permalink: /redlight-greenlight/
+excerpt: "Implement a 2-Arduino game called Red Light, Green Light!"
 last_modified_at: 2020-05-14T14:07:54-04:00
 toc: true
 ---
