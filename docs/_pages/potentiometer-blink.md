@@ -17,7 +17,7 @@ In this project, you will be working with microcontrollers which is just a fancy
 
 ### <ins>Prerequisites</ins>
 
-* Turning on an LED
+* [Turning on an LED](../turn-on-led)
 
 ### <ins>Skills Learned</ins>
 

@@ -17,7 +17,7 @@ In this project, you will be implementing a 2-Arduino game called Red Light, Gre
 ### [Lecture Slides](https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing)
 
 ### <ins>Prerequisites</ins>
-* Intro to Arduino
+* [Intro to Arduino: Potentiometer Blink](../potentiometer-blink)
 
 ### <ins>Skills Learned</ins>
 * Pull-up/pull-down resistor

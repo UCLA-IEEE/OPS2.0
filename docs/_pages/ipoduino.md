@@ -18,7 +18,7 @@ In this project, you will be making an iPod Arduino Music Player. It will contai
 
 ### <ins>Prerequisites</ins>
 
-* Intro to Arduino
+* [Intro to Arduino: Potentiometer Blink](../potentiometer-blink)
 
 ### <ins>Skills Learned</ins>
 

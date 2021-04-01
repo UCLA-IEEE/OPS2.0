@@ -24,7 +24,7 @@ In this project, you will be making a “piano” speaker that can play certain 
 
 ### <ins>Prerequisites</ins>
 
-* Turning on an LED
+* [Turning on an LED](../turn-on-led)
 
 ### <ins>Skills Learned</ins>
 
