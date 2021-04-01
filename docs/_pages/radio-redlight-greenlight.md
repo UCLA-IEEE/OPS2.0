@@ -20,7 +20,7 @@ In the second part of this lab, you will be briefly working with an IMU, which i
 
 ### <ins>Prerequisites</ins>
 
-* Red Light, Green Light Game
+* [Red Light, Green Light Game](../redlight-greenlight)
 
 ### <ins>Skills Learned</ins>
 
