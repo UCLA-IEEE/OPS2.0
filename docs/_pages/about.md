@@ -33,6 +33,6 @@ As of Fall 2020, we have successfully launched the OPS program to UCI's IEEE cha
 ## How to sign up
 If you are interested in bringing OPS to your school's IEEE chapter, please fill out the interest form below. Our team will contact you with details on how to apply.
 
-Questions? Feel free to contact <president@ieeebruins.com>
+Questions? Feel free to contact <outreach@ieeebruins.com>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOSWum3EfZ7Lttogtaa2IrZrO22CP3bneSlE3UrruowJsPwA/viewform?embedded=true" width="640" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>

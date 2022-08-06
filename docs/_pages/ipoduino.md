@@ -100,7 +100,7 @@ Now, you will be able to play notes in the following format:
 - an n-beat rest can be programmed using `delay(NOTE_DUR*n)`
 - By making repeated calls to play(), we can play songs through our speaker!
 
-**<ins>To get checked off:</ins>** write a song (minimum 10 notes) and play it through your speaker. The song should play on start-up and when the reset button in the center of the Arduino is pressed. We encourage you to get creative and show us something cool! E-mail us at president@ieeebruins.com! :)
+**<ins>To get checked off:</ins>** write a song (minimum 10 notes) and play it through your speaker. The song should play on start-up and when the reset button in the center of the Arduino is pressed. We encourage you to get creative and show us something cool! E-mail us at outreach@ieeebruins.com! :)
 
 For some inspiration: <a href="../assets/code/Despacito.h" download>Despacito.h</a>. Copy and paste into your code and call Despacito() to see it go!
 
