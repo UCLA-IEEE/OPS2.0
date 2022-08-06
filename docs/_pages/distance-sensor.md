@@ -32,7 +32,6 @@ In this project, you will be making a distance sensor using a phototransistor (I
 | Arduino Nano | 1 | $4.00 | [Amazon](https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&ie=UTF8&qid=1468042975&sr=1-8&keywords=arduino%20nano) |
 | Mini USB Cable | 1 | $1.80 | [Mouser](https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2) |
 | Breadboard | 1 | $1.50 | [Amazon](https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&keywords=breadboard&qid=1588123957&s=electronics&sr=1-3) |
-| JST Connector | 1 | $0.15 | [Digikey](https://www.digikey.com/product-detail/en/440055-2/A100043-ND/2077946) |
 | LED | 1 | $0.25 | [Digikey](https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580) |
 | IR Receivers (Phototransistors) | 1 | $0.27 | [Digikey](https://www.digikey.com/product-detail/en/PT334-6C/1080-1159-ND/2675650?curr=usd&WT.z_cid=ref_octopart_dkc_buynow&site=us) |
 | IR Emitters (IR LEDs) | 1 | $0.60 | [Pololu](https://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/SFH-4545/?qs=VcOkZLzzaubOJpq6Xyji1A==) |
