@@ -8,7 +8,7 @@ header:
   overlay_image: /assets/images/splash.jpg
   actions:
     - label: "How to Sign Up"
-      url: "/about/"
+      url: "/about/#ops-at-your-school"
 excerpt: >
   <img src="./assets/images/OPSLogo-transparent.png" width="450"/><br/>
   Bring Open Project Space to Your Campus Today!<br/>
@@ -34,7 +34,7 @@ feature_row:
     excerpt: "Team up with a friend and compete for a high score! Learn about UART communication, button debouncing, and flex those coding skills by making a stoplight simulator game!"
     url: "/redlight-greenlight/"
     btn_class: "btn--primary"
-    btn_label: "Explore"      
+    btn_label: "Explore"
 ---
 
 {% include feature_row %}

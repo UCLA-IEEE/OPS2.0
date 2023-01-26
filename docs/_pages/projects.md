@@ -2,7 +2,7 @@
 permalink: /projects/
 title: "OPS 2.0 Projects"
 excerpt: ""
-last_modified_at: 2021-04-1T14:07:54-04:00
+last_modified_at: 2023-01-26
 toc: true
 ---
 
