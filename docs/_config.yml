@@ -92,8 +92,8 @@ author:
   location         : "Los Angeles, CA"
   links:
     - label: "IEEE at UCLA"
-      icon: "fas fa-fw fa-browser"
-      url: "http://ieeebruins.com/"
+      icon: "fas fa-fw fa-link"
+      url: "https://ieeebruins.com/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook"
       url: "https://www.facebook.com/ieeeatucla/"
