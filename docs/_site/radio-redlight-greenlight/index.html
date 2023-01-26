@@ -1,0 +1,1115 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Radio Red Light Green Light &amp; IMU Brightness Indicator - OPS 2.0</title>
+<meta name="description" content="Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation. ">
+
+
+  <meta name="author" content="IEEE at UCLA">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Radio Red Light Green Light &amp; IMU Brightness Indicator">
+<meta property="og:url" content="http://localhost:4000/radio-redlight-greenlight/">
+
+
+  <meta property="og:description" content="Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation. ">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Radio Red Light Green Light &amp; IMU Brightness Indicator">
+  <meta name="twitter:description" content="Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation. ">
+  <meta name="twitter:url" content="http://localhost:4000/radio-redlight-greenlight/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/radio-redlight-greenlight/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/mmistakes","https://www.facebook.com/michaelrose"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          OPS 2.0
+          <span class="site-subtitle">Open Project Space Upgraded</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/profile-picture.png" alt="IEEE at UCLA" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">IEEE at UCLA</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Los Angeles, CA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+          
+            <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Radio Red Light Green Light &amp; IMU Brightness Indicator">
+    <meta itemprop="description" content="Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation.">
+    
+    <meta itemprop="dateModified" content="2021-02-14T13:07:54-05:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Radio Red Light Green Light &amp; IMU Brightness Indicator
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#about-this-project">About this Project</a>
+    <ul>
+      <li><a href="#lecture-slides">Lecture Slides</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#skills-learned">Skills Learned</a></li>
+      <li><a href="#group-project---outcomes-and-expectations">Group Project - Outcomes and Expectations</a></li>
+    </ul>
+  </li>
+  <li><a href="#parts-list">Parts List</a></li>
+  <li><a href="#reference-material">Reference Material</a></li>
+  <li><a href="#project-specification-part-1-radio-red-light-green-light-">Project Specification Part 1 (Radio Red Light Green Light )</a>
+    <ul>
+      <li><a href="#checkpoint-1-getting-your-mcus-talking-to-each-other">Checkpoint 1: Getting your MCUs talking to each other</a>
+        <ul>
+          <li><a href="#wiring">Wiring</a></li>
+          <li><a href="#adding-libraries-in-the-arduino-ide">Adding Libraries in the Arduino IDE</a></li>
+          <li><a href="#using-the-rf24-libraries">Using the RF24 libraries</a>
+            <ul>
+              <li><a href="#receiver-side">Receiver side</a></li>
+              <li><a href="#transmitter-side">Transmitter side</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#checkpoint-2-radio-red-light-green-light">Checkpoint 2: Radio Red Light, Green Light</a>
+        <ul>
+          <li><a href="#wiring-1">Wiring</a></li>
+          <li><a href="#stoplight-arduino">Stoplight Arduino</a></li>
+          <li><a href="#carduino">Carduino</a>
+            <ul>
+              <li><a href="#button-debouncing">Button Debouncing</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#altering-original-code">Altering original code</a></li>
+      <li><a href="#game-requirements-from-previously">Game Requirements (from previously)</a></li>
+    </ul>
+  </li>
+  <li><a href="#project-specification-part-2-imu-brightness-indicator">Project Specification Part 2 (IMU Brightness Indicator)</a>
+    <ul>
+      <li><a href="#checkpoint-1-implement-readreg-and-writereg">Checkpoint 1: Implement readReg() and writeReg()</a>
+        <ul>
+          <li><a href="#wiring-2">Wiring</a></li>
+          <li><a href="#implement-readreg-and-writereg">Implement readReg() and writeReg()</a></li>
+        </ul>
+      </li>
+      <li><a href="#checkpoint-2-changing-brightness-of-3-leds-based-on-orientation">Checkpoint 2: Changing brightness of 3 LEDs based on orientation</a></li>
+    </ul>
+  </li>
+  <li><a href="#appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</a></li>
+  <li><a href="#summary">Summary</a></li>
+  <li><a href="#checkoff-questions">Checkoff Questions</a>
+    <ul>
+      <li><a href="#lab-1-radio-red-light-green-light">Lab 1: Radio Red Light Green Light</a>
+        <ul>
+          <li><a href="#checkpoint-1">Checkpoint 1</a></li>
+          <li><a href="#checkpoint-2">Checkpoint 2</a></li>
+        </ul>
+      </li>
+      <li><a href="#lab-2-imu-brightness-indicator">Lab 2: IMU Brightness Indicator</a>
+        <ul>
+          <li><a href="#checkpoint-1-1">Checkpoint 1</a></li>
+          <li><a href="#checkpoint-2-1">Checkpoint 2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img src="../assets/images/arduino-imu.JPG" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+<p>In the first part of this lab, you will be implementing a game similar to Red Light Green Light, except that the Arduino Nanos will not be communicating over UART (Tx/Rx). You will be using two different microcontrollers connected over a wireless radio communications link, more specifically the Nordic NRF24l01P. The radios use SPI communication with the Arduino.</p>
+
+<p>In the second part of this lab, you will be briefly working with an IMU, which is a combination of an accelerometer and gyroscope, which gives data on orientation. The IMU uses I2C communication with the Arduino. This is independent from the first part of the lab!</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/19y2p9skFAovAcCIOUZUWHb_OiKP1dHbQ7SGZvo4ZhD4/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li><a href="../redlight-greenlight">Red Light, Green Light Game</a></li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Wireless radio communications</li>
+  <li>Serial Peripheral Interface (SPI)</li>
+  <li>Inertial measurement unit (IMU)</li>
+  <li>Inter-Integrated Circuit (I2C)</li>
+</ul>
+
+<h3 id="group-project---outcomes-and-expectations"><ins>Group Project - Outcomes and Expectations</ins></h3>
+<p>By the end of this lab, you should be familiar with how data is transmitted across a wireless communication link (through radio). In order to be “checked off” for this lab, you must complete each checkpoint. Every team member is expected to have contributed to the lab, and may be quizzed on any of the information covered. We will check off on an individual basis (i.e. if only 2 of your 3 members are present, the one who is not will need to come in at another time to get checked off).</p>
+
+<h2 id="parts-list">Parts List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Estimated Cost</th>
+      <th>Example Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Nano</td>
+      <td>2</td>
+      <td>$4.00</td>
+      <td><a href="https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&amp;ie=UTF8&amp;qid=1468042975&amp;sr=1-8&amp;keywords=arduino%20nano">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Mini USB Cable</td>
+      <td>2</td>
+      <td>$2.00</td>
+      <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
+    </tr>
+    <tr>
+      <td>NRF24L01p Radio Module</td>
+      <td>2</td>
+      <td>$12.88 (pack of 10)</td>
+      <td><a href="https://www.amazon.com/Makerfire-Arduino-NRF24L01-Wireless-Transceiver/dp/B00O9O868G">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>IMU</td>
+      <td>1</td>
+      <td>$3.00</td>
+      <td><a href="https://www.amazon.com/HiLetgo-MPU-6050-Accelerometer-Gyroscope-Converter/dp/B00LP25V1A?th=1">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard</td>
+      <td>2</td>
+      <td>$1.50</td>
+      <td><a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&amp;keywords=breadboard&amp;qid=1588123957&amp;s=electronics&amp;sr=1-3">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Green LED</td>
+      <td>1</td>
+      <td>$0.12</td>
+      <td><a href="https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>Red LED</td>
+      <td>1</td>
+      <td>$0.14</td>
+      <td><a href="https://www.digikey.com/product-detail/en/kingbright/WP7113ID/754-1264-ND/1747663">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>White LED</td>
+      <td>1</td>
+      <td>$0.17</td>
+      <td><a href="https://www.digikey.com/product-detail/en/cree-inc/C543A-WMN-CCCKK141/C543A-WMN-CCCKK141-ND/9959490">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>Push Button</td>
+      <td>2</td>
+      <td>$0.23</td>
+      <td><a href="https://www.digikey.com/product-detail/en/schurter-inc/1301.9302/486-3458-ND/7602712">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>10kOhm Resistor</td>
+      <td>2</td>
+      <td>$0.10</td>
+      <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>100nF(0.1uf) Capacitor</td>
+      <td>2</td>
+      <td>$0.45</td>
+      <td><a href="https://www.digikey.com/product-detail/en/kemet/C320C104J5R5TA7301/399-9867-1-ND/3726105">DigiKey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><ins>Total estimated cost:</ins></strong> $22.57 per team of 2<br />
+<em><ins>If reusing Breadboard/Arduino/MiniUSB/Radio Module/IMU:</ins></em> $1.99 per team of 2</p>
+
+<h2 id="reference-material">Reference Material</h2>
+<p>THIS LAB REQUIRES READING DOCUMENTATION AND DATASHEETS. Before you ask an officer a question, make sure your answer is not in the slides, this document, the datasheet, or the documentation for the library.
+Arduino Nano</p>
+<ul>
+  <li><a href="https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf">Arduino Nano DataSheet</a></li>
+  <li><a href="http://christianto.tjahyadi.com/wp-content/uploads/2014/11/nano.jpg">Arduino Nano Pinout</a></li>
+</ul>
+
+<p>Radio Module</p>
+<ul>
+  <li><a href="https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf">NRF24L01p Datasheet</a></li>
+  <li><a href="https://maniacbug.github.io/RF24/classRF24.html">RF24 Documentation</a></li>
+</ul>
+
+<p>IMU</p>
+<ul>
+  <li><a href="https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf">MPU6050 Datasheet</a></li>
+  <li><a href="https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf">MPU6050 Register Map</a></li>
+</ul>
+
+<p>Libraries to download:</p>
+<ul>
+  <li><a href="https://drive.google.com/file/d/1ydXGxCZ8f3fYuNzMrMyax_HB80S-Ilvd/view?usp=sharing">Radio</a></li>
+  <li><a href="https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing">IMU</a></li>
+</ul>
+
+<h2 id="project-specification-part-1-radio-red-light-green-light-">Project Specification Part 1 (Radio Red Light Green Light )</h2>
+
+<h3 id="checkpoint-1-getting-your-mcus-talking-to-each-other"><ins>Checkpoint 1: Getting your MCUs talking to each other</ins></h3>
+
+<h4 id="wiring"><ins>Wiring</ins></h4>
+
+<p>Wire up your MCUs so that we can get them talking over the radio (rather than Tx/Rx from last time). To read and write between hardware devices, we will be using a few helpful libraries to facilitate the process. Remember that data transmitted by one MCU is data received by the other. Since each MCU will be using its own radio, there should be no physical wires connecting the two.</p>
+
+<p>The wiring setup is as follows. You can use any digital pins for CE(chip enable) and CSN(slave select) in theory, but the libraries written assume you will be using pins 7 and 8 as indicated below. MOSI and MISO should be connected to the respective pins on the Arduino by their pin name. (MOSI pin connects to the Arduino MOSI pin, and vice versa).</p>
+
+<p align="center">
+  <img src="../assets/images/rf-wiring-setup.png" width="350" />
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pin Name</th>
+      <th>Pin # on Radio Module</th>
+      <th>Arduino Pin</th>
+      <th>Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GND</td>
+      <td>1</td>
+      <td>GND</td>
+      <td>Connected to the Ground of the system</td>
+    </tr>
+    <tr>
+      <td>VCC</td>
+      <td>2</td>
+      <td>3.3V</td>
+      <td>Powers the module using 3.3V</td>
+    </tr>
+    <tr>
+      <td>CE (Chip Enable)</td>
+      <td>3</td>
+      <td>D7</td>
+      <td>Used to enable SPI communication</td>
+    </tr>
+    <tr>
+      <td>CSN (Chip Select Not)</td>
+      <td>4</td>
+      <td>D8</td>
+      <td>This pin has to be kept high always, else it will disable the SPI</td>
+    </tr>
+    <tr>
+      <td>SCK (Serial Clock)</td>
+      <td>5</td>
+      <td>D13</td>
+      <td>Provides the clock pulse using which the SPI communication works</td>
+    </tr>
+    <tr>
+      <td>MOSI (Master Out Slave in)</td>
+      <td>6</td>
+      <td>D11</td>
+      <td>Connected to MOSI pin of MCU, for the module to receive data from the MCU</td>
+    </tr>
+    <tr>
+      <td>MISO (Master In Slave Out)</td>
+      <td>7</td>
+      <td>D12</td>
+      <td>Connected to MISO pin of MCU, for the module to send data from the MCU</td>
+    </tr>
+    <tr>
+      <td>IRQ (Interrupt)</td>
+      <td>8</td>
+      <td>Do not connect</td>
+      <td>It is an active low pin and is used only if interrupt is required</td>
+    </tr>
+  </tbody>
+</table>
+
+<p align="center">
+  <img src="../assets/images/female-male-header.png" width="350" />
+</p>
+
+<p>Use female to male jumper wires to connect them.</p>
+
+<h4 id="adding-libraries-in-the-arduino-ide"><ins>Adding Libraries in the Arduino IDE</ins></h4>
+
+<p>We have provided these libraries for you to use, to abstract away certain parts of using the radio module and the IMU. You may examine the libraries’ code if you want to see what they do.</p>
+<ul>
+  <li><a href="https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing">IMU</a></li>
+  <li><a href="https://drive.google.com/file/d/1ydXGxCZ8f3fYuNzMrMyax_HB80S-Ilvd/view?usp=sharing">RADIO</a></li>
+</ul>
+
+<p>To add these libraries to your Arduino libraries, download these zip files. Then, go to:</p>
+
+<ul>
+  <li>Sketch &gt; include library &gt; Add a .zip library and select these zip files.</li>
+</ul>
+
+<p>You will want to have three separate libraries: RF24_transmitter, RF24_receiver, and sensor_fusion.
+Alternatively, you can extract the RF24_transmitter, RF24_receiver, and sensor_fusion folders into your libraries IDE subfolder. To get to the subfolder just go into your IDE installation location (default is the Documents folder) &gt; libraries (create it if it doesn’t exist) &gt; put the folders in here.</p>
+
+<h4 id="using-the-rf24-libraries"><ins>Using the RF24 libraries</ins></h4>
+
+<h5 id="receiver-side"><ins>Receiver side</ins></h5>
+
+<p>To receive something over radio, add this line to the very top of your sketch.</p>
+<pre><code class="language-C++">  #include “receiver.h”
+</code></pre>
+<p>In your sketch, you must also add the following line to the beginning of setup():</p>
+<pre><code class="language-C++">  Serial.begin(9600);
+  receiver_setup();
+</code></pre>
+<p>This function will set up the radio module and print out some of its details.
+Now you will be able to call the receiving function. Open receiver.h and look at the declaration of bool receiving(float&amp; val). The function will return true or false depending on whether the radio receives a value. The value received will be stored in the variable val that you pass into the receiving() function.
+For example:</p>
+<pre><code class="language-C++">  float storage;
+  if (receiving(storage)) {
+    Serial.print("Received value: ");
+    Serial.println(storage);
+  } else {
+    Serial.println("Did not receive value.");
+  }
+</code></pre>
+
+<h5 id="transmitter-side"><ins>Transmitter side</ins></h5>
+
+<p>To send something over radio, add this line to the very top of your sketch.</p>
+<pre><code class="language-C++">  #include “transmitter.h”
+</code></pre>
+<p>In your sketch, you must also add the following line to the beginning of setup():</p>
+<pre><code class="language-C++">  Serial.begin(9600);
+  transmitter_setup();
+</code></pre>
+<p>Again, this function will set up the radio module and print out some of its details.</p>
+
+<p>Now you will be able to call the sending function. Open transmitter.h and look at the declaration of void sending(float tex). The function will attempt to send the value provided by the variable val that you pass to the sending() function, and will print out to the console either “ok” or “failed”. You can find the libraries for both functions <a href="https://drive.google.com/file/d/1of5TcgaZtbq4VkpoeBXIijLH24kEy87j/view?usp=sharing">here</a>.</p>
+
+<p>NOTE: DO NOT INCLUDE receiver.h AND transmitter.h IN THE SAME SKETCH. This means that for this lab, an Arduino can act as either a receiver or a transmitter, but not both.</p>
+
+<p>NOTE: The Arduino has issues printing floats, so when you try to print them out, it will print out some garbage. For example, if you try to print out 3.3, it will print out 13107 instead. So, if you’re trying to send a float, just check that the same garbage value is being printed on both the sender side and the receiver side, even though the value 3.3 is being stored correctly. If you send an int, you should be able to print out the int correctly on both sides. If you are curious, you can read more about it <a href="https://forum.arduino.cc/index.php/topic,44216.0.html#13">here</a>.</p>
+
+<p><strong>Checkpoint 1</strong>: Write two sketches, one for each Arduino. One sketch(transmitter) should send a float to the other Arduino. The float you send will be your team number. The other sketch(receiving) should receive this float value and print that value out to the receiving side’s serial monitor. The on board LED should turn on when you receive the same value that was sent as well. Make sure to set the same baud rate for both sketches. Use 2 computers to observe the data going over more easily.</p>
+
+<h3 id="checkpoint-2-radio-red-light-green-light"><ins>Checkpoint 2: Radio Red Light, Green Light</ins></h3>
+
+<h4 id="wiring-1"><ins>Wiring</ins></h4>
+
+<p>The wiring is pretty much exactly the same as Serial Red Light Green Light, except that you will be using the radio modules rather than the TX/RX pins. The following is a recap of the last spec.</p>
+
+<h4 id="stoplight-arduino"><ins>Stoplight Arduino</ins></h4>
+
+<p>You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
+
+<h4 id="carduino"><ins>Carduino</ins></h4>
+
+<p>Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino</p>
+
+<h5 id="button-debouncing"><ins>Button Debouncing</ins></h5>
+
+<p>When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
+<p align="center">
+  <img src="../assets/images/debounce.png" width="350" />
+</p>
+
+<p>Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).</p>
+
+<p>NOTE: This debouncing circuit also includes a <a href="https://playground.arduino.cc/CommonTopics/PullUpDownResistor">pull-down resistor</a>, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
+
+<h3 id="altering-original-code"><ins>Altering original code</ins></h3>
+
+<p>The final objective of this lab is to write a complete implementation of the Radio Red Light Green Light game. However, you will need to use the radio modules instead of the Tx/Rx ports. Again, the expectations for this game are as follows:</p>
+
+<h3 id="game-requirements-from-previously"><ins>Game Requirements (from previously)</ins></h3>
+<ul>
+  <li>Two differently colored LEDs (Stoplight side; the game controller)</li>
+  <li>One white LED (Carduino side; the player)</li>
+  <li>The Stoplights (Game Controller) flashes one of the LEDs; the color chosen should be as random as possible (check the Appendix for help on this);</li>
+  <li>On the Carduino (Player Module), the player should press the button that matches the LED the Controller flashed (i.e. Gas for Green Light, Brake for Red Light)</li>
+  <li>The Stoplight (Game Controller) should wait until a button is pressed on the Carduino (Player Module). The player must press the correct button.</li>
+  <li>If the player presses the correct button, the white LED must blink and a point must be added to the player’s score. A new round must begin.</li>
+  <li>Should the player lose (by pressing the incorrect button), the white LED on the Car (Player Module) should turn on for 5 seconds, then start a new game (remember to reset score).</li>
+  <li>The serial monitor should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.</li>
+</ul>
+
+<h2 id="project-specification-part-2-imu-brightness-indicator">Project Specification Part 2 (IMU Brightness Indicator)</h2>
+
+<h3 id="checkpoint-1-implement-readreg-and-writereg"><ins>Checkpoint 1: Implement readReg() and writeReg()</ins></h3>
+
+<p><strong>IMU Overview</strong></p>
+<ul>
+  <li>Inertial measurement unit (IMU) are devices comprising units that integrate an acceleration sensor (accelerometer) and a gyroscope and are used to detect the acceleration and angular velocity of objects.</li>
+  <li>Our IMU has 3 axis: x,y,z that it is able to report values on.</li>
+</ul>
+
+<h4 id="wiring-2"><ins>Wiring</ins></h4>
+
+<p>The Arduino Nano has two pins - A4 and A5 - that are for the SDA and SCL lines respectively. SDA and SCL on the IMU should be connected to A4 and A5 on the Arduino respectively, and VCC and GND on the IMU should be connected to 5V and GND on the Arduino respectively. The other four pins should be left disconnected. You do not need the interrupt pin. You will need to solder male headers onto your IMU before you can use it. (Use the straight headers for the IMU, not the angled headers.)</p>
+
+<p align="center">
+  <img src="../assets/images/arduino-imu-wiring.png" width="350" />
+</p>
+
+<h4 id="implement-readreg-and-writereg"><ins>Implement readReg() and writeReg()</ins></h4>
+
+<p>The <a href="https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing">sensor_fusion library</a> is incomplete. You will be implementing two functions in sensor_fusion.cpp, readReg and writeReg. These two functions setup communication between the IMU and Arduino with I2C, so you will eventually need to take a look at the corresponding <a href="https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf">datasheet</a> and <a href="https://www.arduino.cc/en/Reference/Wire">Wire.h</a> library in Arduino to understand how to read and write from a given register in the function’s signature. You may also need to take a look at sensor_fusion.h to understand the function declarations and the parameters. There is not much code to actually implement, but will still prove to be difficult unless you look at how I2C works!</p>
+
+<p align="center">
+  <img src="../assets/images/readReg.png" width="400" />
+</p>
+
+<p align="center">
+  <img src="../assets/images/writeReg.png" width="400" />
+</p>
+
+<p><strong>readReg()</strong></p>
+<ul>
+  <li>Parameters
+    <ul>
+      <li>uint8_t reg: a single byte denoting the register address we want to read from</li>
+      <li>unint8_t *buf: a pointer to the beginning of an array of type uint8_t. This is just like an array! We will store what is read from reg into this buffer</li>
+      <li>size_t len: length of buffer</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>writeReg()</strong></p>
+<ul>
+  <li>Parameters are the same except we want to write to the parameter reg using the values stored in the buffer buf</li>
+</ul>
+
+<p><strong>Getting Started</strong></p>
+
+<p>To implement them, look near the end of I2C Communications Protocol Section (9.3) in the MPU6050 datasheet linked in the beginning. There it should describe how to read and write to a register with the I2C protocol. We will be implementing single-byte read sequence and single-byte write sequence.</p>
+
+<p><strong>1. Starting transmission</strong></p>
+
+<p>Recall that to read or write a message from/to a slave, the master needs to specify the start condition and the slave address it wants to talk to. When you begin transmission, you will need the slave address of the MPU-6050. You will find two possible addresses in the datasheet in Section 9.2: I2C interface. You can use either addresses listed in the datasheet since you are only using one MPU with the Arduino Nano, but we recommend that you use the first one. The datasheet lists this address in binary; you will have to convert it into decimal or hexadecimal (make sure to format hex as 0x###…) before you can use it directly. Remember, this address simply helps the master device (Arduino) initiate contact between your slave device (IMU).  There is a function in the <a href="https://www.arduino.cc/en/Reference/Wire">Wire.h</a> that will start the transmission and specify the slave address to be used.</p>
+
+<p><strong>2. Transmitting the register to read/write</strong></p>
+
+<p>We have transmitted the start condition and the slave address. Now we need to write/specify the register address we want to either read from or write to. Once again, this function can be found in <a href="https://www.arduino.cc/en/Reference/Wire">Wire.h</a>.</p>
+
+<p><strong>3. Sending/Receiving Data</strong></p>
+
+<p>Once you have set the start condition, sent the slave address, and the register to read/write, you can finally send/receive data. You will also notice that both readReg and writeReg contain a parameter uint8_t* buf; you can simply think of this pointer as an array of unsigned 8-bit integers. (Fun fact, arrays and pointers are pretty much the same thing!) The function readReg reads data from the register into this array, and the function writeReg writes data from the array into the register. You will need to use the following sample code when handling data in the I2C communication sequence.</p>
+
+<p>Note: readReg also needs to send a restart message again after transmitting the register address. This can be done by setting Wire.endTransmission(false). Read up on what this does exactly since you will be asked a question based off this. ReadReg then also  needs to specify what slave address it is requesting data from and how much.</p>
+
+<p>Sample code is provided below to read into a buffer with length len:</p>
+<pre><code class="language-C++">  for(int i = 0; i &lt; len; i++) {
+  	buf[i] = Wire.read();
+  }
+</code></pre>
+<p>Sample code is provided below to write from a buffer with length len:</p>
+<pre><code class="language-C++">  for(int i = 0; i &lt; len; i++) {
+  	Wire.write(buf[i]);
+  }
+</code></pre>
+
+<p><strong>4. Stopping transmission</strong></p>
+
+<p>At the end of a message transmission, the stop condition needs to be specified as well. There is a function in the <a href="https://www.arduino.cc/en/Reference/Wire">Wire.h</a> library that sends a stop message, so you will need to call this function at the end of both readReg and writeReg.</p>
+
+<p>All the functions in the <a href="https://www.arduino.cc/en/Reference/Wire">Wire.h</a> library correspond to other parts of the communication sequences, and you will have to find them and figure out what they are. The ones that will not be used are Wire.SetClock, Wire.available, Wire.onRequest, and Wire.onReceive.</p>
+
+<p align="center">
+  <img src="../assets/images/i2c-write.png" width="400" />
+</p>
+
+<p align="center">
+  <img src="../assets/images/i2c-read.png" width="400" />
+</p>
+
+<p><strong>Checkpoint 1</strong>: Complete the TO DO functions listed in the sensor_fusion.cpp file You will be implementing the readReg and writeReg functions in the file.</p>
+
+<h3 id="checkpoint-2-changing-brightness-of-3-leds-based-on-orientation"><ins>Checkpoint 2: Changing brightness of 3 LEDs based on orientation</ins></h3>
+
+<p>For the next part of the lab, you will be using the IMU. Add a new .zip library with the files IMU.h, IMU.cpp, sensor_fusion.h, and your new completed version of sensor_fusion.cpp. (If you’ve already added a sensor_fusion library, you will need to delete the old library before adding the updated one.) After adding this library, you will need to make a new sketch to be uploaded to the Arduino that you want to connect to the IMU. At the very top of your new sketch, you will need to add the following lines in order to use the IMU:</p>
+<pre><code class="language-C++">  #include “IMU.h”
+  #include “sensor_fusion.h”
+  extern float IMU_X;
+  extern float IMU_Y;
+  extern float IMU_Z;
+</code></pre>
+<p>In your sketch, in your setup() function, you will need to add this line to the top:</p>
+<pre><code class="language-C++">  imu_setup();
+</code></pre>
+<p>In your loop() function, you will need to add this line to the top:</p>
+<pre><code class="language-C++">  imu_loop();
+</code></pre>
+
+<p>These lines will store the correct x, y, and z values into the variables IMU_X, IMU_Y, and IMU_Z. These x, y, and z values represent a normalized orientation vector of the IMU, perpendicular to the plane of the IMU. The function imu_loop() will change these values as you tilt the IMU to face different directions, and they will be between -1 and 1 (e.g. the z value should ideally be 1 when the IMU faces straight up, and -1 when it faces straight down, though these values may be slightly off due to bias). Recall that floats don’t print properly in Arduino. As an example, if you want to see how IMU’s orientation changes with respect to x, you might want to include a line like this in your loop():</p>
+<pre><code class="language-C++">  Serial.println( (int) (IMU_X * 100) );
+</code></pre>
+
+<p>The IMU cannot detect rotation about its internal z-axis. If you lay the IMU flat on a table and rotate it without tilting it, it will not register any changes.</p>
+
+<p>DO NOT name any of your variables x, y, or z in your sketch. BAD THINGS WILL HAPPEN.</p>
+
+<p><strong>Checkpoint 2</strong>: Implement a circuit with 3 LEDs (or an RGB LED) which will respond to values in the IMU. Both the IMU and the 3 LEDs should be connected to the same Arduino (so there is no need for radio). When the IMU is tilted in the x, y, or z direction,  it will light up an LED respectively. The greater the value of x, y, or z, the brighter its corresponding LED should be. (You may find the map function helpful.)</p>
+
+<p>NOTE: You do not need the buttons or the debouncing circuit for this checkpoint. Also, you are probably not going to get the IMU to be 100% perfect; there is some bias and as long as we can see you are generally able to detect changes in orientation, you will pass the checkpoint.</p>
+
+<h2 id="appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</h2>
+<ul>
+  <li>Double check your connections. If your connections are not on the correct pin corresponding on the Arduino or the radio/IMU, the communication protocol will not work.</li>
+  <li>Ensure that the slave address of the MPU-6050 has the correct slave address, or the IMU will not respond with any data.</li>
+  <li>If your radio modules don’t seem to be working properly, try adding a delay of 100 ms in your loop.</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+<ul>
+  <li>Have completed every checkpoint of the lab and gotten checked off by an officer.</li>
+  <li>Have a fully functioning implementation of the Red Light Green Light game to demo to an officer listed above to receive the final check off for this lab.</li>
+  <li>Used the IMU in conjunction with the Radio module in sending data.</li>
+  <li>Gained a solid understanding of the fundamentals of serial communications and how it is implemented by Arduino’s serial library.</li>
+  <li>Any team member should be able to reasonably answer questions pertaining to lab procedures or content from corresponding lecture material.</li>
+</ul>
+
+<h2 id="checkoff-questions">Checkoff Questions</h2>
+<p>Here are some questions you can use to test understanding of the concepts involved in this project:</p>
+
+<h3 id="lab-1-radio-red-light-green-light"><ins>Lab 1: Radio Red Light Green Light</ins></h3>
+
+<h4 id="checkpoint-1"><ins>Checkpoint 1</ins></h4>
+<p>For this checkpoint, the team must be able to send a float from one Arduino to the other through radio. The receiving end should print out the float, and turn on the onboard LED</p>
+
+<ol>
+  <li>What communication protocol does the NRF24l01P use?
+    <ul>
+      <li>SPI</li>
+    </ul>
+  </li>
+  <li>How does the radio module store information to allow the Arduino to access them?
+    <ul>
+      <li>Registers</li>
+    </ul>
+  </li>
+  <li>How do we access said registers from the Arduino?
+    <ul>
+      <li>Pointers and addresses provided by the manufacturers of said device in the datasheet</li>
+    </ul>
+  </li>
+  <li>What are the 4 minimum lines needed for SPI to work?
+    <ul>
+      <li>MOSI: Master Out Slave In</li>
+      <li>MISO: Master In Slave Out</li>
+      <li>SS: Slave Select</li>
+      <li>SCK: Serial Clock</li>
+    </ul>
+  </li>
+  <li>What is the max number of masters allowed in SPI?
+    <ul>
+      <li>1</li>
+    </ul>
+  </li>
+  <li>What pin corresponds to the master letting one of the slaves know that it wants to communicate with the slave?
+    <ul>
+      <li>Pull the SS line LOW</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="checkpoint-2"><ins>Checkpoint 2</ins></h4>
+<p>Here, the group must have a fully functional Red Light Green Light game implemented.</p>
+
+<ol>
+  <li>How did your earlier implementation differ with the current implementation of Red Light Green Light?
+    <ul>
+      <li>Any of the following are valid:</li>
+    </ul>
+    <ul>
+      <li>Differs based on the communication type/principle</li>
+      <li>Make one radio module the transmitter and one the receiver, thus forcing them to move buttons on one side and the rest of the LEDs on another</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="lab-2-imu-brightness-indicator"><ins>Lab 2: IMU Brightness Indicator</ins></h3>
+
+<h4 id="checkpoint-1-1"><ins>Checkpoint 1</ins></h4>
+<p>There is only coding for this checkpoint. They have to implement a number of functions
+that you will ask them about:</p>
+
+<ol>
+  <li>Explain how you wrote the code from the datasheet. (Have them point out page 35 and 36 while explaining the Wire.h commands)</li>
+  <li>Why does the IMU offer 2 different slave addresses?
+    <ul>
+      <li>This allows two IMUs to be connected to a single Arduino</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Code for Checkpoint 1:</p>
+<p align="center">
+  <img src="../assets/images/imu-code.png" width="600" />
+</p>
+
+<h4 id="checkpoint-2-1"><ins>Checkpoint 2</ins></h4>
+<p>Here, the group can either use an RGB LED or three LEDs to represent the three directions of the IMU. Different colors should light up depending on which direction they tilt the IMU.</p>
+
+<ol>
+  <li>What communication protocol does the MPU-6050 use?
+    <ul>
+      <li>I2C</li>
+    </ul>
+  </li>
+  <li>What are the 2 lines needed in I2C?
+    <ul>
+      <li>SCL: Serial Clock</li>
+      <li>SDA: Serial Data</li>
+    </ul>
+  </li>
+  <li>What 2 components(sensors) make up the IMU we gave you?
+    <ul>
+      <li>Gyro and Accelerometer</li>
+    </ul>
+  </li>
+  <li>What values does the IMU report to? (Ask them where the vector is pointing)
+    <ul>
+      <li>Change of x, y, z coordinates</li>
+    </ul>
+  </li>
+  <li>How does the master let the slaves know it wants to talk to a particular slave?
+    <ul>
+      <li>It will broadcast the slave address it wants to talk to.</li>
+    </ul>
+  </li>
+  <li>What is the difference between SPI and I2C in terms of when the master wants to talk to a particular slave?
+    <ul>
+      <li>SPI: Done through HW by pulling SS low</li>
+      <li>I2C: Done through SW using slave addressing</li>
+    </ul>
+  </li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-02-14">February 14, 2021</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <div align="center" style="margin: 1em 0;">
+        <ins class="adsbygoogle"
+             style="display:block; border-bottom: initial;"
+             data-ad-client="ca-pub-7328585512091257"
+             data-ad-slot="3049671934"
+             data-ad-format="auto"></ins>
+        </div>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+<!-- Including InstantSearch.js library and styling -->
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+// Instanciating InstantSearch.js with Algolia credentials
+const search = instantsearch({
+  appId: 'LO2QA69YBY',
+  apiKey: '359eae8bdf69b643c735369cb43a404b',
+  indexName: 'search',
+  searchParameters: {
+    restrictSearchableAttributes: [
+      'title',
+      'content'
+    ]
+  }
+});
+
+const hitTemplate = function(hit) {
+  const url = hit.url;
+  const title = hit._highlightResult.title.value;
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="list__item">
+      <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+        <h2 class="archive__item-title" itemprop="headline"><a href="${url}">${title}</a></h2>
+        <div class="archive__item-excerpt" itemprop="description">${content}</div>
+      </article>
+    </div>
+  `;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '.search-searchbar',
+    poweredBy: true,
+    placeholder: 'Enter your search term...'
+  })
+);
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '.search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

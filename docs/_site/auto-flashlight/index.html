@@ -148,11 +148,7 @@
           OPS 2.0
           <span class="site-subtitle">Open Project Space Upgraded</span>
         </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about/">About</a>
-            </li><li class="masthead__menu-item">
-              <a href="/projects/">Projects</a>
-            </li></ul>
+        <ul class="visible-links"></ul>
         
         <button class="search__toggle" type="button">
           <span class="visually-hidden">Toggle search</span>
@@ -341,8 +337,9 @@
             </nav>
           </aside>
         
-        <p align="center">
-  <img src="../assets/images/autoflash.png" width="350" />
+        <!-- TODO: Find the original "../assets/images/autoflash.png". The image could not be found, so I (webmaster Paul) substituted "autoflash1" -->
+<p align="center">
+  <img src="../assets/images/autoflash1.png" width="350" />
 </p>
 
 <h2 id="about-this-project">About this Project</h2>
@@ -384,6 +381,7 @@
 </p>
 
 <h2 id="project-specification">Project Specification</h2>
+
 <h3 id="pinout">Pinout</h3>
 
 <p>The pinout gives information about the pins available to us when using the Arduino. Please refer to it when programming/wiring.</p>
@@ -453,30 +451,33 @@ This is roughly what your circuit should look like:</li>
   <li>Set the A0 pin as an input pin. If you have not already done so, you will also need to begin serial communication in order to use the serial monitor. This can be done with <code class="language-plaintext highlighter-rouge">Serial.begin(9600);</code></li>
   <li>We want to continously print voltage readings on the A0 pin. To do this, use <code class="language-plaintext highlighter-rouge">analogRead(&lt;pin&gt;)</code>. Recall <code class="language-plaintext highlighter-rouge">analogRead</code> outputs an integer value between [0, 1023] depending on the voltage it reads between 0-5 votls. You may want to store this value in a variable.</li>
   <li>Now use <code class="language-plaintext highlighter-rouge">Serial.println(&lt;val&gt;)</code> to view the values being picked up by the analog pin.</li>
-  <li>Observe how the values change as you change the brightness. 
+  <li>Observe how the values change as you change the brightness.
 Try putting the photoresistor really close to a light, try covering it with your finger. Your values will be highly susceptible to change, they will also change depending on the resistor you end up choosing, so don’t expect the same values that your best friend in OPS is getting. You should notice the value increase when there is less light available, and the value decrease when there is more light.</li>
 </ol>
 
 <p>For this checkpoint you must show an officer your photoresistor voltage divider and with the serial monitor displaying values that change based on brightness available.</p>
 
 <h3 id="final-checkpoint-completing-your-auto-flashlight"><ins>Final Checkpoint: Completing Your Auto-Flashlight</ins></h3>
+
 <p>You’re almost there! Combine what you’ve learned from the previous checkpoints to make the flashlight work properly.</p>
+
 <ol>
   <li>You must determine a good transition value for turning your flashlight on/off. To do this you must explore how the value changes based on the surrounding light. Find the point where you’d want the LED to transition between on/off. (Note: there is no one correct value; additionally, there is no correct brightness level it should work with as long as your implementation makes sense and is done correctly).</li>
   <li>Once you decide the transition value you can save it as a variable as you need. ex)<code class="language-plaintext highlighter-rouge">int val = #</code>, where # is what you decide.</li>
-  <li>Notice how the analog value increases when brightness decreases, this gives us guidance on how we should set up the conditionals. You can use the following if-else statement to get the behavior you want:
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(x&gt;val)
+  <li>Notice how the analog value increases when brightness decreases, this gives us guidance on how we should set up the conditionals. You can use the following if-else statement to get the behavior you want:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if(x&gt;val)
 {
- digitalWrite(LED,HIGH);
+	digitalWrite(LED,HIGH);
 }
 else
 {
- digitalWrite(LED,LOW);
+	digitalWrite(LED,LOW);
 }
-</code></pre></div>    </div>
-    <p>These conditionals simply say that if our reading is greater than the transition value, the LED should turn on, and if it is less than or equal to the transition value, LED should turn off.</p>
-  </li>
-</ol>
+</code></pre></div></div>
+
+<p>These conditionals simply say that if our reading is greater than the transition value, the LED should turn on, and if it is less than or equal to the transition value, LED should turn off.</p>
 
 <p>For the final checkpoint you must show an officer your circuit and demonstrate the LED turning on and off with a change in surrounding light. The officer will ask you related questions to test your understanding.</p>
 
@@ -587,9 +588,9 @@ else
 <script>
 // Instanciating InstantSearch.js with Algolia credentials
 const search = instantsearch({
-  appId: 'QB6HVGBSBA',
-  apiKey: '9d5014e5bbc77372547bce778dfa5663',
-  indexName: 'minimal_mistakes',
+  appId: 'LO2QA69YBY',
+  apiKey: '359eae8bdf69b643c735369cb43a404b',
+  indexName: 'search',
   searchParameters: {
     restrictSearchableAttributes: [
       'title',
