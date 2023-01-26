@@ -30,7 +30,7 @@ Here is a list of resources that the OPS2.0 program offers:
 - Marketing materials to aid with member recruitment
 - Potential funding to help kickstart your program
 
-As of January 2023, we have successfully launched the OPS program to over 10 universities, including UC Irvine, University of Florida, and Stony Brook University. We hope you'll be next!
+As of January 2023, we have successfully launched the OPS program at over 10 universities, including UC Irvine, University of Florida, and Stony Brook University. We hope you'll be next!
 
 ## How to sign up
 
