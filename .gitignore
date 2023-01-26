@@ -1,0 +1,9 @@
+# Ruby
+docs/.bundle
+docs/vendor
+
+# Editor
+.vscode
+
+# macOS
+.DS_Store
