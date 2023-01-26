@@ -86,7 +86,7 @@ analytics:
 
 # Site Author
 author:
-  name             : UCLA IEEE # *name is a YAML reference pointing to the &anchor earlier
+  name             : "IEEE at UCLA" # *name is a YAML reference pointing to the &anchor earlier
   avatar           : "/assets/images/profile-picture.png"
   bio              : "The IEEE Student Branch at UCLA are the founders of the Open Project Space (OPS) program."
   location         : "Los Angeles, CA"
@@ -109,7 +109,7 @@ author:
 footer:
   links:
     - label: "IEEE at UCLA"
-      icon: "fas fa-fw fa-browser"
+      icon: "fas fa-fw fa-link"
       url: "http://ieeebruins.com/"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook"
