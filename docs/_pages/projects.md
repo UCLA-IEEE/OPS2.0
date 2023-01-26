@@ -2,9 +2,10 @@
 permalink: /projects/
 title: "OPS 2.0 Projects"
 excerpt: ""
-last_modified_at: 2021-04-1T14:07:54-04:00
+last_modified_at: 2023-01-26
 toc: true
 ---
+
 ## Project 1. [Turning on an LED](../turn-on-led)
 
 | <img src="../assets/images/led-breadboard.jpg" width="200" /> | Make an LED light up! |
@@ -17,19 +18,24 @@ toc: true
 
 | <img src="../assets/images/555-timer.jpg" width="200" /> | Use a 555 timer to blink an LED and play musical notes! |
 
-## Project 4. [Intro to Arduino: Potentiometer Blink](../potentiometer-blink)
+## Pilot Program
+
+**Projects 4-7** are ideal for an early-stage OPS program.
+{: .notice}
+
+### Project 4. [Intro to Arduino: Potentiometer Blink](../potentiometer-blink)
 
 | <img src="../assets/images/arduino.jpg" width="200" /> | An introduction to Arduino with a fun and easy project. |
 
-## Project 5. [iPoduino: an Arduino Music Player](../ipoduino)
+### Project 5. [iPoduino: an Arduino Music Player](../ipoduino)
 
 | <img src="../assets/images/iPoduino.png" width="200" /> | Play your favorite tunes with your very own iPoduino! |
 
-## Project 6. [Arduino Distance Sensor](../distance-sensor)
+### Project 6. [Arduino Distance Sensor](../distance-sensor)
 
 | <img src="../assets/images/DistanceSensor.png" width="200" /> | Learn how to build an Arduino Distance Sensor |
 
-## Project 7: [Red Light, Green Light Game](../redlight-greenlight)
+### Project 7: [Red Light, Green Light Game](../redlight-greenlight)
 
 | <img src="../assets/images/RedLightGreenLight.png" width="200" /> | Implement a 2-Arduino game called Red Light, Green Light! |
 
@@ -39,4 +45,4 @@ toc: true
 
 ## Project 9: [Capstone](../capstone)
 
-| <img src="../assets/images/rodent.png" width="200" /> | Use the skills you have learned to make a path-following rodent or an RC car!  |
+| <img src="../assets/images/rodent.png" width="200" /> | Use the skills you have learned to make a path-following rodent or an RC car! |
