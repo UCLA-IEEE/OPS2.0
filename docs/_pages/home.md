@@ -7,8 +7,10 @@ header:
   overlay_filter: rgba(0, 0, 0, 0.3)
   overlay_image: /assets/images/splash.jpg
   actions:
-    - label: "How to Sign Up"
+    - label: "<i class='fas fa-seedling'></i> How to Sign Up"
       url: "/about/#ops-at-your-school"
+    - label: "<i class='fas fa-lightbulb'></i> Projects"
+      url: "/projects/"
 excerpt: >
   <img src="./assets/images/OPSLogo-transparent.png" width="450"/><br/>
   Bring Open Project Space to Your Campus Today!<br/>
