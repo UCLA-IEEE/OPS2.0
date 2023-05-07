@@ -36,6 +36,7 @@ As of January 2023, we have successfully launched the OPS program at over 10 uni
 
 If you are interested in bringing OPS to your school's IEEE chapter, please fill out the interest form below. Our team will contact you with details on how to apply.
 
-Questions? Feel free to contact our outreach director, Ryan Tien: <outreach@ieeebruins.com>
+Questions? Feel free to contact our outreach directors, Eli Foerst and Nathan
+Nguyendinh: <outreach@ieeebruins.com>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOSWum3EfZ7Lttogtaa2IrZrO22CP3bneSlE3UrruowJsPwA/viewform?embedded=true" width="640" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
