@@ -7,3 +7,4 @@ docs/vendor
 
 # macOS
 .DS_Store
+.vercel

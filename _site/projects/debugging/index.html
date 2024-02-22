@@ -1,0 +1,323 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>2: Debugging - OPS 2.0</title>
+<meta name="description" content="Practice debugging circuits using a multimeter.">
+
+
+  <meta name="author" content="IEEE at UCLA">
+  
+  <meta property="article:author" content="IEEE at UCLA">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="2: Debugging">
+<meta property="og:url" content="http://localhost:4000/projects/debugging/">
+
+
+  <meta property="og:description" content="Practice debugging circuits using a multimeter.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/debugging.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-02-21T18:42:35-08:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/debugging/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          OPS 2.0
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="2: Debugging">
+    <meta itemprop="description" content="Practice debugging circuits using a multimeter.">
+    <meta itemprop="datePublished" content="2024-02-21T18:42:35-08:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">2: Debugging
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li></ul></li><li><a href="#helpful-tips">Helpful Tips</a></li><li><a href="#potential-buggy-circuits">Potential Buggy circuits</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img width="350" height="350" src="/assets/images/debugging.jpg" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>You will need to come into the lab personally to debug 2 soldered circuits and 1 breadboarded circuit and get checked off by an officer who will ask you what is wrong with the circuits. You will apply what you learned from the lecture slides about what NOT to do and how to debug circuits. You will not be building anything in this project, but these debugging skills are essential for future projects when you have to debug your own circuits. Often times, we might think a circuit behaves one way, but in reality, it might behave a different way.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1CB6AAoBnIOJGFIjYw-nszzmo9OOG8uDrl0FrBDWy8WM/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li><a href="/turn-on-led">Turning on an LED</a></li>
+</ul>
+
+<h2 id="helpful-tips">Helpful Tips</h2>
+<ul>
+  <li>Check if any components are shorted (i.e. is there a wire across the component)</li>
+  <li>Check if any components are open, meaning they aren’t connected to anything</li>
+  <li>Use the DMM continuity test for the soldered perfboard circuits to check for the shorted and open parts</li>
+</ul>
+
+<h2 id="potential-buggy-circuits">Potential Buggy circuits</h2>
+
+<p>It is up to the project leads to create buggy circuits for project members to test. The buggy circuits should require members to measure both voltage and continuity using a multimeter. Some possible buggy circuits could be:</p>
+<ul>
+  <li>Perfboard circuit with discontinuity in solder trace, use continuity measurement</li>
+  <li>Breadboard circuit with short, use continuity measurement</li>
+  <li>LED circuit being powered by dead battery, use voltage measurement and inspect resistor</li>
+  <li>LED circuit that is not lighting up because the resistor is too large, use voltage measurement</li>
+  <li>LED circuit with a backwards LED, use voltage measurement and inspect LED</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-02-21T18:42:35-08:00">February 21, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/projects/communication-protocols/" class="pagination--pager" title="8: Communication Protocols
+">Previous</a>
+    
+    
+      <a href="/projects/digital-analog-pwm/" class="pagination--pager" title="5: Digital, Analog, and PWM
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
