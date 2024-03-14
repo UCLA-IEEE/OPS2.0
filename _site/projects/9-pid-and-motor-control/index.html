@@ -1,0 +1,671 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>9: PID and Motor Control - OPS 2.0</title>
+<meta name="description" content="Use the skills you have learned to make a path-following rodent or an RC car!">
+
+
+  <meta name="author" content="IEEE at UCLA">
+  
+  <meta property="article:author" content="IEEE at UCLA">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="9: PID and Motor Control">
+<meta property="og:url" content="http://localhost:4000/projects/9-pid-and-motor-control/">
+
+
+  <meta property="og:description" content="Use the skills you have learned to make a path-following rodent or an RC car!">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/rodent.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2024-03-13T18:38:39-07:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/projects/9-pid-and-motor-control/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/images/apple-touch-icon.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/images/favicon-32x32.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/images/favicon-16x16.png"
+/>
+<link rel="manifest" href="/assets/images/site.webmanifest" />
+<link rel="shortcut icon" href="/assets/images/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          OPS 2.0
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="9: PID and Motor Control">
+    <meta itemprop="description" content="Use the skills you have learned to make a path-following rodent or an RC car!">
+    <meta itemprop="datePublished" content="2024-03-13T18:38:39-07:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">9: PID and Motor Control
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          14 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li><li><a href="#section-one--being-a-mechanical-engineer">Section one – being a mechanical engineer:</a><ul><li><a href="#powering-your-car">Powering your car:</a></li><li><a href="#motors">Motors?:</a></li><li><a href="#tips">TIps:</a></li><li><a href="#test-the-motors">Test the motors(?):</a></li><li><a href="#what-makes-a-car">What makes a car?:</a></li><li><a href="#sensors">Sensors:</a></li><li><a href="#a-note-about-ir-pairs">A note about (ir) pairs:</a></li></ul></li><li><a href="#section-two--pid-control">Section two – pid control:</a><ul><li><a href="#hand-following">Hand-following:</a></li><li><a href="#wallobject-following">Wall/Object-following:</a></li><li><a href="#section-three--pid">Section three – P(I)D:</a></li><li><a href="#help">HELP:</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img width="350" height="350" src="/assets/images/rodent.png" />
+</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>This project will be a culmination of all the skills you have learned in OPS. There are two possible tracks you can go down:</p>
+
+<ol>
+  <li>Wall-E: Build a miniature car that follows walls/avoids objects around it</li>
+  <li>RC Car: Control a car by using the HC-05 and Processing IDE to control it</li>
+</ol>
+
+<p>To do this, you will design your own PCB, and implement a PID controller in software. This project will be more challenging than the previous ones, but the design constraints are more open ended, allowing you to make some design decisions yourself.</p>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li><a href="./7-serial-communication">7: Serial Communication</a></li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>PID Controller</li>
+  <li>UI/UX Design</li>
+  <li>Iterative Design</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<p>Since this project is open ended, different groups will likely use a variety of parts. Many parts, such as breadboards, IR emitters/receivers, or IMUs, can be reused from previous labs. The new parts you will likely need are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Estimated Cost</th>
+      <th>Example Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ball Caster</td>
+      <td>1</td>
+      <td>$2.99</td>
+      <td><a href="https://www.pololu.com/product/955">Pololu</a></td>
+    </tr>
+    <tr>
+      <td>Wheels</td>
+      <td>2</td>
+      <td>$7.98</td>
+      <td><a href="https://www.pololu.com/product/980">Pololu</a></td>
+    </tr>
+    <tr>
+      <td>Gear Motors</td>
+      <td>2</td>
+      <td>$12.08</td>
+      <td><a href="https://www.amazon.com/gp/product/B01EW8NCGO/ref=ox_sc_act_title_1?smid=A1B3N72XIXC3UJ&amp;psc=1">Amazon</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><ins>Total estimated cost assuming part reuse:</ins></strong> $23.05 per team of 2</p>
+
+<h2 id="project-specification-part-1-pcb-design">Project Specification Part 1 (PCB design)</h2>
+
+<h3 id="section-one--being-a-mechanical-engineer">Section one – being a mechanical engineer:</h3>
+
+<h4 id="powering-your-car">Powering your car:</h4>
+
+<p>Because our final goal is to have a car following some object, we want it to be powered wirelessly through 9V batteries instead of through our computer’s USB port. While we test our vehicle however, the motors require a large amount of power, which would mean we’d need to go through a lot of 9V batteries (not very cost effective). For that reason, when testing and implementing the motors, power the car through your computer. The motors will not go very fast; however, that’s fine for now. When you’re trying to implement later functionalities of the car, you can use the 9V batteries. We have a lot of batteries, so just ask an officer and they’ll grab it for you! In the end, your car must be battery powered.</p>
+
+<h4 id="motors">Motors?:</h4>
+
+<p>We will be using the L293D IC to control our motors. The nice thing about the L293D chip is that it has 2 H-bridges, a fantastic circuit to drive motors!</p>
+
+<p><img src="/assets/images/L293D-chip.png" alt="L293D chip" /></p>
+
+<p>yikes this looks bad!</p>
+
+<p>Thankfully, we’re going to treat this IC like a black box, with each side of the L293D controlling one motor. All we need to know are the inputs and outputs of this device to get it to work properly! (whew!)</p>
+
+<p><img src="/assets/images/L293D-input-output.png" alt="L293D input output" /></p>
+
+<ul>
+  <li>Power Supply
+    <ul>
+      <li>pins: 4, 5, 8, 12, 13, 16</li>
+      <li>VCC1 (pin 16) drives logic levels. You need to connect this pin to 5V on the Nano</li>
+      <li>VCC2 (pin 8) drives the motors. You need to connect this pin to Vin on the Nano</li>
+      <li>4, 5, 12, 13 are ground pins</li>
+    </ul>
+  </li>
+  <li>Direction Inputs
+    <ul>
+      <li>pins: 2, 7, 10, 15</li>
+      <li>IN1, IN2 controls one motor( ie: left motor) IN3, IN4 controls the other (ie. right motor)</li>
+      <li>connect to any digital pins on the Nano</li>
+      <li>Directional Logic:</li>
+    </ul>
+  </li>
+</ul>
+
+<p>EN IN1 (IN3) IN2 (IN4) Direction</p>
+
+<p>HIGH LOW LOW STOP</p>
+
+<p>HIGH HIGH HIGH STOP</p>
+
+<p>HIGH HIGH LOW FORWARD*</p>
+
+<p>HIGH LOW HIGH BACKWARD*</p>
+
+<p>LOW x x COAST**</p>
+
+<p>*these depend on how you set up your circuit and you will need to adjust this</p>
+
+<p>** setting the EN pin to LOW will let the motor coast to stop, regardless of input at IN1, IN2</p>
+
+<ul>
+  <li>Speed Input
+    <ul>
+      <li>pins: 1, 9</li>
+      <li>connect to PWM pins on the Nano in order to create variable outputs to motor</li>
+      <li>note: EN1 denotes the left hand side while EN2 denotes the right hand side of the IC</li>
+    </ul>
+  </li>
+  <li>Output
+    <ul>
+      <li>pins: 3, 6, 11, 14</li>
+      <li>connect these to the leads of your motor to output what your L293D has done</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="tips">TIps:</h4>
+
+<ul>
+  <li>L293D has a notch/dot to mark the top of it. Use that to orient your board</li>
+  <li>Your l293D should go over the middle gap of the breadboard. You don’t want to short circuit your board!</li>
+</ul>
+
+<h4 id="test-the-motors">Test the motors(?):</h4>
+
+<p>Don’t forget to pick up a 9V battery connector. It should look like this:</p>
+
+<p><img src="/assets/images/9v-battery-connector.png" alt="9V battery connector" /></p>
+
+<p>Please note that the motors do not have wires soldered to them already. Which means you’ll have to solder on the wires to the two spots near the front of the motor like so:</p>
+
+<p><img src="/assets/images/motor-solder-positions.png" alt="Motor solder positions" /></p>
+
+<p>*don’t solder jumper wires to this instead, use the solid core BLACK wires on the spool.</p>
+
+<p>Forward/Backward</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Once you’ve wired up your motors to the IC, it’s time to do some testing. We’ll first start off with the simple output: moving forward and backwards. We recommend testing one of the motors to make sure it’s wired up correctly and it moves forward/backward with the appropriate logic. Then, mirror the wiring on the other side!
+</code></pre></div></div>
+
+<p>Turns</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Turning your wheels is quite simple! In the forward and backward direction, we had the motors moving in the same direction. When we want the car to turn however, what we’ll do is have one motor move forward while the other moves backwards!
+</code></pre></div></div>
+
+<p>Speed</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Here is some code to test your motors on different speeds](https://drive.google.com/file/d/1i75YFNp6Cj2JeNCry7nsxZMNva0I8oYx/view?usp=sharing). Notice that we are using PWM signals to generate varying motors speeds! Every motor is slightly different, so make sure to note at what PWM signal your motor starts to turn. This marks the threshold with which your car will/won’t move.
+</code></pre></div></div>
+
+<h4 id="what-makes-a-car">What makes a car?:</h4>
+
+<p>It’s important to plan out your wiring before building your car to ensure that everything fits on it. We recommend color coding as much as you can as well as this will help a lot with debugging! Try to build your car one function at a time. (ie: make sure motors work, then your sensors, etc)</p>
+
+<p>Make sure you put the ball swivel on the bottom of the car along with the motors in order to balance the weight of the car.</p>
+
+<p><img src="/assets/images/car-side.png" alt="Car side" /></p>
+
+<p><img src="/assets/images/car-bottom.png" alt="Car bottom" /></p>
+
+<p><img src="/assets/images/car-top.png" alt="Car top" /></p>
+
+<p>Here are some examples of how you can attach your motors.</p>
+
+<p>Your options:</p>
+
+<p>There are two options for your car’s functionality: create a wall following car/a car that follows an object or an RC Car controlled by your computer.</p>
+
+<p>We will be using feedback loops (hint hint, PID controls) in order to control our car and make sure it does exactly what we want it to!</p>
+
+<table>
+  <tr>
+    <th>Car Configuration</th>
+  </tr>
+  <tr>
+    <th><img src="/assets/images/car-config.png" alt="Car config" /></th>
+  </tr>
+  <tr>
+    <th>
+      <ul>
+      <li>Recommended for cars built with wheels parallel to the long side of the board (limo mode).</li>
+      <li>The car should also utilize an ‘IR pair’ on the front and sides to detect an upcoming object and/or to follow the wall and turn the car appropriately (think of a roomba moving along the perimeter of a rectangular room).</li>
+      <li>If following the RC track the IR sensor pair <strong>MUST ACKNOWLEDGE</strong> objects it’s approaching through a flashing mechanism with LEDs.<ul>
+      <li>We recommend using a variety of LEDs to signal different options to the observer</li>
+      </ul>
+      </li>
+      </ul>
+    </th>
+  </tr>
+</table>
+
+<h4 id="sensors">Sensors:</h4>
+
+<p>Regardless of which type of car you choose to implement, you will be using the IR Sensors.</p>
+
+<h4 id="a-note-about-ir-pairs">A note about (ir) pairs:</h4>
+
+<p>We will be using the same IR sensor pairs from our distance sensor project for this project. Please note, if you are running into issues with the emitter for any reason, you can actually use a Red LED in replacement because our receivers respond to light in the infrared range.</p>
+
+<p>Again, if you run into issues with your emitter, just replace it with a Red LED and use the same build as you did in the previous project.</p>
+
+<p>Additionally, you should recall the purpose of what you are using the IR pair for in this project when implementing it; you are not changing the brightness of an LED, you are sensing a distance. It will be difficult to implement PID with the pair since the LED and receiver have a limited spectral overlap, so in most cases detecting a threshold analogRead() value from the receiver will be the extent of its use.</p>
+
+<p><img src="images/ir_pair.png" alt="IR pair" /></p>
+
+<p>In the above circuit the red LED and IR receiver form an IR pair. As the board moves along a wall the IR reading hovers around some value; as the board approaches a corner the pair will approach a wall. As they approach a wall, red light will be reflected back to the receiver and the analog reading will decrease. Once the reading is below a certain threshold (which you can discover experimentally) the board is now too close to the corner and will turn on the blue LED to indicate that it will hit the wall or maybe execute a set of commands that cause it to rotate 90 degrees (hint hint).</p>
+
+<h3 id="section-two--pid-control">Section two – pid control:</h3>
+
+<p>No matter which mode you choose to implement, the idea of feedback control is the same. You want to use the sensor readings to adjust your output to the motors. This part of the spec will go over the high-level idea and code structure for the two recommended ‘autopilot’ modes (A, B) listed above. <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.r8u7mcmxxd92">Part 3</a> will list a set of steps you might find helpful in tweaking your constants.</p>
+
+<p><img src="/assets/images/pid_control.gif" alt="PID control" /></p>
+
+<h4 id="hand-following">Hand-following:</h4>
+
+<p>The goal of your PID controller is to maintain some target distance between your car and the hand/object you’re leading it with. Note that using a flat, light-colored object will work better than your hand to get more consistent sensor readings.</p>
+
+<p>For this option, you may assume the two motors are similar enough; the car will go in a relatively straight line if the two motors are set to the same speed. This option only uses one sensor (the ultrasonic sensor). Following the object moving in a not-straight direction is not required, though you can implement it by installing more ‘IR pairs’ (see <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.rchbtek4wj9q">Note on IR pairs</a>).</p>
+
+<p>Here the general idea of how the proportional and derivative term should be used:</p>
+
+<ul>
+  <li>Define ‘error’ to be the distance between your car and the object minus the target distance</li>
+  <li>The proportional term should be used so that the car
+    <ul>
+      <li>speeds up when object is far away</li>
+      <li>slows down when object is closer</li>
+      <li>goes backwards when target is too close</li>
+    </ul>
+  </li>
+  <li>The derivative term should be used so that the car changes velocity
+    <ul>
+      <li>faster if error has been increasing</li>
+      <li>slower if error has been decreasing</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="wallobject-following">Wall/Object-following:</h4>
+
+<p>In this project we need to use PID to ensure we do not stray away or into a wall, and instead just travel parallel to it. You may currently be thinking, “Hey, I can just start it parallel to the wall and have it go forward like I already programmed, this project is so easy!” Unfortunately, most cars will not travel in a perfectly straight line due to differences in imperfect motors and uneven weight distributions on the car, plus we are gonna ask to see your final code :).</p>
+
+<p>Now on to how we implement it, we start by deciding the target distance we want the car to be from the wall. This value is up to you, can be determined experimentally, and may not be actually expressed as a distance but instead a target IR reading. Now while the car is moving along the wall you can take (near) continuous readings from the IR and determine the error from the target value. With this error value, and the pid error constants you should adjust the speed of each wheel to correct the path (increasing the speed of the right wheel and decreasing the speed of the left wheel turns the car left; vice-versa for a right turn). Remember the car is moving forward the entire time, but changing its direction according to the error.</p>
+
+<ul>
+  <li>The proportional term should be used so that the car
+    <ul>
+      <li>Heads towards the wall when it is too far away</li>
+      <li>Heads away from the wall when it is too close</li>
+      <li>The speed at which it heads towards or away from the wall depends on how close or far it is</li>
+    </ul>
+  </li>
+  <li>The derivative term should be used so that the car changes its velocity
+    <ul>
+      <li>Faster if the error is increasing</li>
+      <li>Slower if the error is decreasing</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Once you correctly implement the wall tracking the last (and probably easier) part you have to code is the corner detection. Essentially you will utilize an IR pair to detect an upcoming corner and execute a set of instructions that make your car turn 90 degrees along the corner. These instructions will be independent of and essentially override the PID decisions until it completes the turn. Once it completes the turn it will return to tracking along the new wall. It is up to you the best set of instructions to give your car to make the turn. See <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.rchbtek4wj9q">A Note on IR Pairs</a> for more details on this part of the project.</p>
+
+<h4 id="section-three--pid">Section three – P(I)D:</h4>
+
+<p>Tuning the constants for the proportional, (integral), and the derivative term is done by trial-and-error, for the most part. However, there are some things you may want to keep in mind, and some ways to do this more efficiently than randomly hard-coding different numbers and uploading the Arduino code 1000 times.</p>
+
+<p>Before you get started, note the following values:</p>
+
+<ul>
+  <li>Minimum PWM duty cycle to make your motor run (min_speed)
+    <ul>
+      <li>This depends on how strong your battery is, you might have to adjust when moving from using USB connection to the battery</li>
+      <li>You can run something like <a href="https://drive.google.com/file/d/1frhPxbjD3aZJpv-TVsTneq-tyoSwiooY/view?usp=sharing">this</a> <a href="https://drive.google.com/file/d/1dfPag9H0n3_t8mYQyMK5Dc6Idk5QsyCQ/view?usp=sharing">code</a> to see when it starts turning</li>
+    </ul>
+  </li>
+  <li>Ranges of raw IR readings
+    <ul>
+      <li>What does it read when there is ‘nothing’ in front of it? (zero)</li>
+      <li>What does it read when your object is at target distance? (target)</li>
+      <li>You may find it helpful to map and constrain these values</li>
+      <li><a href="https://drive.google.com/file/d/19v6SUfsPLKLKyyMhVGqgsh0iERDv3zhe/view?usp=sharing">Here’s</a> an <a href="https://drive.google.com/file/d/1lGZR_H6AYNq30KLCe6xpboJf0fbLEmWa/view?usp=sharing">example</a> of how this might be done</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The idea is to multiply the raw ‘error’ value by an appropriate constant to be able to map it to analogWrite parameters that minimize the error.</p>
+
+<ol>
+  <li>Start by setting all constants to 0</li>
+  <li>Increase Kp incrementally, until it is responsive but not too jittery
+    <ul>
+      <li>It might be easier to do this step without actually making the motors turn, until the numbers outputted by your controller seems reasonable (between min_speed and 255 and changes as expected)</li>
+      <li>Use the Serial Monitor!</li>
+      <li>Once you’re satisfied the numbers you see, check the proportional control with your motors turning, target moving</li>
+    </ul>
+  </li>
+  <li>Repeat #2 for Kd (, Ki)
+    <ul>
+      <li>Remember: start small, observe values before analogWrite’ing them</li>
+    </ul>
+  </li>
+</ol>
+
+<p>*The integral constant you settle on may be very small or even 0; this is okay as the integral control is related to accumulated error over time, which is more relevant if the point you are trying to reach changes rapidly. In both projects proportional and derivative control should be sufficient for reaching the target distance, but we still recommend testing this for yourself.</p>
+
+<h4 id="help">HELP:</h4>
+
+<ul>
+  <li>pulseIn(pin, HIGH/LOW)
+    <ul>
+      <li>We want to measure the elapsed time between a rising edge (LOW to HIGH) and a falling edge (HIGH to LOW) on the echo pin. So the second parameter should be set to HIGH, and the first to the Arduino pin that is connected to the ECHO pin on the HC-SR04.</li>
+    </ul>
+  </li>
+  <li>It is possible that the speed adjustments caused by PID control will want to write out a speed outside of the acceptable range (minspeed-255). You may want to include a line that constrains the possible output to that range.</li>
+  <li>When deciding how much to change your speed by each control constant should multiply the corresponding error (kp _ error, kd _ derivative of error, ki* integral of error) and then add up the terms which will result in a final sum that influences the change in speed for your wheels.
+    <ul>
+      <li>Finding the derivative and integral of error may not be obvious at first, one function that might help is millis() which returns the amount of time that has passed since the Arduino was reset in milliseconds. If we record the time in each loop and take the difference in successive loops we can find the amount of time elapsed in the previous loop.</li>
+      <li>With the calculated time we can find the approximate derivative and integral, which will be a good approximation since our time intervals are small (think back to Calc class, average slope and Reimann sum)</li>
+    </ul>
+  </li>
+  <li>Code <a href="https://drive.google.com/file/d/1R1Zp9JNePwTx_iIcS7335scv_AyrgHXH/view?usp=sharing">Outline</a></li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<p>What orientation do the LED and Phototransistor go in?</p>
+
+<ul>
+  <li>For the LED, on the board, the footprint has a flat side to the circle outline. On the LED, there is also a flat side that matches with the footprint. For the phototransistor, you will have to refer to the datasheet and the schematic for your board. On the datasheet, there is a diagram which shows you what the longer and shorter pins are.</li>
+</ul>
+
+<p>What value resistors should I use for R1 and R2 on the IR sensor board?</p>
+
+<ul>
+  <li>The resistor connected to the IR LED should be 130 Ohms, and the one connected to the IR Phototransistor should be 10 kOhms. Refer to your Eagle schematic and board design to determine which resistor is which. Remember that SMD Resistors have an orientation while SMD capacitors do not.</li>
+</ul>
+
+<p>How do I attach the motors and ball caster to the breadboard?</p>
+
+<ul>
+  <li>The back of the breadboard has an adhesive that the motors and ball caster can be stuck to. You have to remove the paper that is covering the adhesive.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-13T18:38:39-07:00">March 13, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/projects/8-communication-protocols/" class="pagination--pager" title="8: Communication Protocols
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

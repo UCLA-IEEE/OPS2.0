@@ -19,8 +19,8 @@ In this project, you will be implementing a 2-Arduino game called Red Light, Gre
 
 ### <ins>Prerequisites</ins>
 
-- [4: Microcontrollers](./microcontrollers)
-- [5: Digital, Analog, and PWM](./digital-analog-pwm)
+- [4: Microcontrollers](./4-microcontrollers)
+- [5: Digital, Analog, and PWM](./5-digital-analog-pwm)
 
 ### <ins>Skills Learned</ins>
 
