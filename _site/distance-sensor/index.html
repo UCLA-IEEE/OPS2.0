@@ -9,41 +9,35 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>6: Transistors - OPS 2.0</title>
+<!-- begin _includes/seo.html --><title>Arduino Distance Sensor - OPS 2.0</title>
 <meta name="description" content="Learn how to build an Arduino Distance Sensor">
 
 
   <meta name="author" content="IEEE at UCLA">
   
-  <meta property="article:author" content="IEEE at UCLA">
-  
 
 
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="6: Transistors">
-<meta property="og:url" content="http://localhost:4000/projects/6-distance-sensor/">
+<meta property="og:title" content="Arduino Distance Sensor">
+<meta property="og:url" content="http://localhost:4000/distance-sensor/">
 
 
   <meta property="og:description" content="Learn how to build an Arduino Distance Sensor">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/DistanceSensor.png">
-
-
-
-
-
-  <meta property="article:published_time" content="2024-03-13T21:08:47-07:00">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/6-distance-sensor/">
+
+
+
+<link rel="canonical" href="http://localhost:4000/distance-sensor/">
 
 
 
@@ -166,35 +160,17 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="6: Transistors">
+    <meta itemprop="headline" content="Arduino Distance Sensor">
     <meta itemprop="description" content="Learn how to build an Arduino Distance Sensor">
-    <meta itemprop="datePublished" content="2024-03-13T21:08:47-07:00">
     
+    <meta itemprop="dateModified" content="2020-04-28T11:07:54-07:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">6: Transistors
+          <h1 id="page-title" class="page__title" itemprop="headline">Arduino Distance Sensor
 </h1>
           
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          5 minute read
-        
-      </span>
-    
-  </p>
 
 
         </header>
@@ -211,7 +187,7 @@
           </aside>
         
         <p align="center">
-  <img src="/assets/images/DistanceSensor.png" width="350" />
+  <img src="../assets/images/DistanceSensor.png" width="350" />
 </p>
 
 <h2 id="about-this-project">About this Project</h2>
@@ -223,7 +199,7 @@
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
 <ul>
-  <li><a href="/potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
+  <li><a href="../potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
 </ul>
 
 <h3 id="skills-learned"><ins>Skills Learned</ins></h3>
@@ -297,7 +273,7 @@
   </tbody>
 </table>
 
-<p><strong><ins>Total estimated cost:</ins></strong> $8.66 per member
+<p><strong><ins>Total estimated cost:</ins></strong> $8.66 per member<br />
 <em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $1.36 per member</p>
 
 <h2 id="project-specification">Project Specification</h2>
@@ -305,7 +281,7 @@
 <p>The basis of this project is the interaction between two interesting and useful electronic components:</p>
 <ol>
   <li>An Infrared (IR) light emitting LED. Looks like a black LED.</li>
-  <li>An IR phototransistor, or IR receiver. Looks like a clear LED (don’t mix them up!)
+  <li>An IR phototransistor, or IR receiver. Looks like a clear LED (don’t mix them up!)<br />
 We will place these two components next to each other so that when an object is within a close enough proximity,
 IR light is reflected from the IR LED into the IR receiver.</li>
 </ol>
@@ -313,7 +289,7 @@ IR light is reflected from the IR LED into the IR receiver.</li>
 <p>This can be seen in the image below:</p>
 
 <p align="center">
-  <img src="/assets/images/distance-sensor-1.png" width="350" />
+  <img src="../assets/images/distance-sensor-1.png" width="350" />
 </p>
 
 <p>By designing our Arduino circuit properly, we’ll be able to tell when an object is in front of our
@@ -322,7 +298,7 @@ Distance Sensor!</p>
 <h3 id="checkpoint-1-reading-ir-values"><ins>Checkpoint 1: Reading IR Values</ins></h3>
 <p><ins>Schematic:</ins></p>
 <p align="center">
-  <img src="/assets/images/distance-sensor-2.png" width="500" />
+  <img src="../assets/images/distance-sensor-2.png" width="500" />
 </p>
 
 <p>Your first task is to build the schematic shown above on your breadboard. In order to power the circuit,
@@ -434,7 +410,7 @@ void loop() {
 }
 </code></pre>
 
-<p><strong><ins>Project Completion</ins>:</strong>
+<p><strong><ins>Project Completion</ins>:</strong><br />
 Show your fully functioning Distance Sensor, where the LED’s brightness smoothly scales from zero to full brightness as an object gets closer.</p>
 
 <h3 id="checkpoint-3-soldering"><ins>Checkpoint 3: Soldering</ins></h3>
@@ -466,7 +442,7 @@ use to take in light?</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-13T21:08:47-07:00">March 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-28">April 28, 2020</time></p>
 
 
       </footer>
@@ -474,17 +450,6 @@ use to take in light?</li>
       
 
       
-  <nav class="pagination">
-    
-      <a href="/projects/5-digital-analog-pwm/" class="pagination--pager" title="5: Digital, Analog, and PWM
-">Previous</a>
-    
-    
-      <a href="/projects/7-serial-communication/" class="pagination--pager" title="7: Serial Communication
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

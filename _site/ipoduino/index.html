@@ -9,41 +9,35 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>5: Digital, Analog, and PWM - OPS 2.0</title>
+<!-- begin _includes/seo.html --><title>iPoduino: an Arduino Music Player - OPS 2.0</title>
 <meta name="description" content="Play your favorite tunes with your very own iPoduino!">
 
 
   <meta name="author" content="IEEE at UCLA">
   
-  <meta property="article:author" content="IEEE at UCLA">
-  
 
 
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="5: Digital, Analog, and PWM">
-<meta property="og:url" content="http://localhost:4000/projects/5-digital-analog-pwm/">
+<meta property="og:title" content="iPoduino: an Arduino Music Player">
+<meta property="og:url" content="http://localhost:4000/ipoduino/">
 
 
   <meta property="og:description" content="Play your favorite tunes with your very own iPoduino!">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/iPoduino.png">
-
-
-
-
-
-  <meta property="article:published_time" content="2024-03-13T21:08:47-07:00">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/5-digital-analog-pwm/">
+
+
+
+<link rel="canonical" href="http://localhost:4000/ipoduino/">
 
 
 
@@ -166,35 +160,17 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="5: Digital, Analog, and PWM">
+    <meta itemprop="headline" content="iPoduino: an Arduino Music Player">
     <meta itemprop="description" content="Play your favorite tunes with your very own iPoduino!">
-    <meta itemprop="datePublished" content="2024-03-13T21:08:47-07:00">
     
+    <meta itemprop="dateModified" content="2020-05-14T11:07:54-07:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">5: Digital, Analog, and PWM
+          <h1 id="page-title" class="page__title" itemprop="headline">iPoduino: an Arduino Music Player
 </h1>
           
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          6 minute read
-        
-      </span>
-    
-  </p>
 
 
         </header>
@@ -211,19 +187,19 @@
           </aside>
         
         <p align="center">
-  <img src="/assets/images/iPoduino.png" width="350" />
+  <img src="../assets/images/iPoduino.png" width="350" />
 </p>
 
 <h2 id="about-this-project">About this Project</h2>
 
 <p>In this project, you will be making an iPod Arduino Music Player. It will contain 3 subsystems: a speaker that plays programmable music of your choice, a potentiometer interface that allows users to select 1 of 3 songs, and a display (which you design!) that indicates which song will play.</p>
 
-<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1TzHN9ttHChtWZEGykyobTMMqQm1kncnTiPPNr_60DTw/edit?usp=share_link">Lecture Slides</a></h3>
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1hkNE5Nn44NZztGGcPjcDY4RFudZYH9aqfLh95K6g4Vg/edit?usp=sharing">Lecture Slides</a></h3>
 
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
 <ul>
-  <li><a href="/potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
+  <li><a href="../potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
 </ul>
 
 <h3 id="skills-learned"><ins>Skills Learned</ins></h3>
@@ -291,7 +267,7 @@
   <p><ins><strong>Note:</strong></ins> The listed speakers do <ins>NOT</ins> come pre-soldered. You will need access to a soldering station to solder the two leads yourself.</p>
 </blockquote>
 
-<p><strong><ins>Total estimated cost:</ins></strong> $9.21 per member + assorted parts for display
+<p><strong><ins>Total estimated cost:</ins></strong> $9.21 per member + assorted parts for display<br />
 <em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $1.91 per member + assorted parts for display</p>
 
 <h2 id="project-specification">Project Specification</h2>
@@ -305,12 +281,12 @@
 <p><strong>A quick recap:</strong> our Arduino Nano is not capable of producing true analog signals. Rather, it is only capable of producing digital outputs (either HIGH or LOW, nothing in between). However, by rapidly alternating between HIGH and LOW for a particular proportion of time (duty cycle), we can simulate an analog voltage!</p>
 
 <p align="center">
-  <img src="/assets/images/ipoduino-1.png" width="500" />
+  <img src="../assets/images/ipoduino-1.png" width="500" />
 </p>
 
 <p>As seen in the above figure, a duty cycle of 50% means that the signal is HIGH half the time and LOW half the time. This equations to an analog voltage value that is 50% of HIGH. By varying the duty cycle, we can also vary the resulting analog output. This is in fact what happens every time we call the <code class="language-plaintext highlighter-rouge">analogWrite(int x)</code> function: the integer parameter <code class="language-plaintext highlighter-rouge">x</code> gets mapped to a duty cycle!</p>
 
-<p><strong>Now onto the assignment:</strong>
+<p><strong>Now onto the assignment:</strong> <br />
 You will need to control the brightness of an LED by generating a 1 kHz PWM square wave (<em>1 kHz corresponds to one wave every 1000 microseconds</em>). Think about what parameters you can change that will correspond to a change in the LED’s brightness.</p>
 
 <p>You’ll be restricted to using only two functions in your loop():</p>
@@ -326,7 +302,7 @@ You will need to control the brightness of an LED by generating a 1 kHz PWM squa
 <p>It’s time to build our iPoduino! The schematic is shown below for convenience. Note that the display interface that tells the user which song will play is not shown (since you’ll design it yourself!).</p>
 
 <p align="center">
-  <img src="/assets/images/ipoduino-2.png" width="700" />
+  <img src="../assets/images/ipoduino-2.png" width="700" />
 </p>
 
 <p>For the first part of the project, you will be programming your own song to play through a speaker. To do this, there are a few helpful Arduino functions:</p>
@@ -338,15 +314,15 @@ You will need to control the brightness of an LED by generating a 1 kHz PWM squa
 <p>However, we’ve simplified the use of the two functions above for you by writing the following helper function, play():</p>
 
 <p align="center">
-  <img src="/assets/images/ipoduino-3.png" width="500" />
+  <img src="../assets/images/ipoduino-3.png" width="500" />
 </p>
 
 <p>Copy this code into the top of your program, putting your speaker output pin in the indicated field. This function takes a note frequency and its duration as input, and sends a PWM signal to the output pin aliased as SPEAKER.</p>
 
 <p>Please also download one of the following files and place it in the same folder as your Arduino iPod sketch:</p>
 <ul>
-  <li><a href="/assets/code/pitches.h" download="">pitches.h</a> - includes all notes</li>
-  <li><a href="/assets/code/basicpitches.h" download="">basicpitches.h</a> - includes only one octave for simplicity’s sake</li>
+  <li><a href="../assets/code/pitches.h" download="">pitches.h</a> - includes all notes</li>
+  <li><a href="../assets/code/basicpitches.h" download="">basicpitches.h</a> - includes only one octave for simplicity’s sake</li>
 </ul>
 
 <p>In your main Arduino iPod sketch, write <code class="language-plaintext highlighter-rouge">#include “pitches.h”</code> at the top of your program. These files include note frequencies (in Hz) represented by their common note name (e.g. 262Hz can now be called as NOTE_C4, with 4 indicating the octave number).</p>
@@ -360,14 +336,14 @@ You will need to control the brightness of an LED by generating a 1 kHz PWM squa
 
 <p><strong><ins>To get checked off:</ins></strong> write a song (minimum 10 notes) and play it through your speaker. The song should play on start-up and when the reset button in the center of the Arduino is pressed. We encourage you to get creative and show us something cool! E-mail us at outreach@ieeebruins.com! :)</p>
 
-<p>For some inspiration: <a href="/assets/code/Despacito.h" download="">Despacito.h</a>. Copy and paste into your code and call Despacito() to see it go!</p>
+<p>For some inspiration: <a href="../assets/code/Despacito.h" download="">Despacito.h</a>. Copy and paste into your code and call Despacito() to see it go!</p>
 
 <h3 id="checkpoint-3-interface"><ins>Checkpoint 3: Interface</ins></h3>
 
 <p>For the next portion of the project, you will be implementing a potentiometer interface. Depending on what voltage is read from the potentiometer when the reset button is pressed, you will need to be able to switch between at least 3 songs. This means you’ll have to program more songs! Pseudocode for this portion is pictured below:</p>
 
 <p align="center">
-  <img src="/assets/images/ipoduino-4.png" width="500" />
+  <img src="../assets/images/ipoduino-4.png" width="500" />
 </p>
 
 <p>It might be helpful to create a separate function for each programmed song, to make your code more organized. Additionally, think about this: if a song is only being played when the reset button is pressed, where in our Arduino code should the songs be played?</p>
@@ -424,7 +400,7 @@ You will need to control the brightness of an LED by generating a 1 kHz PWM squa
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-13T21:08:47-07:00">March 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-14">May 14, 2020</time></p>
 
 
       </footer>
@@ -432,17 +408,6 @@ You will need to control the brightness of an LED by generating a 1 kHz PWM squa
       
 
       
-  <nav class="pagination">
-    
-      <a href="/projects/4-microcontrollers/" class="pagination--pager" title="4: Microcontrollers
-">Previous</a>
-    
-    
-      <a href="/projects/6-distance-sensor/" class="pagination--pager" title="6: Transistors
-">Next</a>
-    
-  </nav>
-
     </div>
 
     

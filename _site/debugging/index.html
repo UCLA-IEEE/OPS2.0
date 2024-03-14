@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>OPS 2.0</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Debugging - OPS 2.0</title>
+<meta name="description" content="Practice debugging circuits using a multimeter.">
 
 
   <meta name="author" content="IEEE at UCLA">
@@ -20,8 +20,11 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="OPS 2.0">
-<meta property="og:url" content="http://localhost:4000/404.html">
+<meta property="og:title" content="Debugging">
+<meta property="og:url" content="http://localhost:4000/debugging/">
+
+
+  <meta property="og:description" content="Practice debugging circuits using a multimeter.">
 
 
 
@@ -34,8 +37,7 @@
 
 
 
-
-<link rel="canonical" href="http://localhost:4000/404.html">
+<link rel="canonical" href="http://localhost:4000/debugging/">
 
 
 
@@ -105,7 +107,7 @@
 
   </head>
 
-  <body class="layout--default">
+  <body class="layout--single">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -149,25 +151,100 @@
 
 
     <div class="initial-content">
-      <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+      
 
-<div class="container">
-  <h1>404</h1>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Debugging">
+    <meta itemprop="description" content="Practice debugging circuits using a multimeter.">
+    
+    <meta itemprop="dateModified" content="2021-04-01T11:07:54-07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Debugging
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li></ul></li><li><a href="#helpful-tips">Helpful Tips</a></li><li><a href="#potential-buggy-circuits">Potential Buggy circuits</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img width="350" height="350" src="../assets/images/debugging.jpg" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>You will need to come into the lab personally to debug 2 soldered circuits and 1 breadboarded circuit and get checked off by an officer who will ask you what is wrong with the circuits. You will apply what you learned from the lecture slides about what NOT to do and how to debug circuits. You will not be building anything in this project, but these debugging skills are essential for future projects when you have to debug your own circuits. Often times, we might think a circuit behaves one way, but in reality, it might behave a different way.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1CB6AAoBnIOJGFIjYw-nszzmo9OOG8uDrl0FrBDWy8WM/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li><a href="../turn-on-led">Turning on an LED</a></li>
+</ul>
+
+<h2 id="helpful-tips">Helpful Tips</h2>
+<ul>
+  <li>Check if any components are shorted (i.e. is there a wire across the component)</li>
+  <li>Check if any components are open, meaning they aren’t connected to anything</li>
+  <li>Use the DMM continuity test for the soldered perfboard circuits to check for the shorted and open parts</li>
+</ul>
+
+<h2 id="potential-buggy-circuits">Potential Buggy circuits</h2>
+
+<p>It is up to the project leads to create buggy circuits for project members to test. The buggy circuits should require members to measure both voltage and continuity using a multimeter. Some possible buggy circuits could be:</p>
+<ul>
+  <li>Perfboard circuit with discontinuity in solder trace, use continuity measurement</li>
+  <li>Breadboard circuit with short, use continuity measurement</li>
+  <li>LED circuit being powered by dead battery, use voltage measurement and inspect resistor</li>
+  <li>LED circuit that is not lighting up because the resistor is too large, use voltage measurement</li>
+  <li>LED circuit with a backwards LED, use voltage measurement and inspect LED</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-04-01">April 1, 2021</time></p>
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
 </div>
 
     </div>

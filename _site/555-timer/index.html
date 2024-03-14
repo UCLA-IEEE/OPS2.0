@@ -9,41 +9,35 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>3: Integrated Circuits - OPS 2.0</title>
+<!-- begin _includes/seo.html --><title>555 Timer - OPS 2.0</title>
 <meta name="description" content="Use a 555 timer to blink an LED and play musical notes!">
 
 
   <meta name="author" content="IEEE at UCLA">
   
-  <meta property="article:author" content="IEEE at UCLA">
-  
 
 
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="OPS 2.0">
-<meta property="og:title" content="3: Integrated Circuits">
-<meta property="og:url" content="http://localhost:4000/projects/3-integrated-circuits/">
+<meta property="og:title" content="555 Timer">
+<meta property="og:url" content="http://localhost:4000/555-timer/">
 
 
   <meta property="og:description" content="Use a 555 timer to blink an LED and play musical notes!">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/555-timer.jpg">
-
-
-
-
-
-  <meta property="article:published_time" content="2024-03-13T21:08:47-07:00">
 
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/projects/3-integrated-circuits/">
+
+
+
+<link rel="canonical" href="http://localhost:4000/555-timer/">
 
 
 
@@ -166,35 +160,17 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="3: Integrated Circuits">
+    <meta itemprop="headline" content="555 Timer">
     <meta itemprop="description" content="Use a 555 timer to blink an LED and play musical notes!">
-    <meta itemprop="datePublished" content="2024-03-13T21:08:47-07:00">
     
+    <meta itemprop="dateModified" content="2021-02-05T10:07:54-08:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">3: Integrated Circuits
+          <h1 id="page-title" class="page__title" itemprop="headline">555 Timer
 </h1>
           
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          8 minute read
-        
-      </span>
-    
-  </p>
 
 
         </header>
@@ -211,7 +187,7 @@
           </aside>
         
         <p align="center">
-  <img src="/assets/images/555-timer.jpg" width="350" />
+  <img src="../assets/images/555-timer.jpg" width="350" />
 </p>
 
 <h2 id="about-this-project">About This Project</h2>
@@ -229,7 +205,7 @@
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
 <ul>
-  <li><a href="/turn-on-led">Turning on an LED</a></li>
+  <li><a href="../turn-on-led">Turning on an LED</a></li>
 </ul>
 
 <h3 id="skills-learned"><ins>Skills Learned</ins></h3>
@@ -339,7 +315,7 @@
   </tbody>
 </table>
 
-<p><strong><ins>Total estimated cost:</ins></strong> $15.17 per member
+<p><strong><ins>Total estimated cost:</ins></strong> $15.17 per member<br />
 <em><ins>If reusing Breadboard/3.7V Battery:</ins></em> $5.72 per member</p>
 
 <h2 id="project-specification-part-1-make-an-led-blink">Project Specification Part 1 (Make an LED Blink)</h2>
@@ -354,7 +330,7 @@ Output:</li>
   <li>Output wave: Square wave</li>
 </ul>
 <p align="center">
-  <img src="/assets/images/led-on-off.png" width="400" />
+  <img src="../assets/images/led-on-off.png" width="400" />
 </p>
 <ul>
   <li>The output in this project will go to your LED. The anode (+) leg of the LED will be connected to Pin 3 (OUT) and the cathode (-) of the LED is connected to GND. The output waveform is a square wave in the sense that voltage will either be HIGH (when your LED is on) or LOW (when your LED is off), but not in between and thus your LED will start to blink! This wave will continue infinitely until you remove the power source.</li>
@@ -382,7 +358,7 @@ Output:</li>
 <p>NOTE: Although it says 0.01uF for C1 in the schematic, use 0.1uF instead</p>
 
 <p align="center">
-  <img src="/assets/images/555-timer-led-circuit.png" width="400" />
+  <img src="../assets/images/555-timer-led-circuit.png" width="400" />
 </p>
 
 <h3 id="part-a-breadboard"><ins>Part a: Breadboard</ins></h3>
@@ -398,12 +374,12 @@ DO NOT SOLDER THE 555 TIMER!! USE AN 8 PIN DIP SOCKET INSTEAD!!</p>
 <p>Place your 555 timer on the bridge between the middle columns of the breadboard. If you placed it so that horizontal pins are on the same row, you will basically short your battery. The top image is what you SHOULD do. The bottom image is what you SHOULD NOT do and since row 9 is connected the battery and ground pins will be connected.</p>
 
 <p align="center">
-  <img src="/assets/images/555-timer-do.jpg" width="200" />
+  <img src="../assets/images/555-timer-do.jpg" width="200" />
   <div align="center">Do This</div>
 </p>
 
 <p align="center">
-  <img src="/assets/images/555-timer-dont-do.png" width="200" />
+  <img src="../assets/images/555-timer-dont-do.png" width="200" />
   <div align="center">Don't Do This</div>
 </p>
 
@@ -433,7 +409,7 @@ Output:</li>
 </ul>
 
 <p align="center">
-  <img src="/assets/images/555-timer-speaker-circuit.png" width="400" />
+  <img src="../assets/images/555-timer-speaker-circuit.png" width="400" />
 </p>
 
 <h3 id="parts-needed-1"><ins>Parts Needed</ins></h3>
@@ -497,7 +473,7 @@ Output:</li>
 <p>You can use this schematic for reference to make sure they are doing their circuiting right:</p>
 
 <p align="center">
-  <img src="/assets/images/555-timer-led-circuit.png" width="400" />
+  <img src="../assets/images/555-timer-led-circuit.png" width="400" />
 </p>
 
 <h3 id="part-2-1"><ins>Part 2</ins></h3>
@@ -527,7 +503,7 @@ Output:</li>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-13T21:08:47-07:00">March 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-02-05">February 5, 2021</time></p>
 
 
       </footer>
@@ -535,17 +511,6 @@ Output:</li>
       
 
       
-  <nav class="pagination">
-    
-      <a href="/projects/2-debugging/" class="pagination--pager" title="2: Debugging
-">Previous</a>
-    
-    
-      <a href="/projects/4-microcontrollers/" class="pagination--pager" title="4: Microcontrollers
-">Next</a>
-    
-  </nav>
-
     </div>
 
     
