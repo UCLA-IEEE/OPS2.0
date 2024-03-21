@@ -17,8 +17,8 @@ excerpt: >
 
 feature_row:
   - image_path: /assets/images/iPoduino-splash.png
-    alt: "Digital, Analog, PWM"
-    title: "Digital, Analog, PWM"
+    alt: "Digital, Analog, and PWM"
+    title: "Digital, Analog, and PWM"
     excerpt: "Think you've got what it takes to be the next Steve Jobs? Well, let's take it one step at a time-- learn about Arduino, PWM, and working with speakers by making an iPoduino."
     url: "/projects/5-digital-analog-pwm"
     btn_class: "btn--primary"
