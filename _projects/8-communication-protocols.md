@@ -1,6 +1,6 @@
 ---
 title: "8: Communication Protocols"
-excerpt: "Play Red Light Green Light using wireless radio communications, and use an IMU to detect orientation."
+excerpt: "Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it!"
 toc: true
 order: 8
 header:
@@ -8,449 +8,254 @@ header:
 ---
 
 <p align="center">
-  <img src="/assets/images/arduino-imu.JPG" width="350" />
+  <img src="/assets/images/hc05.png" width="350" />
 </p>
 
 ## About this Project
 
-In the first part of this lab, you will be implementing a game similar to Red Light Green Light, except that the Arduino Nanos will not be communicating over UART (Tx/Rx). You will be using two different microcontrollers connected over a wireless radio communications link, more specifically the Nordic NRF24l01P. The radios use SPI communication with the Arduino.
-
-In the second part of this lab, you will be briefly working with an IMU, which is a combination of an accelerometer and gyroscope, which gives data on orientation. The IMU uses I2C communication with the Arduino. This is independent from the first part of the lab!
+In this project, you will get to design your very own video game console. Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it! This project is fairly complex, we highly encourage you to start early and ask questions when you need help.
 
 ### [Lecture Slides](https://docs.google.com/presentation/d/1Hx92z0IFBu7FJa-6c4WXQ8rNo_Dd67tDiw4CUK8-so0/edit?usp=share_link)
 
-### <ins>Prerequisites</ins>
-
-- [7: Serial Communication](./7-serial-communication)
-
-### <ins>Skills Learned</ins>
-
-- Wireless radio communications
-- Serial Peripheral Interface (SPI)
-- Inertial measurement unit (IMU)
-- Inter-Integrated Circuit (I2C)
-
-### <ins>Group Project - Outcomes and Expectations</ins>
-
-By the end of this lab, you should be familiar with how data is transmitted across a wireless communication link (through radio). In order to be “checked off” for this lab, you must complete each checkpoint. Every team member is expected to have contributed to the lab, and may be quizzed on any of the information covered. We will check off on an individual basis (i.e. if only 2 of your 3 members are present, the one who is not will need to come in at another time to get checked off).
-
 ## Parts List
 
-| Part                   | Quantity | Estimated Cost      | Example Vendor                                                                                                                                                                |
-| ---------------------- | -------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino Nano           | 2        | $4.00               | [Amazon](https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&ie=UTF8&qid=1468042975&sr=1-8&keywords=arduino%20nano) |
-| Mini USB Cable         | 2        | $2.00               | [Mouser](https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2)                                                                        |
-| NRF24L01p Radio Module | 2        | $12.88 (pack of 10) | [Amazon](https://www.amazon.com/Makerfire-Arduino-NRF24L01-Wireless-Transceiver/dp/B00O9O868G)                                                                                |
-| IMU                    | 1        | $3.00               | [Amazon](https://www.amazon.com/HiLetgo-MPU-6050-Accelerometer-Gyroscope-Converter/dp/B00LP25V1A?th=1)                                                                        |
-| Breadboard             | 2        | $1.50               | [Amazon](https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&keywords=breadboard&qid=1588123957&s=electronics&sr=1-3)               |
-| Green LED              | 1        | $0.12               | [Digikey](https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580)                                                                                  |
-| Red LED                | 1        | $0.14               | [DigiKey](https://www.digikey.com/product-detail/en/kingbright/WP7113ID/754-1264-ND/1747663)                                                                                  |
-| White LED              | 1        | $0.17               | [DigiKey](https://www.digikey.com/product-detail/en/cree-inc/C543A-WMN-CCCKK141/C543A-WMN-CCCKK141-ND/9959490)                                                                |
-| Push Button            | 2        | $0.23               | [DigiKey](https://www.digikey.com/product-detail/en/schurter-inc/1301.9302/486-3458-ND/7602712)                                                                               |
-| 10kOhm Resistor        | 2        | $0.10               | [DigiKey](https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338)                                                                                      |
-| 100nF(0.1uf) Capacitor | 2        | $0.45               | [DigiKey](https://www.digikey.com/product-detail/en/kemet/C320C104J5R5TA7301/399-9867-1-ND/3726105)                                                                           |
+| Part         | Quantity | Estimated Cost      | Example Vendor                                 |
+| ------------ | -------- | ------------------- | ---------------------------------------------- |
+| OLED Display | 1        | $14.99 (pack of 5)  | [Amazon](https://www.amazon.com/dp/B09C5K91H7) |
+| Joystick     | 1        | $13.29 (pack of 10) | [Amazon](https://www.amazon.com/dp/B01N59MK0U) |
+| Breadboard   | 1        | $12.08 (pack of 6)  | [Amazon](https://www.amazon.com/dp/B07LFD4LT6) |
+| Jumper Wires | 10       | $6.98 (pack of 120) | [Amazon](https://www.amazon.com/dp/B01EV70C78) |
+| Arduino Nano | 1        | $19.99 (pack of 3)  | [Amazon](https://www.amazon.com/dp/B07G99NNXL) |
 
-**<ins>Total estimated cost:</ins>** $22.57 per team of 2
-_<ins>If reusing Breadboard/Arduino/MiniUSB/Radio Module/IMU:</ins>_ $1.99 per team of 2
+- Optional: pushbuttons, buzzers, leds
 
-## Reference Material
+**<ins>Total estimated cost:</ins>** $13.59 per team of 2
 
-THIS LAB REQUIRES READING DOCUMENTATION AND DATASHEETS. Before you ask an officer a question, make sure your answer is not in the slides, this document, the datasheet, or the documentation for the library.
-Arduino Nano
+## Part 1: Designing your Gamebuino
 
-- [Arduino Nano DataSheet](https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf)
-- [Arduino Nano Pinout](http://christianto.tjahyadi.com/wp-content/uploads/2014/11/nano.jpg)
+The first part of the GameBuino project is to set up the hardware portion, both wiring and testing it. For the checkoff, you only need to have the Joystick and OLED Display, but we encourage you to think about what parts you might want to add to your console for the competition, like a buzzer for game music, an LED for special effects, or buttons for additional controls! Be creative, we can’t wait to see what you come up with.
 
-Radio Module
+### Section 1: Wiring
 
-- [NRF24L01p Datasheet](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf)
-- [RF24 Documentation](https://maniacbug.github.io/RF24/classRF24.html)
+To start with the hardware, we first need to wire both the OLED display and joystick.
 
-IMU
+The OLED display uses i2c communication protocol, meaning that it uses two pins for communication, Serial Data (SDA) and Serial Clock (SCL). On Arduino Nano, the pin A4 is used for SDA, and pin A5 is used for SCL.
 
-- [MPU6050 Datasheet](https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf)
-- [MPU6050 Register Map](https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf)
+The joystick has three pins for measuring input: VRX, VRY, and SW. VRX tracks the joystick position on the X axis, VRY tracks the joystick position on the Y axis, and SW tracks the built in joystick button. You can use male-to-female jumper wires to wire the Joystick and then tape it down securely, if you can’t find male-to-female you can always use female-female and male-male together.
 
-Libraries to download:
+Optionally: You can also wire any other components you would like to use in your game console, like buttons, LED’s, or a piezo buzzer.
 
-- [Radio](https://drive.google.com/file/d/1ydXGxCZ8f3fYuNzMrMyax_HB80S-Ilvd/view?usp=sharing)
-- [IMU](https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing)
+<table>
+  <tr>
+   <td colspan="4" >Wiring
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2" >OLED Display
+   </td>
+   <td colspan="2" >Joystick
+   </td>
+  </tr>
+  <tr>
+   <td>GND
+   </td>
+   <td>Ground
+   </td>
+   <td>GND
+   </td>
+   <td>Ground
+   </td>
+  </tr>
+  <tr>
+   <td>VCC
+   </td>
+   <td>5v
+   </td>
+   <td>+5V
+   </td>
+   <td>5v
+   </td>
+  </tr>
+  <tr>
+   <td>SDA
+   </td>
+   <td>A4
+   </td>
+   <td>VRX
+   </td>
+   <td>Any Analog Pin
+   </td>
+  </tr>
+  <tr>
+   <td>SCL
+   </td>
+   <td>A5
+   </td>
+   <td>VRY
+   </td>
+   <td>Any Analog Pin
+   </td>
+  </tr>
+  <tr>
+   <td>
+   </td>
+   <td>
+   </td>
+   <td>SW
+   </td>
+   <td>Any Digital Pin
+   </td>
+  </tr>
+</table>
 
-## Project Specification Part 1 (Radio Red Light Green Light )
+#### Schematic
 
-### <ins>Checkpoint 1: Getting your MCUs talking to each other</ins>
+![Schematic](/assets/images/schematic.png)
 
-#### <ins>Wiring</ins>
+TIPS:
 
-Wire up your MCUs so that we can get them talking over the radio (rather than Tx/Rx from last time). To read and write between hardware devices, we will be using a few helpful libraries to facilitate the process. Remember that data transmitted by one MCU is data received by the other. Since each MCU will be using its own radio, there should be no physical wires connecting the two.
+- If you have having trouble with this, try wiring and testing each part separately instead of doing both at the same time
+- Make sure you have no open circuits.
 
-The wiring setup is as follows. You can use any digital pins for CE(chip enable) and CSN(slave select) in theory, but the libraries written assume you will be using pins 7 and 8 as indicated below. MOSI and MISO should be connected to the respective pins on the Arduino by their pin name. (MOSI pin connects to the Arduino MOSI pin, and vice versa).
+### Section 2: Your Joystick
 
-<p align="center">
-  <img src="/assets/images/rf-wiring-setup.png" width="350" />
-</p>
+Next, we need to calibrate the joystick and ensure that it works for our game. This will require writing some software to check what values your joystick changes on. The idea behind this is to write code to output the values of the X axis, Y axis, and Switch so that you can see how they change when you move the joystick.
 
-| Pin Name                   | Pin # on Radio Module | Arduino Pin    | Function                                                                  |
-| -------------------------- | --------------------- | -------------- | ------------------------------------------------------------------------- |
-| GND                        | 1                     | GND            | Connected to the Ground of the system                                     |
-| VCC                        | 2                     | 3.3V           | Powers the module using 3.3V                                              |
-| CE (Chip Enable)           | 3                     | D7             | Used to enable SPI communication                                          |
-| CSN (Chip Select Not)      | 4                     | D8             | This pin has to be kept high always, else it will disable the SPI         |
-| SCK (Serial Clock)         | 5                     | D13            | Provides the clock pulse using which the SPI communication works          |
-| MOSI (Master Out Slave in) | 6                     | D11            | Connected to MOSI pin of MCU, for the module to receive data from the MCU |
-| MISO (Master In Slave Out) | 7                     | D12            | Connected to MISO pin of MCU, for the module to send data from the MCU    |
-| IRQ (Interrupt)            | 8                     | Do not connect | It is an active low pin and is used only if interrupt is required         |
+Here is some pseudo code to get you started:
 
-<p align="center">
-  <img src="/assets/images/female-male-header.png" width="350" />
-</p>
+```
+Declare your pins for VRX, VRY, and SW
 
-Use female to male jumper wires to connect them.
+SETUP:
+    Start the Serial Monitor
+    Initialize Pin Modes
 
-#### <ins>Adding Libraries in the Arduino IDE</ins>
-
-We have provided these libraries for you to use, to abstract away certain parts of using the radio module and the IMU. You may examine the libraries’ code if you want to see what they do.
-
-- [IMU](https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing)
-- [RADIO](https://drive.google.com/file/d/1ydXGxCZ8f3fYuNzMrMyax_HB80S-Ilvd/view?usp=sharing)
-
-To add these libraries to your Arduino libraries, download these zip files. Then, go to:
-
-- Sketch > include library > Add a .zip library and select these zip files.
-
-You will want to have three separate libraries: RF24_transmitter, RF24_receiver, and sensor_fusion.
-Alternatively, you can extract the RF24_transmitter, RF24_receiver, and sensor_fusion folders into your libraries IDE subfolder. To get to the subfolder just go into your IDE installation location (default is the Documents folder) > libraries (create it if it doesn’t exist) > put the folders in here.
-
-#### <ins>Using the RF24 libraries</ins>
-
-##### <ins>Receiver side</ins>
-
-To receive something over radio, add this line to the very top of your sketch.
-
-```C++
-  #include “receiver.h”
+LOOP:
+    Read the analog values of VRX and VRY
+    Read the digital value of SW
+    Serial.print("X: ");
+    Serial.print(vrxValue);
+    Serial.print("\t"); //this prints a tab
+    Serial.print("Y: ");
+    Serial.print(vryValue);
+    Serial.print("\t"); //this prints a tab
+    Serial.print("SW: ");
+    Serial.println(swValue);
 ```
 
-In your sketch, you must also add the following line to the beginning of setup():
+_Note: to initialize the SW pin mode, you’ll want to use INPUT_PULLUP for the mode, as that is what the joystick is designed for._
 
-```C++
-  Serial.begin(9600);
-  receiver_setup();
+Next you’ll want to run this code and write down values you’ll want to use for comparison. Find out what value the joystick outputs when you hold it up, left, right, and down, and write them down. You might also want to write down what values are outputted when the joystick is in it’s “DeadZone”, which is when you’re not moving it all. Finally, write down what value you get for the Switch when you press down on the joystick, you will be using this as the button in your game.
+
+Now that you have those values, write some more code to simulate how the game will react to joystick input. The code should write “UP” to serial monitor when you are hold the joystick up, “DOWN” when you hold it down, “LEFT” when you hold it left, “RIGHT” when you hold it right, and “BUTTON PRESSED” when you press the button.
+
+Here is some pseudocode to get you started:
+
+```
+Declare your pins for VRX, VRY, and SW
+
+SETUP:
+    Start the Serial Monitor
+    Initialize Pin Modes
+
+LOOP:
+    Read the analog values of VRX and VRY
+    Read the digital value of SW
+    IF joystick is up:
+        print "UP"
+    IF joystick is down:
+        print "DOWN"
+    IF joystick is left:
+        print "LEFT"
+    IF joystick is right:
+        print "RIGHT"
+    IF joystick button is pressed:
+        print "BUTTON PRESSED"
 ```
 
-This function will set up the radio module and print out some of its details.
-Now you will be able to call the receiving function. Open receiver.h and look at the declaration of bool receiving(float& val). The function will return true or false depending on whether the radio receives a value. The value received will be stored in the variable val that you pass into the receiving() function.
-For example:
+\*Note: How do you tell if joystick is being held in a certain direction? Compare the threshold values you found with the previous code, for example, if VRY is 1023 when you hold it up, and 550 at the center, maybe check if VRY>900 for the comparison.
 
-```C++
-  float storage;
-  if (receiving(storage)) {
-    Serial.print("Received value: ");
-    Serial.println(storage);
-  } else {
-    Serial.println("Did not receive value.");
-  }
-```
+### Section 3: OLED
 
-##### <ins>Transmitter side</ins>
+Now that we have our Joystick working, let’s make sure that our OLED Display works! This is a beautiful display that we can control really closely, you can set each individual pixel! To make sure that it works, we’re going to need to download Arduino libraries and then run a code example designed for our OLED.
 
-To send something over radio, add this line to the very top of your sketch.
+1. Install the Arduino libraries “Adafruit GFX Library” and “Adafruit SSD1306 Library”. To do this first, open the Arduino IDE and make a new sketch. Then click on the bar at the top that says Tools, then click Manage Libraries. Tools>Manage Libraries. A popup should come up that says Library Manager.
 
-```C++
-  #include “transmitter.h”
-```
+![Arduino IDE Tools menu](/assets/images/tools_menu.png)
 
-In your sketch, you must also add the following line to the beginning of setup():
+2. Next, search for Adafruit GFX and click install.
 
-```C++
-  Serial.begin(9600);
-  transmitter_setup();
-```
+![Arduino IDE Library Manager Adafruit GFX](/assets/images/adafruit_gfx_libray.png)
 
-Again, this function will set up the radio module and print out some of its details.
+3. Next, search for Adafruit SSD1306 and click install.
 
-Now you will be able to call the sending function. Open transmitter.h and look at the declaration of void sending(float tex). The function will attempt to send the value provided by the variable val that you pass to the sending() function, and will print out to the console either “ok” or “failed”. You can find the libraries for both functions [here](https://drive.google.com/file/d/1of5TcgaZtbq4VkpoeBXIijLH24kEy87j/view?usp=sharing).
+![Arduino IDE Library Manager Adafruit SSD1306](images/adafruit_SSD1306_library.png)
 
-NOTE: DO NOT INCLUDE receiver.h AND transmitter.h IN THE SAME SKETCH. This means that for this lab, an Arduino can act as either a receiver or a transmitter, but not both.
+4. Next, go to Files>Examples>AdafruitSSD1306>ssd1306_128x64_i2c. This should open up the example code sketch.
 
-NOTE: The Arduino has issues printing floats, so when you try to print them out, it will print out some garbage. For example, if you try to print out 3.3, it will print out 13107 instead. So, if you’re trying to send a float, just check that the same garbage value is being printed on both the sender side and the receiver side, even though the value 3.3 is being stored correctly. If you send an int, you should be able to print out the int correctly on both sides. If you are curious, you can read more about it [here](https://forum.arduino.cc/index.php/topic,44216.0.html#13).
+![Arduino IDE example code sketch menu](/assets/images/example_code_sketch_menu.png)
 
-**Checkpoint 1**: Write two sketches, one for each Arduino. One sketch(transmitter) should send a float to the other Arduino. The float you send will be your team number. The other sketch(receiving) should receive this float value and print that value out to the receiving side’s serial monitor. The on board LED should turn on when you receive the same value that was sent as well. Make sure to set the same baud rate for both sketches. Use 2 computers to observe the data going over more easily.
+5. Next, edit the sketch to change OLED_RESET to -1 and SCREEN_ADDRESS to 0x3C. It says that Ox3C is only used for 128x32, however our OLED’s are made by a different manufacturer that uses Ox3C for 128x64.
 
-### <ins>Checkpoint 2: Radio Red Light, Green Light</ins>
+![Before edit of sketch](/assets/images/before_edit.png)
+→
 
-#### <ins>Wiring</ins>
+![After edit of sketch](/assets/images/after_edit.png)
 
-The wiring is pretty much exactly the same as Serial Red Light Green Light, except that you will be using the radio modules rather than the TX/RX pins. The following is a recap of the last spec.
+6. Next, save the edited file, it will require you to name it something since you can’t edit the actual example file.
 
-#### <ins>Stoplight Arduino</ins>
+7. Finally, upload the software to your Arduino Nano and you should see animation happening on the screen! If you don’t see anything, double check that you wired it correctly.
 
-You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)\*\* to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to <=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.
+![Arduino Nano](/assets/images/arduino_nano.gif)
 
-#### <ins>Carduino</ins>
+8. Congratulations, you’re done with the hardware portion of your GameBuino, now onto coding the actual game!
 
-Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino
+## Part 2: Software
 
-##### <ins>Button Debouncing</ins>
+Now that we have our hardware ready, let’s program our very own game! For the purposes of checkoffs, you will be programming a simple game of [TicTacToe](https://en.wikipedia.org/wiki/Tic-tac-toe). If you missed the lecture, make sure you read the slides to learn about arrays and functions which you will need for this project.
 
-When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:
+### Section 1: Graphics
 
-<p align="center">
-  <img src="/assets/images/debounce.png" width="350" />
-</p>
+Since the adafruit graphics library can be complicated and tedious, we have provided you with a TicTacToe graphics display library for you to use which will do most of the hard work for you. (for those who want to try coding graphics themselves, don’t worry, more information on that will be provided in the competition section). Follow these steps below to download and use the TicTacToe graphics library.
 
-Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance \* capacitance).
+1. Read over the libraries github README for usage information. Github is a very popular tool for software version control and collaboration, so you might want to spend some time getting used to the website. Here is the link to the TicTacToe graphics library github: [https://github.com/PrestonRooker/TicTacToeArduinoOLEDLibrary](https://github.com/PrestonRooker/TicTacToeArduinoOLEDLibrary)
+2. Download the library as a zipped folder via the green button that says code, then hit “Download ZIP”. Or you can use this link: [https://github.com/PrestonRooker/TicTacToeArduinoOLEDLibrary/archive/refs/heads/main.zip](https://github.com/PrestonRooker/TicTacToeArduinoOLEDLibrary/archive/refs/heads/main.zip)
+3. Next open up a new sketch in the Arduino IDE. Then go to Sketch>Include Library>Add .ZIP Library. Then select the downloaded zipped folder you just downloaded, TicTacToeArduinoOLEDLibrary-main.zip.
 
-NOTE: This debouncing circuit also includes a [pull-down resistor](https://playground.arduino.cc/CommonTopics/PullUpDownResistor), so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.
+![Arduino IDE zip library menu](/assets/images/zip_library_menu.png)
 
-### <ins>Altering original code</ins>
+![Select downloaded zip folder](/assets/images/zip_folder.png)
 
-The final objective of this lab is to write a complete implementation of the Radio Red Light Green Light game. However, you will need to use the radio modules instead of the Tx/Rx ports. Again, the expectations for this game are as follows:
+4. Now that you have installed the custom library, you can find the example of how to use it under File>Examples>TicTacToeArduinoOLEDLibrary-main>TicTacToeDisplayExample
 
-### <ins>Game Requirements (from previously)</ins>
+![Tic tac toe example](/assets/images/tictactoe_example.png)
 
-- Two differently colored LEDs (Stoplight side; the game controller)
-- One white LED (Carduino side; the player)
-- The Stoplights (Game Controller) flashes one of the LEDs; the color chosen should be as random as possible (check the Appendix for help on this);
-- On the Carduino (Player Module), the player should press the button that matches the LED the Controller flashed (i.e. Gas for Green Light, Brake for Red Light)
-- The Stoplight (Game Controller) should wait until a button is pressed on the Carduino (Player Module). The player must press the correct button.
-- If the player presses the correct button, the white LED must blink and a point must be added to the player’s score. A new round must begin.
-- Should the player lose (by pressing the incorrect button), the white LED on the Car (Player Module) should turn on for 5 seconds, then start a new game (remember to reset score).
-- The serial monitor should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.
+5. From here, read through the example code, and run it on your arduino. Then make a copy of it and try changing things around, and get a general feel for how to use the library.
+6. Finally, start a new sketch for your GameBuino project, and use the graphics library to give graphics to your TicTacToe game! We suggest making it play through a mock game of Tic Tac Toe with just the graphics and code to make sure you understand how you will use it in the final game. If you have any questions or problems with the library don’t be afraid to ask, our discords are always open :)
 
-## Project Specification Part 2 (IMU Brightness Indicator)
+### Section two: controla’ controla’
 
-### <ins>Checkpoint 1: Implement readReg() and writeReg()</ins>
+Now that you’ve coded the graphics for your TicTacToe game, now’s the time to implement the controls. To control your TicTacToe game, you need to code a way for players to take turns, move between square choices, and select the square where they want to place their piece.
 
-**IMU Overview**
+Recall how in the hardware portion you wrote code which detected the direction of the joystick and whether it was being pressed. Reuse that code in your controls code so that the player controls the game using the joystick.
 
-- Inertial measurement unit (IMU) are devices comprising units that integrate an acceleration sensor (accelerometer) and a gyroscope and are used to detect the acceleration and angular velocity of objects.
-- Our IMU has 3 axis: x,y,z that it is able to report values on.
+For having the player move between squares, you might find it easier to have them only be able to move left or right and then go to the next row down when they reach the end of the current row. Have players use the joystick button to place their piece on the board.
 
-#### <ins>Wiring</ins>
+Once you’re done with this, you should have a game where players take turns dropping X’s and O’s onto the TicTacToe board forever.
 
-The Arduino Nano has two pins - A4 and A5 - that are for the SDA and SCL lines respectively. SDA and SCL on the IMU should be connected to A4 and A5 on the Arduino respectively, and VCC and GND on the IMU should be connected to 5V and GND on the Arduino respectively. The other four pins should be left disconnected. You do not need the interrupt pin. You will need to solder male headers onto your IMU before you can use it. (Use the straight headers for the IMU, not the angled headers.)
+Section three - victory?
 
-<p align="center">
-  <img src="/assets/images/arduino-imu-wiring.png" width="350" />
-</p>
+Now that we have the controls of the game done, the final thing to do is to have a way to detect whether or not a player has won. This will be the complicated part of your code, and I definitely suggest making a separate function for it.
 
-#### <ins>Implement readReg() and writeReg()</ins>
+Once you’ve made your function which can detect whether or not a player has won, make sure to call it whenever a player finishes their turn by placing a piece, and end the game accordingly if someone has won.
 
-The [sensor_fusion library](https://drive.google.com/file/d/1wubhcbdDjayrRs8rJN-nY2Y4vdqm1DOH/view?usp=sharing) is incomplete. You will be implementing two functions in sensor_fusion.cpp, readReg and writeReg. These two functions setup communication between the IMU and Arduino with I2C, so you will eventually need to take a look at the corresponding [datasheet](https://www.invensense.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf) and [Wire.h](https://www.arduino.cc/en/Reference/Wire) library in Arduino to understand how to read and write from a given register in the function’s signature. You may also need to take a look at sensor_fusion.h to understand the function declarations and the parameters. There is not much code to actually implement, but will still prove to be difficult unless you look at how I2C works!
+Make sure your function works for all victory conditions in TicTacToe, including vertical victories, horizontal victories, diagonal victories, and ties.
 
-<p align="center">
-  <img src="/assets/images/readReg.png" width="400" />
-</p>
+Tips:
 
-<p align="center">
-  <img src="/assets/images/writeReg.png" width="400" />
-</p>
+- It might be easier to use a 1D array to represent your TicTacToe board
+- If you are having trouble with coding and need more help, definitely reach out to us on discord
 
-**readReg()**
+Check-offs:
 
-- Parameters
-  - uint8_t reg: a single byte denoting the register address we want to read from
-  - unint8_t \*buf: a pointer to the beginning of an array of type uint8_t. This is just like an array! We will store what is read from reg into this buffer
-  - size_t len: length of buffer
-
-**writeReg()**
-
-- Parameters are the same except we want to write to the parameter reg using the values stored in the buffer buf
-
-**Getting Started**
-
-To implement them, look near the end of I2C Communications Protocol Section (9.3) in the MPU6050 datasheet linked in the beginning. There it should describe how to read and write to a register with the I2C protocol. We will be implementing single-byte read sequence and single-byte write sequence.
-
-**1. Starting transmission**
-
-Recall that to read or write a message from/to a slave, the master needs to specify the start condition and the slave address it wants to talk to. When you begin transmission, you will need the slave address of the MPU-6050. You will find two possible addresses in the datasheet in Section 9.2: I2C interface. You can use either addresses listed in the datasheet since you are only using one MPU with the Arduino Nano, but we recommend that you use the first one. The datasheet lists this address in binary; you will have to convert it into decimal or hexadecimal (make sure to format hex as 0x###...) before you can use it directly. Remember, this address simply helps the master device (Arduino) initiate contact between your slave device (IMU). There is a function in the [Wire.h](https://www.arduino.cc/en/Reference/Wire) that will start the transmission and specify the slave address to be used.
-
-**2. Transmitting the register to read/write**
-
-We have transmitted the start condition and the slave address. Now we need to write/specify the register address we want to either read from or write to. Once again, this function can be found in [Wire.h](https://www.arduino.cc/en/Reference/Wire).
-
-**3. Sending/Receiving Data**
-
-Once you have set the start condition, sent the slave address, and the register to read/write, you can finally send/receive data. You will also notice that both readReg and writeReg contain a parameter uint8_t\* buf; you can simply think of this pointer as an array of unsigned 8-bit integers. (Fun fact, arrays and pointers are pretty much the same thing!) The function readReg reads data from the register into this array, and the function writeReg writes data from the array into the register. You will need to use the following sample code when handling data in the I2C communication sequence.
-
-Note: readReg also needs to send a restart message again after transmitting the register address. This can be done by setting Wire.endTransmission(false). Read up on what this does exactly since you will be asked a question based off this. ReadReg then also needs to specify what slave address it is requesting data from and how much.
-
-Sample code is provided below to read into a buffer with length len:
-
-```C++
-  for(int i = 0; i < len; i++) {
-  	buf[i] = Wire.read();
-  }
-```
-
-Sample code is provided below to write from a buffer with length len:
-
-```C++
-  for(int i = 0; i < len; i++) {
-  	Wire.write(buf[i]);
-  }
-```
-
-**4. Stopping transmission**
-
-At the end of a message transmission, the stop condition needs to be specified as well. There is a function in the [Wire.h](https://www.arduino.cc/en/Reference/Wire) library that sends a stop message, so you will need to call this function at the end of both readReg and writeReg.
-
-All the functions in the [Wire.h](https://www.arduino.cc/en/Reference/Wire) library correspond to other parts of the communication sequences, and you will have to find them and figure out what they are. The ones that will not be used are Wire.SetClock, Wire.available, Wire.onRequest, and Wire.onReceive.
-
-<p align="center">
-  <img src="/assets/images/i2c-write.png" width="400" />
-</p>
-
-<p align="center">
-  <img src="/assets/images/i2c-read.png" width="400" />
-</p>
-
-**Checkpoint 1**: Complete the TO DO functions listed in the sensor_fusion.cpp file You will be implementing the readReg and writeReg functions in the file.
-
-### <ins>Checkpoint 2: Changing brightness of 3 LEDs based on orientation</ins>
-
-For the next part of the lab, you will be using the IMU. Add a new .zip library with the files IMU.h, IMU.cpp, sensor_fusion.h, and your new completed version of sensor_fusion.cpp. (If you’ve already added a sensor_fusion library, you will need to delete the old library before adding the updated one.) After adding this library, you will need to make a new sketch to be uploaded to the Arduino that you want to connect to the IMU. At the very top of your new sketch, you will need to add the following lines in order to use the IMU:
-
-```C++
-  #include “IMU.h”
-  #include “sensor_fusion.h”
-  extern float IMU_X;
-  extern float IMU_Y;
-  extern float IMU_Z;
-```
-
-In your sketch, in your setup() function, you will need to add this line to the top:
-
-```C++
-  imu_setup();
-```
-
-In your loop() function, you will need to add this line to the top:
-
-```C++
-  imu_loop();
-```
-
-These lines will store the correct x, y, and z values into the variables IMU_X, IMU_Y, and IMU_Z. These x, y, and z values represent a normalized orientation vector of the IMU, perpendicular to the plane of the IMU. The function imu_loop() will change these values as you tilt the IMU to face different directions, and they will be between -1 and 1 (e.g. the z value should ideally be 1 when the IMU faces straight up, and -1 when it faces straight down, though these values may be slightly off due to bias). Recall that floats don’t print properly in Arduino. As an example, if you want to see how IMU’s orientation changes with respect to x, you might want to include a line like this in your loop():
-
-```C++
-  Serial.println( (int) (IMU_X * 100) );
-```
-
-The IMU cannot detect rotation about its internal z-axis. If you lay the IMU flat on a table and rotate it without tilting it, it will not register any changes.
-
-DO NOT name any of your variables x, y, or z in your sketch. BAD THINGS WILL HAPPEN.
-
-**Checkpoint 2**: Implement a circuit with 3 LEDs (or an RGB LED) which will respond to values in the IMU. Both the IMU and the 3 LEDs should be connected to the same Arduino (so there is no need for radio). When the IMU is tilted in the x, y, or z direction, it will light up an LED respectively. The greater the value of x, y, or z, the brighter its corresponding LED should be. (You may find the map function helpful.)
-
-NOTE: You do not need the buttons or the debouncing circuit for this checkpoint. Also, you are probably not going to get the IMU to be 100% perfect; there is some bias and as long as we can see you are generally able to detect changes in orientation, you will pass the checkpoint.
-
-## Appendix: Troubleshooting/Helpful Tips
-
-- Double check your connections. If your connections are not on the correct pin corresponding on the Arduino or the radio/IMU, the communication protocol will not work.
-- Ensure that the slave address of the MPU-6050 has the correct slave address, or the IMU will not respond with any data.
-- If your radio modules don’t seem to be working properly, try adding a delay of 100 ms in your loop.
-
-## Summary
-
-- Have completed every checkpoint of the lab and gotten checked off by an officer.
-- Have a fully functioning implementation of the Red Light Green Light game to demo to an officer listed above to receive the final check off for this lab.
-- Used the IMU in conjunction with the Radio module in sending data.
-- Gained a solid understanding of the fundamentals of serial communications and how it is implemented by Arduino’s serial library.
-- Any team member should be able to reasonably answer questions pertaining to lab procedures or content from corresponding lecture material.
-
-## Checkoff Questions
-
-Here are some questions you can use to test understanding of the concepts involved in this project:
-
-### <ins>Lab 1: Radio Red Light Green Light</ins>
-
-#### <ins>Checkpoint 1</ins>
-
-For this checkpoint, the team must be able to send a float from one Arduino to the other through radio. The receiving end should print out the float, and turn on the onboard LED
-
-1. What communication protocol does the NRF24l01P use?
-
-- SPI
-
-2. How does the radio module store information to allow the Arduino to access them?
-
-- Registers
-
-3. How do we access said registers from the Arduino?
-
-- Pointers and addresses provided by the manufacturers of said device in the datasheet
-
-4. What are the 4 minimum lines needed for SPI to work?
-
-- MOSI: Master Out Slave In
-- MISO: Master In Slave Out
-- SS: Slave Select
-- SCK: Serial Clock
-
-5. What is the max number of masters allowed in SPI?
-
-- 1
-
-6. What pin corresponds to the master letting one of the slaves know that it wants to communicate with the slave?
-
-- Pull the SS line LOW
-
-#### <ins>Checkpoint 2</ins>
-
-Here, the group must have a fully functional Red Light Green Light game implemented.
-
-1. How did your earlier implementation differ with the current implementation of Red Light Green Light?
-
-- Any of the following are valid:
-  - Differs based on the communication type/principle
-  - Make one radio module the transmitter and one the receiver, thus forcing them to move buttons on one side and the rest of the LEDs on another
-
-### <ins>Lab 2: IMU Brightness Indicator</ins>
-
-#### <ins>Checkpoint 1</ins>
-
-There is only coding for this checkpoint. They have to implement a number of functions
-that you will ask them about:
-
-1. Explain how you wrote the code from the datasheet. (Have them point out page 35 and 36 while explaining the Wire.h commands)
-2. Why does the IMU offer 2 different slave addresses?
-
-- This allows two IMUs to be connected to a single Arduino
-
-Code for Checkpoint 1:
-
-<p align="center">
-  <img src="/assets/images/imu-code.png" width="600" />
-</p>
-
-#### <ins>Checkpoint 2</ins>
-
-Here, the group can either use an RGB LED or three LEDs to represent the three directions of the IMU. Different colors should light up depending on which direction they tilt the IMU.
-
-1. What communication protocol does the MPU-6050 use?
-
-- I2C
-
-2. What are the 2 lines needed in I2C?
-
-- SCL: Serial Clock
-- SDA: Serial Data
-
-3. What 2 components(sensors) make up the IMU we gave you?
-
-- Gyro and Accelerometer
-
-4. What values does the IMU report to? (Ask them where the vector is pointing)
-
-- Change of x, y, z coordinates
-
-5. How does the master let the slaves know it wants to talk to a particular slave?
-
-- It will broadcast the slave address it wants to talk to.
-
-6. What is the difference between SPI and I2C in terms of when the master wants to talk to a particular slave?
-
-- SPI: Done through HW by pulling SS low
-- I2C: Done through SW using slave addressing
+For the checkoff, you should have a functioning game of TicTacToe that can be played with the joystick and displayed on the OLED display. To get checked off you will have to submit a <span style="text-decoration:underline;">FULL GAME</span> of TicTacToe in your submission form. [Click here to submit your project.](https://forms.gle/evAcvrgjQpE9c9wv7)

@@ -42,7 +42,7 @@ var store = [{
         "teaser": "/assets/images/RedLightGreenLight.png"
       },{
         "title": "8: Communication Protocols",
-        "excerpt":"About this Project In the first part of this lab, you will be implementing a game similar to Red Light Green Light, except that the Arduino Nanos will not be communicating over UART (Tx/Rx). You will be using two different microcontrollers connected over a wireless radio communications link, more specifically...","categories": [],
+        "excerpt":"About this Project In this project, you will get to design your very own video game console. Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it! This project is fairly complex, we...","categories": [],
         "tags": [],
         "url": "/projects/8-communication-protocols/",
         "teaser": "/assets/images/arduino-imu.JPG"

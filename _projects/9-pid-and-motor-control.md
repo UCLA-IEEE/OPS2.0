@@ -118,15 +118,15 @@ Please note that the motors do not have wires soldered to them already. Which me
 
 Forward/Backward
 
-    Once you’ve wired up your motors to the IC, it’s time to do some testing. We’ll first start off with the simple output: moving forward and backwards. We recommend testing one of the motors to make sure it’s wired up correctly and it moves forward/backward with the appropriate logic. Then, mirror the wiring on the other side!
+Once you’ve wired up your motors to the IC, it’s time to do some testing. We’ll first start off with the simple output: moving forward and backwards. We recommend testing one of the motors to make sure it’s wired up correctly and it moves forward/backward with the appropriate logic. Then, mirror the wiring on the other side!
 
 Turns
 
-    Turning your wheels is quite simple! In the forward and backward direction, we had the motors moving in the same direction. When we want the car to turn however, what we’ll do is have one motor move forward while the other moves backwards!
+Turning your wheels is quite simple! In the forward and backward direction, we had the motors moving in the same direction. When we want the car to turn however, what we’ll do is have one motor move forward while the other moves backwards!
 
 Speed
 
-    [Here is some code to test your motors on different speeds](https://drive.google.com/file/d/1i75YFNp6Cj2JeNCry7nsxZMNva0I8oYx/view?usp=sharing). Notice that we are using PWM signals to generate varying motors speeds! Every motor is slightly different, so make sure to note at what PWM signal your motor starts to turn. This marks the threshold with which your car will/won’t move.
+[Here is some code to test your motors on different speeds](https://drive.google.com/file/d/1i75YFNp6Cj2JeNCry7nsxZMNva0I8oYx/view?usp=sharing). Notice that we are using PWM signals to generate varying motors speeds! Every motor is slightly different, so make sure to note at what PWM signal your motor starts to turn. This marks the threshold with which your car will/won’t move.
 
 #### What makes a car?:
 
@@ -181,7 +181,7 @@ Again, if you run into issues with your emitter, just replace it with a Red LED 
 
 Additionally, you should recall the purpose of what you are using the IR pair for in this project when implementing it; you are not changing the brightness of an LED, you are sensing a distance. It will be difficult to implement PID with the pair since the LED and receiver have a limited spectral overlap, so in most cases detecting a threshold analogRead() value from the receiver will be the extent of its use.
 
-![IR pair](images/ir_pair.png)
+![IR pair](/assets/images/ir_pair.png)
 
 In the above circuit the red LED and IR receiver form an IR pair. As the board moves along a wall the IR reading hovers around some value; as the board approaches a corner the pair will approach a wall. As they approach a wall, red light will be reflected back to the receiver and the analog reading will decrease. Once the reading is below a certain threshold (which you can discover experimentally) the board is now too close to the corner and will turn on the blue LED to indicate that it will hit the wall or maybe execute a set of commands that cause it to rotate 90 degrees (hint hint).
 

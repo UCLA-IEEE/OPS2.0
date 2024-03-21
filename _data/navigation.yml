@@ -3,5 +3,5 @@ main:
     url: /about/
   - title: "Projects"
     url: /projects/
-  - title: "Old Projects"
-    url: /old-projects/
+  - title: "Archived Projects"
+    url: /archived-projects/
