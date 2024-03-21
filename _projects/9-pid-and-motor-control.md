@@ -11,7 +11,7 @@ header:
   <img width="350" height="350" src="/assets/images/rodent.png">
 </p>
 
-### [Lecture Slides](https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing)
+### [Lecture Slides](https://docs.google.com/presentation/d/1W4UM11_Ese79w0ubf2wJxvVhHIXQI-shScTuxbey3PU/edit?usp=share_link)
 
 ## About this Project
 

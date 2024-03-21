@@ -17,7 +17,7 @@ In the first part of this lab, you will be implementing a game similar to Red Li
 
 In the second part of this lab, you will be briefly working with an IMU, which is a combination of an accelerometer and gyroscope, which gives data on orientation. The IMU uses I2C communication with the Arduino. This is independent from the first part of the lab!
 
-### [Lecture Slides](https://docs.google.com/presentation/d/19y2p9skFAovAcCIOUZUWHb_OiKP1dHbQ7SGZvo4ZhD4/edit?usp=sharing)
+### [Lecture Slides](https://docs.google.com/presentation/d/1Hx92z0IFBu7FJa-6c4WXQ8rNo_Dd67tDiw4CUK8-so0/edit?usp=share_link)
 
 ### <ins>Prerequisites</ins>
 

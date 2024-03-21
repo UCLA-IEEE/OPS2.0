@@ -15,7 +15,7 @@ header:
 
 In this project, you will be implementing a 2-Arduino game called Red Light, Green Light. In this game you are a carduino playing against a randomly generated stoplight: You must move at a green light, and stop at a red light; should you run over a red signal, or stay put at a green signal, you lose. If you get it right, you’ll gain a point and move to the next intersection.
 
-### [Lecture Slides](https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing)
+### [Lecture Slides](https://docs.google.com/presentation/d/1KOP_cQTVDBC-wFoAtvGqAs5BjWDAtQg0LjFRPGkvvV4/edit?usp=share_link)
 
 ### <ins>Prerequisites</ins>
 

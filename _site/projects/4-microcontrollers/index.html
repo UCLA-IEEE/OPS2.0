@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-13T21:08:47-07:00">
+  <meta property="article:published_time" content="2024-03-20T21:01:34-07:00">
 
 
 
@@ -168,7 +168,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="4: Microcontrollers">
     <meta itemprop="description" content="An introduction to Arduino with a fun and easy project.">
-    <meta itemprop="datePublished" content="2024-03-13T21:08:47-07:00">
+    <meta itemprop="datePublished" content="2024-03-20T21:01:34-07:00">
     
 
     <div class="page__inner-wrap">
@@ -215,9 +215,10 @@
 </p>
 
 <h2 id="about-this-project">About this Project</h2>
+
 <p>In this project, you will be working with microcontrollers which is just a fancy word for a small programmable computer that can coordinate different input/output functions in your circuit. The different components that will be attached to the microcontroller include a potentiometer(input) used as a voltage divider and an LED(output) that will change blinking frequency as you turn the potentiometer knob. This project will fuse both your knowledge on circuits and coding to make a really cool project!</p>
 
-<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1nyP0vQC_arV6IUXLa0IzkofAdlR-QKfLa5nKvuNIZzM/edit?usp=sharing">Lecture Slides</a></h3>
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1XCxDNNXt_385xUbZ_YwQATWcvAAeA9K7y8beqSO-KM0/edit?usp=share_link">Lecture Slides</a></h3>
 
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
@@ -291,9 +292,10 @@
 <h2 id="background">Background</h2>
 
 <h3 id="voltage-dividers"><ins>Voltage Dividers</ins></h3>
+
 <ul>
   <li>A voltage divider is a circuit that consists of 2 resistors R1 and R2, and an input voltage Vin.</li>
-  <li>Vout is a measurement across the resistor closest to GND (R2)  and its value depends on the ratio of R1 and R2.</li>
+  <li>Vout is a measurement across the resistor closest to GND (R2) and its value depends on the ratio of R1 and R2.</li>
   <li>Using Ohm’s Law (V=IR), we can determine the exact value of Vout
     <ul>
       <li>Equivalent Resistance Req = R1 + R2 (add when resistors are in series)</li>
@@ -302,22 +304,20 @@
           <li>We can rearrange the equation to get: I = Vin/Req = Vin/(R1 + R2)</li>
         </ul>
       </li>
-      <li>Vout = V2 = I * R2
-        <ul>
-          <li>We can plug in I found previously into this equation since current through R1 has the same value as R2 to get: Vout = Vin * (R2/(R1+R2))</li>
-        </ul>
-      </li>
+      <li>Vout = V2 = I _ R2
+_ We can plug in I found previously into this equation since current through R1 has the same value as R2 to get: Vout = Vin * (R2/(R1+R2))</li>
     </ul>
-  </li>
-</ul>
-<p align="center">
+    <p align="center">
   <img src="/assets/images/potentiometer-voltage-div.png" width="350" />
 </p>
-<p align="center">
+    <p align="center">
   <img src="/assets/images/potentiometer-vout.png" width="350" />
 </p>
+  </li>
+</ul>
 
 <h3 id="potentiometers"><ins>Potentiometers</ins></h3>
+
 <ul>
   <li>All potentiometers have a total resistance associated with it and in this project, we have a 10K Ohm one. A potentiometer splits this 10K resistance into 2 resistances R1 and R2, whose values depend on how much the knob of a potentiometer is turned. See figure 2.</li>
   <li>You can think of a potentiometer as a variable voltage divider because there are two resistances involved. By turning the potentiometer knob (wiper), the ratio of the 2 resistances in the potentiometer will change and thus Vout will also change.</li>
@@ -341,6 +341,7 @@
 </p>
 
 <h3 id="the-arduino-nanos-pins"><ins>The Arduino Nano’s Pins</ins></h3>
+
 <ul>
   <li>There are 3 types of programmable pins on the Arduino, but we will only focus on the first two types for this project. The pins can either read a voltage value or output a voltage.
     <ol>
@@ -373,6 +374,7 @@
 </ul>
 
 <h3 id="the-arduino-ide"><ins>The Arduino IDE</ins></h3>
+
 <ul>
   <li>The Arduino Integrated Development Environment (IDE) uses syntax that is very similar to C++</li>
   <li>The concepts that will be applicable when coding in the Arduino IDE are:
@@ -390,6 +392,7 @@
 </ul>
 
 <h3 id="the-arduino-ide-coding-structure"><ins>The Arduino IDE Coding Structure</ins></h3>
+
 <ul>
   <li>The coding structure for a typical Arduino program:
     <ul>
@@ -416,6 +419,7 @@
 </ul>
 
 <h3 id="typical-arduino-functions"><ins>Typical Arduino Functions</ins></h3>
+
 <ul>
   <li>digitalWrite(pin #, HIGH/LOW)
     <ul>
@@ -446,14 +450,17 @@
 </ul>
 
 <h2 id="project-specification-part-1-building-the-schematic-on-your-breadboard">Project Specification Part 1 (Building the Schematic on your Breadboard)</h2>
+
 <p>There are two parts to the schematic below. On the left side, you can see the potentiometer symbol with the two OUTER terminals connected to GND and 5V(could also use Vin) and the middle terminal connected to an analog input pin (A4). MAKE SURE THE MIDDLE TERMINAL IS NOT CONNECTED TO EITHER 5</p>
 
 <p>On the right side, you can see the LED circuit consisting of an LED and resistor in series (to limit the current going through the LED). The resistor R1 is connected to the digital pin D7 which you will program in the Arduino IDE to output 5V(turn on the LED) or 0V(turn off the LED).</p>
+
 <p align="center">
   <img src="/assets/images/potentiometer-circuit.png" width="600" />
 </p>
 
 <h2 id="project-specification-part-2-writing-the-arduino-program">Project Specification Part 2 (Writing the Arduino Program)</h2>
+
 <ul>
   <li>Using the coding structure mentioned before and the pseudocode below, program the LED to turn on/off for a certain amount of time based on the value from the potentiometer. Some useful functions include:
     <ul>
@@ -476,26 +483,33 @@
 </p>
 
 <h2 id="checkoff-questions">Checkoff Questions</h2>
+
 <p>Here are some questions you can use to test understanding of the concepts involved in this project:</p>
 
 <ol>
-  <li>What is the difference between a digital and an analog signal?
-    <ul>
-      <li>Digital: either LOW or HIGH (OFF or ON, square wave);</li>
-      <li>Analog: Has a lot of possible values (0-255) making any transition smooth and continuous; emulated by PWM (they must answer this last part too)</li>
-    </ul>
-  </li>
-  <li>When do the setup and loop functions run, and what do they do?
-    <ul>
-      <li>Setup function runs once when the Arduino turns on, then the loop function runs repeatedly every clock cycle, indefinitely</li>
-    </ul>
-  </li>
-  <li>How does a voltage divider work?
-    <ul>
-      <li>When two resistors are in series with each other and connected to a voltage source, the voltage across each resistor is split in proportion to their resistance values.</li>
-    </ul>
-  </li>
+  <li>What is the difference between a digital and an analog signal?</li>
 </ol>
+
+<ul>
+  <li>Digital: either LOW or HIGH (OFF or ON, square wave);</li>
+  <li>Analog: Has a lot of possible values (0-255) making any transition smooth and continuous; emulated by PWM (they must answer this last part too)</li>
+</ul>
+
+<ol>
+  <li>When do the setup and loop functions run, and what do they do?</li>
+</ol>
+
+<ul>
+  <li>Setup function runs once when the Arduino turns on, then the loop function runs repeatedly every clock cycle, indefinitely</li>
+</ul>
+
+<ol>
+  <li>How does a voltage divider work?</li>
+</ol>
+
+<ul>
+  <li>When two resistors are in series with each other and connected to a voltage source, the voltage across each resistor is split in proportion to their resistance values.</li>
+</ul>
 
         
       </section>
@@ -507,7 +521,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-13T21:08:47-07:00">March 13, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-20T21:01:34-07:00">March 20, 2024</time></p>
 
 
       </footer>
