@@ -30,7 +30,7 @@ var store = [{
         "teaser": "/assets/images/iPoduino.png"
       },{
         "title": "6: Transistors",
-        "excerpt":"About this Project In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair. Lecture Slides Prerequisites Intro...","categories": [],
+        "excerpt":"About this Project In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair. Lecture Slides Prerequisites 4:...","categories": [],
         "tags": [],
         "url": "/projects/6-distance-sensor/",
         "teaser": "/assets/images/DistanceSensor.png"
@@ -42,7 +42,7 @@ var store = [{
         "teaser": "/assets/images/RedLightGreenLight.png"
       },{
         "title": "8: Communication Protocols",
-        "excerpt":"About this Project In this project, you will get to design your very own video game console. Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it! This project is fairly complex, we...","categories": [],
+        "excerpt":"Lecture Slides About this Project In this project, you will get to design your very own video game console. Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it! This project is fairly...","categories": [],
         "tags": [],
         "url": "/projects/8-communication-protocols/",
         "teaser": "/assets/images/arduino-imu.JPG"

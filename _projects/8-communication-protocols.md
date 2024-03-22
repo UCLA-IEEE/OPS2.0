@@ -11,11 +11,15 @@ header:
   <img src="/assets/images/hc05.png" width="350" />
 </p>
 
+### [Lecture Slides](https://docs.google.com/presentation/d/1Hx92z0IFBu7FJa-6c4WXQ8rNo_Dd67tDiw4CUK8-so0/edit?usp=share_link)
+
 ## About this Project
 
 In this project, you will get to design your very own video game console. Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it! This project is fairly complex, we highly encourage you to start early and ask questions when you need help.
 
-### [Lecture Slides](https://docs.google.com/presentation/d/1Hx92z0IFBu7FJa-6c4WXQ8rNo_Dd67tDiw4CUK8-so0/edit?usp=share_link)
+### <ins>Prerequisites</ins>
+
+- [7: Serial Communication](/projects/7-serial-communication)
 
 ## Parts List
 

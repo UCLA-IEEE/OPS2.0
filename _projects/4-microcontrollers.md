@@ -19,7 +19,7 @@ In this project, you will be working with microcontrollers which is just a fancy
 
 ### <ins>Prerequisites</ins>
 
-- [Turning on an LED](/turn-on-led)
+- [1: Back to the Basics](/projects/1-back-to-the-basics)
 
 ### <ins>Skills Learned</ins>
 

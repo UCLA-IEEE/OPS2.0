@@ -24,7 +24,7 @@ To do this, you will design your own PCB, and implement a PID controller in soft
 
 ### <ins>Prerequisites</ins>
 
-- [7: Serial Communication](./7-serial-communication)
+- [7: Serial Communication](/projects/7-serial-communication)
 
 ### <ins>Skills Learned</ins>
 

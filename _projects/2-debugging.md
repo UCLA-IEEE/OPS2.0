@@ -19,7 +19,7 @@ You will need to come into the lab personally to debug 2 soldered circuits and 1
 
 ### <ins>Prerequisites</ins>
 
-- [Turning on an LED](/turn-on-led)
+- [1: Back to the Basics](/projects/1-back-to-the-basics)
 
 ## Helpful Tips
 

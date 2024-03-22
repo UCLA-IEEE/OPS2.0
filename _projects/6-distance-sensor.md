@@ -19,7 +19,7 @@ In this project, you will be making a distance sensor using a phototransistor (I
 
 ### <ins>Prerequisites</ins>
 
-- [Intro to Arduino: Potentiometer Blink](/potentiometer-blink)
+- [4: Microcontrollers](/projects/4-microcontrollers)
 
 ### <ins>Skills Learned</ins>
 

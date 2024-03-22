@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-22T06:58:26+09:00">
+  <meta property="article:published_time" content="2024-03-22T15:19:34+09:00">
 
 
 
@@ -168,7 +168,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="7: Serial Communication">
     <meta itemprop="description" content="Implement a 2-Arduino game called Red Light, Green Light!">
-    <meta itemprop="datePublished" content="2024-03-22T06:58:26+09:00">
+    <meta itemprop="datePublished" content="2024-03-22T15:19:34+09:00">
     
 
     <div class="page__inner-wrap">
@@ -190,7 +190,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          11 minute read
+          10 minute read
         
       </span>
     
@@ -205,7 +205,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#reference-material">Reference Material</a></li><li><a href="#checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</a></li><li><a href="#checkpoint-2-wiring-up-hardware">Checkpoint 2: Wiring Up Hardware</a></li><li><a href="#checkpoint-3-implementing-the-game-red-light-green-light">Checkpoint 3: Implementing the game Red Light, Green Light</a></li><li><a href="#game-requirements">Game Requirements</a></li><li><a href="#bonus-pizzazz">Bonus Pizzazz</a></li></ul></li><li><a href="#appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</a><ul><li><a href="#generating-a-random-number">Generating a random number</a></li><li><a href="#timing">Timing</a></li><li><a href="#help-my-button-is-registering-multiple-button-presses">Help! My button is registering multiple button presses.</a></li><li><a href="#how-do-i-begin-the-implementing-the-red-light-green-light-game">How do I begin the implementing the Red Light, Green Light game?</a></li></ul></li><li><a href="#check-off-questions">Check off Questions</a></li></ul>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#reference-material">Reference Material</a></li></ul></li><li><a href="#checkpoint-1-getting-uart-working">Checkpoint 1: Getting UART Working</a></li><li><a href="#checkpoint-2-wiring-up-hardware">Checkpoint 2: Wiring Up Hardware</a><ul><li><a href="#game-requirements">Game Requirements</a></li><li><a href="#project-completion">Project Completion</a></li><li><a href="#bonus-content">Bonus Content</a></li><li><a href="#helpful-tips">Helpful Tips</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -223,8 +223,8 @@
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
 <ul>
-  <li><a href="./4-microcontrollers">4: Microcontrollers</a></li>
-  <li><a href="./5-digital-analog-pwm">5: Digital, Analog, and PWM</a></li>
+  <li><a href="/projects/4-microcontrollers">4: Microcontrollers</a></li>
+  <li><a href="/projects/5-digital-analog-pwm">5: Digital, Analog, and PWM</a></li>
 </ul>
 
 <h3 id="skills-learned"><ins>Skills Learned</ins></h3>
@@ -351,7 +351,7 @@
   <li><a href="https://components101.com/wireless/hc-05-bluetooth-module">HC05 Connection Tutorial</a></li>
 </ol>
 
-<h3 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</h3>
+<h2 id="checkpoint-1-getting-uart-working">Checkpoint 1: Getting UART Working</h2>
 
 <p>This is a group project! Team up with a partner!</p>
 
@@ -515,174 +515,126 @@
   </li>
 </ol>
 
-<h3 id="checkpoint-2-wiring-up-hardware"><ins>Checkpoint 2: Wiring Up Hardware</ins></h3>
+<h2 id="checkpoint-2-wiring-up-hardware">Checkpoint 2: Wiring Up Hardware</h2>
 
-<p><strong>Arduino Device 1: Creating the green and red lights:</strong>
-You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
+<p><strong>Creating the green and red lights:</strong> You will need to hook up 2 different output LEDs to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
 
-<p><strong>Arduino Device 2: Pressing on the gas or break using buttons</strong>
-Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino.</p>
+<p><strong>Points reset:</strong> Your RC-carduino will have 1 push button input that represents the points reset. If the button is pressed the number of points should return to their default state of zero.</p>
 
-<blockquote>
-  <p><strong><ins>NOTE: Button Debouncing.</ins></strong>
-When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
-</blockquote>
+<p>NOTE: Button Debouncing.</p>
 
-<p align="center">
-<img width="350" height="350" src="/assets/images/button_config.png" />
-</p>
+<p>When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered.</p>
+
+<p id="gdcalert1"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image1.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
+
+<p id="gdcalert2"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image2.png" alt="alt_text" title="image_tooltip" /></p>
 
 <p>Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).</p>
 
-<blockquote>
-  <p><strong><ins>NOTE:</ins></strong> This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
-</blockquote>
+<p>NOTE: This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
 
 <ol>
-  <li>Draw the full schematic (on paper). After you get checked off, continue onto..</li>
-  <li>Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.</li>
+  <li>
+    <p>Draw the full schematic (on paper). After you get checked off, continue onto..</p>
+  </li>
+  <li>
+    <p>Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.</p>
+  </li>
 </ol>
 
-<h3 id="checkpoint-3-implementing-the-game-red-light-green-light"><ins>Checkpoint 3: Implementing the game Red Light, Green Light</ins></h3>
+<p><strong>Buzzer Scoreboard:</strong> Wire a buzzer to a PWM pin on your MCU. When we add a current limiting resistor in series to this buzzer the sound outputted by the speaker should decrease, as the power delivered to the buzzer decreases. We know buzzers can get annoying at times, so because of this you must implement a series potentiometer into your circuit to variably alter the output volume of your speaker.</p>
 
-<p>The final objective of this lab is to write a complete implementation of the Red Light Green Light game. The expectations for this game are as follows:</p>
+<p id="gdcalert3"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
 
-<h3 id="game-requirements"><ins>Game Requirements</ins></h3>
+<p><img src="images/image3.png" alt="alt_text" title="image_tooltip" /></p>
 
-<ul>
-  <li>Two differently colored LEDs (Stoplight side; the game controller)</li>
-  <li>One white LED (Carduino side; the player)</li>
-  <li>The Stoplights (Game Controller) flashes one of the LEDs; the color chosen should be as random as possible (check the Appendix for help on this);</li>
-  <li>On the Carduino (Player Module), the player should press the button that matches the LED the Controller flashed (i.e. Gas for Green Light, Brake for Red Light)</li>
-  <li>The Stoplight (Game Controller) should wait until a button is pressed on the Carduino (Player Module). The player must press the correct button.</li>
-  <li>If the player presses the correct button, the white LED must blink and a point must be added to the player’s score. A new round must begin.</li>
-  <li>Should the player lose (by pressing the incorrect button), the white LED on the Car (Player Module) should turn on for 5 seconds, then start a new game (remember to reset score).</li>
-  <li>The serial monitor should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.</li>
-</ul>
-
-<blockquote>
-  <p><strong><ins>NOTE:</ins></strong> In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.</p>
-</blockquote>
-
-<p><strong><ins>Project Completion:</ins></strong> Implement the Red Light, Green Light game, adhering to the above requirements.</p>
-
-<h3 id="bonus-pizzazz"><ins>Bonus Pizzazz</ins></h3>
-
-<p>This part of the project, while strongly encouraged, is <em>optional</em>. If you have more pressing work to complete, you’re done! Feel free to skip this part.</p>
-
-<p>This is your chance to show us your game design skills by implementing whatever game elements you’d like in order to improve the Red Light, Green Light game. Here are a few ideas for features that can be implemented:</p>
+<h3 id="game-requirements">Game Requirements</h3>
 
 <ul>
-  <li>4 second time limit to successfully press the correct button</li>
-  <li>Scaling difficulty by gradually decreasing the time limit after successfully completing a round</li>
-  <li>Play a short jingle through your speaker upon success/failure of a round</li>
-  <li>Implement turn signals and a potentiometer steering wheel. Ex: if a right turn signal is displayed, turn your potentiometer steering wheel all the way to the right, and press gas.</li>
-  <li>Be creative!</li>
+  <li>Two different colored LEDs (used for stoplight)</li>
+  <li>One white LED (used for points identification on RC-carduino side)</li>
+  <li>The Stoplights flashes one of the LEDs; the color chosen should be as random as possible (check the reference materials above for more information);</li>
+  <li>On Processing IDE (Player Module), the player should press the button that matches the LED the Controller flashed (i.e. Gas for Green Light, Brake for Red Light)</li>
+  <li>The Stoplight should wait until a button is pressed in Processing (Player Module). The player must press the correct button.</li>
+  <li>If the player presses the correct button, the white LED must blink the number of points allotted and a point must be added to the player’s score. The buzzer scoreboard should play a high pitched tune briefly. A new round must begin.</li>
+  <li>Should the player lose (by pressing the incorrect button), the red LED should turn on for 5 seconds, the buzzer scoreboard must play a low tone for the duration of those 5 seconds then start a new game (remember to reset score).</li>
+  <li>Processing IDE should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.</li>
 </ul>
 
-<h2 id="appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</h2>
+<h3 id="project-completion">Project Completion</h3>
 
-<h3 id="generating-a-random-number"><ins>Generating a random number</ins></h3>
+<p>Implement the Red Light, Green Light game, adhering to the above requirements</p>
 
-<p>In setup(): randomSeed(analogRead(0));
-To get a random number: randNum = random(300); // random number from 0 to 299</p>
+<h3 id="bonus-content">Bonus Content</h3>
 
-<p>This will allow you to get a truly random number sequence because we are randomizing the seed of the random number generator. The seed being used is the reading of an analog pin that is not currently being used, which is essentially just constantly fluctuating noise.</p>
+<p>Want to implement your own iteration of this game? Don’t be shy! Use any materials you have at home to add to the game functionality! Or, if you don’t want to alter hardware, don’t be afraid to change up the Processing UI for your RC control interface.</p>
 
-<h3 id="timing"><ins>Timing</ins></h3>
+<h3 id="helpful-tips">Helpful Tips</h3>
 
-<p>millis(): returns the number of milliseconds that passed since program started</p>
-
-<h3 id="help-my-button-is-registering-multiple-button-presses"><ins>Help! My button is registering multiple button presses.</ins></h3>
-
-<p>It is important to note that if you hold down the button for too long (i.e. for multiple iterations of the loop() code), then it will read HIGH for every iteration of the loop. Thus, when checking if a button has been pressed, it is not ideal to simply check of the pin is HIGH; you should only register a button press if the pin has changed from previously being LOW to now being HIGH. Try implementing software debouncing!</p>
-
-<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game"><ins>How do I begin the implementing the Red Light, Green Light game?</ins></h3>
-
-<p>Don’t jump right into programming the game. Rather, think about the general structure of the game first and write some pseudocode to nail down the logical flow of the program. Then, begin implementing sections of the program in discrete blocks based on your pseudocode.</p>
-
-<h2 id="check-off-questions">Check off Questions</h2>
+<p>Connecting HC-05 to macOS</p>
 
 <ol>
-  <li>What are some advantages of parallel over serial, and why do we use serial?</li>
+  <li>Turn bluetooth on, then go to bluetooth settings by spotlight searching ‘bluetooth’</li>
+  <li>Once the HC-05 is powered, you should see it on the list of available devices
+    <ol>
+      <li>Common names are ‘HC-05’ &amp; ‘General’</li>
+    </ol>
+  </li>
 </ol>
 
-<ul>
-  <li>Parallel can send more data at a time than serial</li>
-  <li>Parallel takes up more space and is more complex with more wires added so we opt to use high speed serial.</li>
-</ul>
+<p id="gdcalert4"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image4.png" alt="alt_text" title="image_tooltip" /></p>
 
 <ol>
-  <li>What is baud rate? What does Serial.begin(9600) mean?</li>
+  <li>Click ‘connect’, then ‘Options’ to enter the passcode, which is 1234 by default. (If 1234 doesn’t work, try 0000)</li>
 </ol>
 
-<ul>
-  <li>Rate at which information is transferred in a communication channel. It means a serial port is capable of sending a max of 9600 bits per second.</li>
-</ul>
+<p id="gdcalert5"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image5.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert6"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image6.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p id="gdcalert7"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+
+<p><img src="images/image7.png" alt="alt_text" title="image_tooltip" /></p>
+
+<p>Now you should be connected to the chip, the red LED on your HC-05 should be blinking. (If not, see <a href="https://docs.google.com/document/d/1ncoJFaq7yTiuA7EJlKSRkx3F_6DGJ4xsIjtOcOVwxmE/edit#heading=h.seupp3qyd6v5">Troubleshooting/HC-05 Not Blinking</a>)</p>
+
+<p>Now we’ll locate where the bluetooth port is (you’ll need it later)</p>
 
 <ol>
-  <li>What will happen if the baud rate is not the same for both Arduinos?</li>
+  <li>Open up Terminal.</li>
+  <li>Type in the command <code class="language-plaintext highlighter-rouge">ls /dev/tty* | grep HC</code> and press enter to locate your bluetooth port. Note it down for future reference.</li>
 </ol>
 
-<ul>
-  <li>You might read gibberish values.</li>
-</ul>
+<p>If this outputs nothing, check that your HC-05 is powered on and blinking.</p>
+
+<p>Now you’re good to go!</p>
+
+<p>Connecting HC-05 to Windows</p>
 
 <ol>
-  <li>Why is a pull-down resistor needed?</li>
+  <li>Navigate to Bluetooth Settings on your PC, go to ‘Add Device’ and add the HC-05 Module</li>
+  <li>If it asks for a password use ‘1234’ as this is the default password for the module</li>
+  <li>After it is connected, open up Device Manager on your PC. You can type in ‘Device Manager’ on the Windows Taskbar Search to find it.</li>
+  <li>Once here, click on Ports and you should see the HC-05 listed as ‘Standard Serial over Bluetooth Link (COMx)’</li>
 </ol>
 
-<ul>
-  <li>This ensures that when the button is not pressed, that a specific state is read by the MCU</li>
-</ul>
+<p id="gdcalert8"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
 
-<ol>
-  <li>Why do we use a debouncing circuit?</li>
-</ol>
+<p><img src="images/image8.png" alt="alt_text" title="image_tooltip" /></p>
 
-<ul>
-  <li>To make sure multiple button presses are not registered; to make sure the button is correctly registered as pressed when you press it</li>
-</ul>
-
-<ol>
-  <li>What voltage would a pull up resistor be connected to and what is the other end of the resistor connected to.</li>
-</ol>
-
-<ul>
-  <li>5V and MCU pin</li>
-</ul>
-
-<ol>
-  <li>What is the voltage the pull down resistor is connected to and what is the other end of the resistor connected to.</li>
-</ol>
-
-<ul>
-  <li>GND and MCU pin</li>
-</ul>
-
-<ol>
-  <li>Why does the MCU pin still read V even if there is a resistor?</li>
-</ol>
-
-<ul>
-  <li>The resistor value is so small compared to the input impedance of the Nano so there would essentially be no voltage drop.</li>
-</ul>
-
-<ol>
-  <li>Why can’t we just connect 5V directly to the MCU and the button connected to the MCU and GND?</li>
-</ol>
-
-<ul>
-  <li>You will short 5V and GND if you press the button :(</li>
-</ul>
-
-<ol>
-  <li>For a time constant of 1 ms, we had you use a 10k ohm resistor and a 100 nF capacitor. Why can’t we just use a 1 ohm resistor and a 1 mF capacitor instead if RC is the same?</li>
-</ol>
-
-<ul>
-  <li>Using Ohm’s law, if we are supplying a fixed voltage Vin and lower the resistance from 10k ohms to 1 ohm, we are pulling a ton more current from the Arduino, far more than the 40 mA limit. The Arduino will fry.</li>
-</ul>
+<p>There may be two ports listed, but only one will work with Processing. We will test later which one, but make note of both of the COM numbers listed. Additionally, if you have anything else connected to your computer, such as your Arduino, you may see it under Ports, this is okay!</p>
 
         
       </section>
@@ -694,7 +646,7 @@ To get a random number: randNum = random(300); // random number from 0 to 299</p
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-22T06:58:26+09:00">March 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-22T15:19:34+09:00">March 22, 2024</time></p>
 
 
       </footer>
