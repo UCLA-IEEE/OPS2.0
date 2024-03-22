@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-03-22T15:19:34+09:00">
+  <meta property="article:published_time" content="2024-03-22T15:34:03+09:00">
 
 
 
@@ -168,7 +168,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="7: Serial Communication">
     <meta itemprop="description" content="Implement a 2-Arduino game called Red Light, Green Light!">
-    <meta itemprop="datePublished" content="2024-03-22T15:19:34+09:00">
+    <meta itemprop="datePublished" content="2024-03-22T15:34:03+09:00">
     
 
     <div class="page__inner-wrap">
@@ -190,7 +190,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          10 minute read
+          9 minute read
         
       </span>
     
@@ -205,7 +205,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#reference-material">Reference Material</a></li></ul></li><li><a href="#checkpoint-1-getting-uart-working">Checkpoint 1: Getting UART Working</a></li><li><a href="#checkpoint-2-wiring-up-hardware">Checkpoint 2: Wiring Up Hardware</a><ul><li><a href="#game-requirements">Game Requirements</a></li><li><a href="#project-completion">Project Completion</a></li><li><a href="#bonus-content">Bonus Content</a></li><li><a href="#helpful-tips">Helpful Tips</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#reference-material">Reference Material</a></li></ul></li><li><a href="#checkpoint-1-getting-uart-working">Checkpoint 1: Getting UART Working</a></li><li><a href="#checkpoint-2-wiring-up-hardware">Checkpoint 2: Wiring Up Hardware</a><ul><li><a href="#game-requirements">Game Requirements</a></li><li><a href="#project-completion">Project Completion</a></li><li><a href="#bonus-content">Bonus Content</a></li><li><a href="#helpful-tips">Helpful Tips</a><ul><li><a href="#connecting-hc-05-to-macos">Connecting HC-05 to macOS</a></li><li><a href="#connecting-hc-05-to-windows">Connecting HC-05 to Windows</a></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -525,15 +525,11 @@
 
 <p>When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered.</p>
 
-<p id="gdcalert1"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image1.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/button_bouncing.png" alt="Button bouncing" /></p>
 
 <p>One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
 
-<p id="gdcalert2"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image2.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/capacitor_debouncing.png" alt="Capacitor debouncing" /></p>
 
 <p>Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).</p>
 
@@ -550,9 +546,7 @@
 
 <p><strong>Buzzer Scoreboard:</strong> Wire a buzzer to a PWM pin on your MCU. When we add a current limiting resistor in series to this buzzer the sound outputted by the speaker should decrease, as the power delivered to the buzzer decreases. We know buzzers can get annoying at times, so because of this you must implement a series potentiometer into your circuit to variably alter the output volume of your speaker.</p>
 
-<p id="gdcalert3"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image3.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/series_potentiometer.png" alt="Series potentiometer" /></p>
 
 <h3 id="game-requirements">Game Requirements</h3>
 
@@ -577,7 +571,7 @@
 
 <h3 id="helpful-tips">Helpful Tips</h3>
 
-<p>Connecting HC-05 to macOS</p>
+<h4 id="connecting-hc-05-to-macos">Connecting HC-05 to macOS</h4>
 
 <ol>
   <li>Turn bluetooth on, then go to bluetooth settings by spotlight searching ‘bluetooth’</li>
@@ -588,25 +582,17 @@
   </li>
 </ol>
 
-<p id="gdcalert4"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image4.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/hc05_bluetooth_devices_list.png" alt="HC-05 on list of Bluetooth devices" /></p>
 
 <ol>
   <li>Click ‘connect’, then ‘Options’ to enter the passcode, which is 1234 by default. (If 1234 doesn’t work, try 0000)</li>
 </ol>
 
-<p id="gdcalert5"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
+<p><img src="/assets/images/hc05_bluetooth_connect_options_buttons.png" alt="Connect and options buttons for HC-05 Bluetooth" /></p>
 
-<p><img src="images/image5.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/hc05_1234_password.png" alt="Inputting default HC-05 password of 1234" /></p>
 
-<p id="gdcalert6"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image6.png" alt="alt_text" title="image_tooltip" /></p>
-
-<p id="gdcalert7"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image7.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/hc05_connected_bluetooth_status.png" alt="HC-05 connected Bluetooth status" /></p>
 
 <p>Now you should be connected to the chip, the red LED on your HC-05 should be blinking. (If not, see <a href="https://docs.google.com/document/d/1ncoJFaq7yTiuA7EJlKSRkx3F_6DGJ4xsIjtOcOVwxmE/edit#heading=h.seupp3qyd6v5">Troubleshooting/HC-05 Not Blinking</a>)</p>
 
@@ -621,7 +607,7 @@
 
 <p>Now you’re good to go!</p>
 
-<p>Connecting HC-05 to Windows</p>
+<h4 id="connecting-hc-05-to-windows">Connecting HC-05 to Windows</h4>
 
 <ol>
   <li>Navigate to Bluetooth Settings on your PC, go to ‘Add Device’ and add the HC-05 Module</li>
@@ -630,9 +616,7 @@
   <li>Once here, click on Ports and you should see the HC-05 listed as ‘Standard Serial over Bluetooth Link (COMx)’</li>
 </ol>
 
-<p id="gdcalert8"><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt;  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br />(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br /><span style="color: red; font-weight: bold">&gt;&gt;&gt;&gt;&gt; </span></p>
-
-<p><img src="images/image8.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="/assets/images/windows_device_manager.png" alt="Windows Device Manager with Standard Serial over Bluetooth link circled" /></p>
 
 <p>There may be two ports listed, but only one will work with Processing. We will test later which one, but make note of both of the COM numbers listed. Additionally, if you have anything else connected to your computer, such as your Arduino, you may see it under Ports, this is okay!</p>
 
@@ -646,7 +630,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-22T15:19:34+09:00">March 22, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-22T15:34:03+09:00">March 22, 2024</time></p>
 
 
       </footer>

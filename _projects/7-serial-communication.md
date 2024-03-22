@@ -77,7 +77,7 @@ This is a group project! Team up with a partner!
 
 2. **Write two sketches, one for the Arduino, and one for Processing**:
 
-   2. The Arduino sketch should accomplish the following:
+   1. The Arduino sketch should accomplish the following:
 
       1. Check for the hardware button press, if it was pressed then set the point value to zero.
 
@@ -131,7 +131,7 @@ This is a group project! Team up with a partner!
 
          9. Use `Serial.println()`
 
-   3. The Processing Sketch should accomplish the following:
+   2. The Processing Sketch should accomplish the following:
 
       7. Have two digital buttons
 
@@ -159,15 +159,11 @@ NOTE: Button Debouncing.
 
 When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered.
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image1.png "image_tooltip")
+![Button bouncing](/assets/images/button_bouncing.png)
 
 One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image2.png "image_tooltip")
+![Capacitor debouncing](/assets/images/capacitor_debouncing.png)
 
 Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance \* capacitance).
 
@@ -179,9 +175,7 @@ NOTE: This debouncing circuit also includes a pull-down resistor, so that Vout i
 
 **Buzzer Scoreboard:** Wire a buzzer to a PWM pin on your MCU. When we add a current limiting resistor in series to this buzzer the sound outputted by the speaker should decrease, as the power delivered to the buzzer decreases. We know buzzers can get annoying at times, so because of this you must implement a series potentiometer into your circuit to variably alter the output volume of your speaker.
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image3.png "image_tooltip")
+![Series potentiometer](/assets/images/series_potentiometer.png)
 
 ### Game Requirements
 
@@ -204,29 +198,21 @@ Want to implement your own iteration of this game? Don’t be shy! Use any mater
 
 ### Helpful Tips
 
-Connecting HC-05 to macOS
+#### Connecting HC-05 to macOS
 
 1. Turn bluetooth on, then go to bluetooth settings by spotlight searching ‘bluetooth’
 2. Once the HC-05 is powered, you should see it on the list of available devices
    1. Common names are ‘HC-05’ & ‘General’
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image4.png "image_tooltip")
+![HC-05 on list of Bluetooth devices](/assets/images/hc05_bluetooth_devices_list.png)
 
 3. Click ‘connect’, then ‘Options’ to enter the passcode, which is 1234 by default. (If 1234 doesn’t work, try 0000)
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![Connect and options buttons for HC-05 Bluetooth](/assets/images/hc05_bluetooth_connect_options_buttons.png)
 
-![alt_text](images/image5.png "image_tooltip")
+![Inputting default HC-05 password of 1234](/assets/images/hc05_1234_password.png)
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image6.png "image_tooltip")
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image7.png "image_tooltip")
+![HC-05 connected Bluetooth status](/assets/images/hc05_connected_bluetooth_status.png)
 
 Now you should be connected to the chip, the red LED on your HC-05 should be blinking. (If not, see [Troubleshooting/HC-05 Not Blinking](https://docs.google.com/document/d/1ncoJFaq7yTiuA7EJlKSRkx3F_6DGJ4xsIjtOcOVwxmE/edit#heading=h.seupp3qyd6v5))
 
@@ -239,15 +225,13 @@ If this outputs nothing, check that your HC-05 is powered on and blinking.
 
 Now you’re good to go!
 
-Connecting HC-05 to Windows
+#### Connecting HC-05 to Windows
 
 1. Navigate to Bluetooth Settings on your PC, go to ‘Add Device’ and add the HC-05 Module
 2. If it asks for a password use ‘1234’ as this is the default password for the module
 3. After it is connected, open up Device Manager on your PC. You can type in ‘Device Manager’ on the Windows Taskbar Search to find it.
 4. Once here, click on Ports and you should see the HC-05 listed as ‘Standard Serial over Bluetooth Link (COMx)’
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image8.png "image_tooltip")
+![Windows Device Manager with Standard Serial over Bluetooth link circled](/assets/images/windows_device_manager.png)
 
 There may be two ports listed, but only one will work with Processing. We will test later which one, but make note of both of the COM numbers listed. Additionally, if you have anything else connected to your computer, such as your Arduino, you may see it under Ports, this is okay!
