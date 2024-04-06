@@ -4,7 +4,7 @@ excerpt: "Using a joystick, OLED display, and a whole lot of code you will get t
 toc: true
 order: 8
 header:
-  teaser: /assets/images/arduino-imu.JPG
+  teaser: /assets/images/hc05.png
 ---
 
 <p align="center">
@@ -189,11 +189,11 @@ Now that we have our Joystick working, let’s make sure that our OLED Display w
 
 2. Next, search for Adafruit GFX and click install.
 
-![Arduino IDE Library Manager Adafruit GFX](/assets/images/adafruit_gfx_libray.png)
+![Arduino IDE Library Manager Adafruit GFX](/assets/images/adafruit_gfx_library.png)
 
 3. Next, search for Adafruit SSD1306 and click install.
 
-![Arduino IDE Library Manager Adafruit SSD1306](images/adafruit_SSD1306_library.png)
+![Arduino IDE Library Manager Adafruit SSD1306](/assets/images/adafruit_SSD1306_library.png)
 
 4. Next, go to Files>Examples>AdafruitSSD1306>ssd1306_128x64_i2c. This should open up the example code sketch.
 

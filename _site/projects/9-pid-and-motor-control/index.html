@@ -30,13 +30,13 @@
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/rodent.png">
+  <meta property="og:image" content="http://localhost:4000/assets/images/car-top.png">
 
 
 
 
 
-  <meta property="article:published_time" content="2024-03-30T21:39:25+08:00">
+  <meta property="article:published_time" content="2024-04-06T22:58:23+08:00">
 
 
 
@@ -168,7 +168,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="9: PID and Motor Control">
     <meta itemprop="description" content="Use the skills you have learned to make a path-following rodent or an RC car!">
-    <meta itemprop="datePublished" content="2024-03-30T21:39:25+08:00">
+    <meta itemprop="datePublished" content="2024-04-06T22:58:23+08:00">
     
 
     <div class="page__inner-wrap">
@@ -205,16 +205,14 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li><li><a href="#section-one--being-a-mechanical-engineer">Section one – being a mechanical engineer:</a><ul><li><a href="#powering-your-car">Powering your car:</a></li><li><a href="#motors">Motors?:</a></li><li><a href="#tips">TIps:</a></li><li><a href="#test-the-motors">Test the motors(?):</a></li><li><a href="#what-makes-a-car">What makes a car?:</a></li><li><a href="#sensors">Sensors:</a></li><li><a href="#a-note-about-ir-pairs">A note about (ir) pairs:</a></li></ul></li><li><a href="#section-two--pid-control">Section two – pid control:</a><ul><li><a href="#hand-following">Hand-following:</a></li><li><a href="#wallobject-following">Wall/Object-following:</a></li><li><a href="#section-three--pid">Section three – P(I)D:</a></li><li><a href="#help">HELP:</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#section-1-being-a-mechanical-engineer">Section 1: Being a Mechanical Engineer</a><ul><li><a href="#powering-your-car">Powering Your Car</a></li><li><a href="#motors">Motors</a></li><li><a href="#tips">Tips</a></li><li><a href="#test-the-motors">Test the Motors</a></li><li><a href="#what-makes-a-car">What Makes a Car?</a></li><li><a href="#sensors">Sensors</a></li></ul></li><li><a href="#section-2-pid-control">Section 2: PID Control</a><ul><li><a href="#hand-following">Hand-Following</a></li><li><a href="#wallobject-following">Wall/Object-Following</a></li></ul></li><li><a href="#section-3-pid">Section 3: P(I)D</a></li><li><a href="#hints">Hints</a></li><li><a href="#a-note-on-ir-pairs">A Note on IR Pairs</a></li><li><a href="#faq">FAQ</a></li></ul>
 
             </nav>
           </aside>
         
         <p align="center">
-  <img width="350" height="350" src="/assets/images/rodent.png" />
+  <img width="350" height="350" src="/assets/images/car-top.png" />
 </p>
-
-<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1W4UM11_Ese79w0ubf2wJxvVhHIXQI-shScTuxbey3PU/edit?usp=share_link">Lecture Slides</a></h3>
 
 <h2 id="about-this-project">About this Project</h2>
 
@@ -226,6 +224,8 @@
 </ol>
 
 <p>To do this, you will design your own PCB, and implement a PID controller in software. This project will be more challenging than the previous ones, but the design constraints are more open ended, allowing you to make some design decisions yourself.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1W4UM11_Ese79w0ubf2wJxvVhHIXQI-shScTuxbey3PU/edit?usp=share_link">Lecture Slides</a></h3>
 
 <h3 id="prerequisites"><ins>Prerequisites</ins></h3>
 
@@ -278,15 +278,13 @@
 
 <p><strong><ins>Total estimated cost assuming part reuse:</ins></strong> $23.05 per team of 2</p>
 
-<h2 id="project-specification-part-1-pcb-design">Project Specification Part 1 (PCB design)</h2>
+<h2 id="section-1-being-a-mechanical-engineer">Section 1: Being a Mechanical Engineer</h2>
 
-<h3 id="section-one--being-a-mechanical-engineer">Section one – being a mechanical engineer:</h3>
+<h3 id="powering-your-car">Powering Your Car</h3>
 
-<h4 id="powering-your-car">Powering your car:</h4>
+<p>Because our final goal is to have a car following some object, we want it to be powered wirelessly through 9V batteries instead of through our computer’s USB port. While we test our vehicle however, the motors require a large amount of power, which would mean we’d need to go through a lot of 9V batteries (not very cost effective). For that reason, when testing and implementing the motors, power the car through your computer. The motors will not go very fast; however, that’s fine for now. When you’re trying to implement later functionalities of the car, you can use the 9V batteries. In the end, your car must be battery powered.</p>
 
-<p>Because our final goal is to have a car following some object, we want it to be powered wirelessly through 9V batteries instead of through our computer’s USB port. While we test our vehicle however, the motors require a large amount of power, which would mean we’d need to go through a lot of 9V batteries (not very cost effective). For that reason, when testing and implementing the motors, power the car through your computer. The motors will not go very fast; however, that’s fine for now. When you’re trying to implement later functionalities of the car, you can use the 9V batteries. We have a lot of batteries, so just ask an officer and they’ll grab it for you! In the end, your car must be battery powered.</p>
-
-<h4 id="motors">Motors?:</h4>
+<h3 id="motors">Motors</h3>
 
 <p>We will be using the L293D IC to control our motors. The nice thing about the L293D chip is that it has 2 H-bridges, a fantastic circuit to drive motors!</p>
 
@@ -307,33 +305,66 @@
       <li>4, 5, 12, 13 are ground pins</li>
     </ul>
   </li>
-  <li>Direction Inputs
+  <li>
+    <p>Direction Inputs</p>
+
     <ul>
       <li>pins: 2, 7, 10, 15</li>
       <li>IN1, IN2 controls one motor( ie: left motor) IN3, IN4 controls the other (ie. right motor)</li>
       <li>connect to any digital pins on the Nano</li>
-      <li>Directional Logic:</li>
+      <li>
+        <p>Directional Logic:</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>EN</th>
+              <th>IN1 (IN3)</th>
+              <th>IN2 (IN4)</th>
+              <th>Direction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HIGH</td>
+              <td>LOW</td>
+              <td>LOW</td>
+              <td>STOP</td>
+            </tr>
+            <tr>
+              <td>HIGH</td>
+              <td>HIGH</td>
+              <td>HIGH</td>
+              <td>STOP</td>
+            </tr>
+            <tr>
+              <td>HIGH</td>
+              <td>HIGH</td>
+              <td>LOW</td>
+              <td>FORWARD*</td>
+            </tr>
+            <tr>
+              <td>HIGH</td>
+              <td>LOW</td>
+              <td>HIGH</td>
+              <td>BACKWARD*</td>
+            </tr>
+            <tr>
+              <td>LOW</td>
+              <td>x</td>
+              <td>x</td>
+              <td>COAST**</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul>
+          <li>* these depend on how you set up your circuit and you will need to adjust this</li>
+          <li>** setting the EN pin to LOW will let the motor coast to stop, regardless of input at IN1, IN2</li>
+        </ul>
+      </li>
     </ul>
   </li>
-</ul>
-
-<p>EN IN1 (IN3) IN2 (IN4) Direction</p>
-
-<p>HIGH LOW LOW STOP</p>
-
-<p>HIGH HIGH HIGH STOP</p>
-
-<p>HIGH HIGH LOW FORWARD*</p>
-
-<p>HIGH LOW HIGH BACKWARD*</p>
-
-<p>LOW x x COAST**</p>
-
-<p>*these depend on how you set up your circuit and you will need to adjust this</p>
-
-<p>** setting the EN pin to LOW will let the motor coast to stop, regardless of input at IN1, IN2</p>
-
-<ul>
   <li>Speed Input
     <ul>
       <li>pins: 1, 9</li>
@@ -349,14 +380,14 @@
   </li>
 </ul>
 
-<h4 id="tips">TIps:</h4>
+<h3 id="tips">Tips</h3>
 
 <ul>
   <li>L293D has a notch/dot to mark the top of it. Use that to orient your board</li>
   <li>Your l293D should go over the middle gap of the breadboard. You don’t want to short circuit your board!</li>
 </ul>
 
-<h4 id="test-the-motors">Test the motors(?):</h4>
+<h3 id="test-the-motors">Test the Motors</h3>
 
 <p>Don’t forget to pick up a 9V battery connector. It should look like this:</p>
 
@@ -380,7 +411,7 @@
 
 <p><a href="https://drive.google.com/file/d/1i75YFNp6Cj2JeNCry7nsxZMNva0I8oYx/view?usp=sharing">Here is some code to test your motors on different speeds</a>. Notice that we are using PWM signals to generate varying motors speeds! Every motor is slightly different, so make sure to note at what PWM signal your motor starts to turn. This marks the threshold with which your car will/won’t move.</p>
 
-<h4 id="what-makes-a-car">What makes a car?:</h4>
+<h3 id="what-makes-a-car">What Makes a Car?</h3>
 
 <p>It’s important to plan out your wiring before building your car to ensure that everything fits on it. We recommend color coding as much as you can as well as this will help a lot with debugging! Try to build your car one function at a time. (ie: make sure motors work, then your sensors, etc)</p>
 
@@ -421,33 +452,21 @@
   </tr>
 </table>
 
-<h4 id="sensors">Sensors:</h4>
+<h3 id="sensors">Sensors</h3>
 
 <p>Regardless of which type of car you choose to implement, you will be using the IR Sensors.</p>
 
-<h4 id="a-note-about-ir-pairs">A note about (ir) pairs:</h4>
+<h2 id="section-2-pid-control">Section 2: PID Control</h2>
 
-<p>We will be using the same IR sensor pairs from our distance sensor project for this project. Please note, if you are running into issues with the emitter for any reason, you can actually use a Red LED in replacement because our receivers respond to light in the infrared range.</p>
-
-<p>Again, if you run into issues with your emitter, just replace it with a Red LED and use the same build as you did in the previous project.</p>
-
-<p>Additionally, you should recall the purpose of what you are using the IR pair for in this project when implementing it; you are not changing the brightness of an LED, you are sensing a distance. It will be difficult to implement PID with the pair since the LED and receiver have a limited spectral overlap, so in most cases detecting a threshold analogRead() value from the receiver will be the extent of its use.</p>
-
-<p><img src="/assets/images/ir_pair.png" alt="IR pair" /></p>
-
-<p>In the above circuit the red LED and IR receiver form an IR pair. As the board moves along a wall the IR reading hovers around some value; as the board approaches a corner the pair will approach a wall. As they approach a wall, red light will be reflected back to the receiver and the analog reading will decrease. Once the reading is below a certain threshold (which you can discover experimentally) the board is now too close to the corner and will turn on the blue LED to indicate that it will hit the wall or maybe execute a set of commands that cause it to rotate 90 degrees (hint hint).</p>
-
-<h3 id="section-two--pid-control">Section two – pid control:</h3>
-
-<p>No matter which mode you choose to implement, the idea of feedback control is the same. You want to use the sensor readings to adjust your output to the motors. This part of the spec will go over the high-level idea and code structure for the two recommended ‘autopilot’ modes (A, B) listed above. <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.r8u7mcmxxd92">Part 3</a> will list a set of steps you might find helpful in tweaking your constants.</p>
+<p>No matter which mode you choose to implement, the idea of feedback control is the same. You want to use the sensor readings to adjust your output to the motors. This part of the spec will go over the high-level idea and code structure for the two recommended ‘autopilot’ modes (A, B) listed above. <a href="#section-3-pid">Part 3: P(I)D</a> will list a set of steps you might find helpful in tweaking your constants.</p>
 
 <p><img src="/assets/images/pid_control.gif" alt="PID control" /></p>
 
-<h4 id="hand-following">Hand-following:</h4>
+<h3 id="hand-following">Hand-Following</h3>
 
 <p>The goal of your PID controller is to maintain some target distance between your car and the hand/object you’re leading it with. Note that using a flat, light-colored object will work better than your hand to get more consistent sensor readings.</p>
 
-<p>For this option, you may assume the two motors are similar enough; the car will go in a relatively straight line if the two motors are set to the same speed. This option only uses one sensor (the ultrasonic sensor). Following the object moving in a not-straight direction is not required, though you can implement it by installing more ‘IR pairs’ (see <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.rchbtek4wj9q">Note on IR pairs</a>).</p>
+<p>For this option, you may assume the two motors are similar enough; the car will go in a relatively straight line if the two motors are set to the same speed. This option only uses one sensor (the ultrasonic sensor). Following the object moving in a not-straight direction is not required, though you can implement it by installing more ‘IR pairs’ (see <a href="#a-note-on-ir-pairs">A Note on IR Pairs</a>).</p>
 
 <p>Here the general idea of how the proportional and derivative term should be used:</p>
 
@@ -468,7 +487,7 @@
   </li>
 </ul>
 
-<h4 id="wallobject-following">Wall/Object-following:</h4>
+<h3 id="wallobject-following">Wall/Object-Following</h3>
 
 <p>In this project we need to use PID to ensure we do not stray away or into a wall, and instead just travel parallel to it. You may currently be thinking, “Hey, I can just start it parallel to the wall and have it go forward like I already programmed, this project is so easy!” Unfortunately, most cars will not travel in a perfectly straight line due to differences in imperfect motors and uneven weight distributions on the car, plus we are gonna ask to see your final code :).</p>
 
@@ -490,9 +509,9 @@
   </li>
 </ul>
 
-<p>Once you correctly implement the wall tracking the last (and probably easier) part you have to code is the corner detection. Essentially you will utilize an IR pair to detect an upcoming corner and execute a set of instructions that make your car turn 90 degrees along the corner. These instructions will be independent of and essentially override the PID decisions until it completes the turn. Once it completes the turn it will return to tracking along the new wall. It is up to you the best set of instructions to give your car to make the turn. See <a href="https://docs.google.com/document/d/1moUApEzFZPYKGf0jEE3jbVC-ACEEtTTbicCH6RE5xYc/edit#heading=h.rchbtek4wj9q">A Note on IR Pairs</a> for more details on this part of the project.</p>
+<p>Once you correctly implement the wall tracking the last (and probably easier) part you have to code is the corner detection. Essentially you will utilize an IR pair to detect an upcoming corner and execute a set of instructions that make your car turn 90 degrees along the corner. These instructions will be independent of and essentially override the PID decisions until it completes the turn. Once it completes the turn it will return to tracking along the new wall. It is up to you the best set of instructions to give your car to make the turn. See <a href="#a-note-on-ir-pairs">A Note on IR Pairs</a> for more details on this part of the project.</p>
 
-<h4 id="section-three--pid">Section three – P(I)D:</h4>
+<h2 id="section-3-pid">Section 3: P(I)D</h2>
 
 <p>Tuning the constants for the proportional, (integral), and the derivative term is done by trial-and-error, for the most part. However, there are some things you may want to keep in mind, and some ways to do this more efficiently than randomly hard-coding different numbers and uploading the Arduino code 1000 times.</p>
 
@@ -535,7 +554,7 @@
 
 <p>*The integral constant you settle on may be very small or even 0; this is okay as the integral control is related to accumulated error over time, which is more relevant if the point you are trying to reach changes rapidly. In both projects proportional and derivative control should be sufficient for reaching the target distance, but we still recommend testing this for yourself.</p>
 
-<h4 id="help">HELP:</h4>
+<h2 id="hints">Hints</h2>
 
 <ul>
   <li>pulseIn(pin, HIGH/LOW)
@@ -552,6 +571,18 @@
   </li>
   <li>Code <a href="https://drive.google.com/file/d/1R1Zp9JNePwTx_iIcS7335scv_AyrgHXH/view?usp=sharing">Outline</a></li>
 </ul>
+
+<h2 id="a-note-on-ir-pairs">A Note on IR Pairs</h2>
+
+<p>We will be using the same IR sensor pairs from our distance sensor project for this project. Please note, if you are running into issues with the emitter for any reason, you can actually use a <strong>Red LED</strong> in replacement because our receivers respond to light in the infrared range.</p>
+
+<p>Again, if you run into issues with your emitter, just replace it with a Red LED and use the same build as you did in the previous project.</p>
+
+<p>Additionally, you should recall the purpose of what you are using the IR pair for in this project when implementing it; you are not changing the brightness of an LED, <strong>you are sensing a distance</strong>. It will be difficult to implement PID with the pair since the LED and receiver have a limited spectral overlap, so in most cases detecting a threshold analogRead() value from the receiver will be the extent of its use.</p>
+
+<p><img src="/assets/images/ir_pair.png" alt="IR pair" /></p>
+
+<p>In the above circuit the red LED and IR receiver form an IR pair. As the board moves along a wall the IR reading hovers around some value; as the board approaches a corner the pair will approach a wall. As they approach a wall, red light will be reflected back to the receiver and the analog reading will decrease. Once the reading is below a certain threshold (which you can discover experimentally) the board is now too close to the corner and will turn on the blue LED to indicate that it will hit the wall or maybe execute a set of commands that cause it to rotate 90 degrees (hint hint).</p>
 
 <h2 id="faq">FAQ</h2>
 
@@ -583,7 +614,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-03-30T21:39:25+08:00">March 30, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-04-06T22:58:23+08:00">April 6, 2024</time></p>
 
 
       </footer>

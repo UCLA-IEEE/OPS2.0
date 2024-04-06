@@ -40,9 +40,9 @@ toc: true
 
 | <img src="{{project_5.header.teaser}}" width="100" /> | {{project_5.excerpt}} |
 
-### Project 6: [Distance Sensor](/projects/6-distance-sensor)
+### Project 6: [Transistors](/projects/6-transistors)
 
-{% assign project_6 = site.projects | where: "name", "6-distance-sensor.md" | first %}
+{% assign project_6 = site.projects | where: "name", "6-transistors.md" | first %}
 
 | <img src="{{project_6.header.teaser}}" width="100" /> | {{project_6.excerpt}} |
 
