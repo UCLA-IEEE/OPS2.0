@@ -13,8 +13,8 @@ In 2010, OPS founder Leo Szeto realized that many Electrical Engineering student
 OPS remains a cornerstone of IEEE at UCLA, attracting and teaching over 100 new members every year.
 
 <p align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ILv4s27H3WU" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <i>The OPS Capstone project, an automatic maze-solving car</i>
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Dzxsx34pWR0?si=JdRnbIqfhxCtY62-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <i>The OPS Capstone project, an automatic maze-solving car (see <a href="/projects/9-pid-and-motor-control">Project 9</a>)</i>
 </p>
 
 ## OPS at Your School
