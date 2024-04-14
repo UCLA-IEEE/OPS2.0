@@ -24,10 +24,10 @@ feature_row:
     btn_class: "btn--primary"
     btn_label: "Explore"
   - image_path: /assets/images/DistanceSensor-splash.png
-    alt: "Distance Sensor"
-    title: "Distance Sensor"
-    excerpt: "How does motion detection work anyway? Learn how to use Infrared Sensors, transistors, and some nifty Arduino functions by building a Distance Sensor!"
-    url: "/projects/6-distance-sensor"
+    alt: "Transistors"
+    title: "Transistors"
+    excerpt: "How does motion detection work anyway? Learn how to use infrared sensors, transistors, and some nifty Arduino functions by building a distance sensor!"
+    url: "/projects/6-transistors"
     btn_class: "btn--primary"
     btn_label: "Explore"
   - image_path: /assets/images/RedLightGreenLight.png
@@ -40,3 +40,7 @@ feature_row:
 ---
 
 {% include feature_row %}
+
+## OPS at Your School
+
+{% include marketing.md %}
