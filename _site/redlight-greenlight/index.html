@@ -1,0 +1,540 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Red Light, Green Light Game - OPS 2.0</title>
+<meta name="description" content="Implement a 2-Arduino game called Red Light, Green Light!">
+
+
+  <meta name="author" content="IEEE at UCLA">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Red Light, Green Light Game">
+<meta property="og:url" content="http://localhost:4000/redlight-greenlight/">
+
+
+  <meta property="og:description" content="Implement a 2-Arduino game called Red Light, Green Light!">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/redlight-greenlight/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/images/apple-touch-icon.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/images/favicon-32x32.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/images/favicon-16x16.png"
+/>
+<link rel="manifest" href="/assets/images/site.webmanifest" />
+<link rel="shortcut icon" href="/assets/images/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          OPS 2.0
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/archived-projects/">Archived Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Red Light, Green Light Game">
+    <meta itemprop="description" content="Implement a 2-Arduino game called Red Light, Green Light!">
+    
+    <meta itemprop="dateModified" content="2020-05-14T11:07:54-07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Red Light, Green Light Game
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#reference-material">Reference Material</a></li><li><a href="#checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart">Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</a></li><li><a href="#checkpoint-2-wiring-up-the-rest-of-the-hardware">Checkpoint 2: Wiring Up the rest of the Hardware</a></li><li><a href="#checkpoint-3-implementing-the-game-red-light-green-light">Checkpoint 3: Implementing the game Red Light, Green Light</a></li><li><a href="#game-requirements">Game Requirements</a></li><li><a href="#bonus-pizzazz">Bonus Pizzazz</a></li></ul></li><li><a href="#appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</a><ul><li><a href="#generating-a-random-number">Generating a random number</a></li><li><a href="#timing">Timing</a></li><li><a href="#help-my-button-is-registering-multiple-button-presses">Help! My button is registering multiple button presses.</a></li><li><a href="#how-do-i-begin-the-implementing-the-red-light-green-light-game">How do I begin the implementing the Red Light, Green Light game?</a></li></ul></li><li><a href="#check-off-questions">Check off Questions</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img width="350" height="350" src="../assets/images/RedLightGreenLight.png" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>In this project, you will be implementing a 2-Arduino game called Red Light, Green Light. In this game you are a carduino playing against a randomly generated stoplight: You must move at a green light, and stop at a red light; should you run over a red signal, or stay put at a green signal, you lose. If you get it right, you’ll gain a point and move to the next intersection.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+<ul>
+  <li><a href="../potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+<ul>
+  <li>Pull-up/pull-down resistor</li>
+  <li>Serial protocol: UART (Universal Asynchronous Receiver Transmitter)</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Unit Cost</th>
+      <th>Example Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Nano</td>
+      <td>2</td>
+      <td>$4.00</td>
+      <td><a href="https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&amp;ie=UTF8&amp;qid=1468042975&amp;sr=1-8&amp;keywords=arduino%20nano">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Mini USB Cable</td>
+      <td>2</td>
+      <td>$1.80</td>
+      <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard</td>
+      <td>2</td>
+      <td>$1.50</td>
+      <td><a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&amp;keywords=breadboard&amp;qid=1588123957&amp;s=electronics&amp;sr=1-3">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Green LED</td>
+      <td>1</td>
+      <td>$0.12</td>
+      <td><a href="https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>Red LED</td>
+      <td>1</td>
+      <td>$0.14</td>
+      <td><a href="https://www.digikey.com/product-detail/en/kingbright/WP7113ID/754-1264-ND/1747663">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>White LED</td>
+      <td>1</td>
+      <td>$0.17</td>
+      <td><a href="https://www.digikey.com/product-detail/en/cree-inc/C543A-WMN-CCCKK141/C543A-WMN-CCCKK141-ND/9959490">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>200Ohm Resistor</td>
+      <td>3</td>
+      <td>$0.10</td>
+      <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-200R/200QBK-ND/712">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>Push Button</td>
+      <td>2</td>
+      <td>$0.23</td>
+      <td><a href="https://www.digikey.com/product-detail/en/schurter-inc/1301.9302/486-3458-ND/7602712">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>10kOhm Resistor</td>
+      <td>2</td>
+      <td>$0.10</td>
+      <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338">DigiKey</a></td>
+    </tr>
+    <tr>
+      <td>100nF(0.1uf) Capacitor</td>
+      <td>2</td>
+      <td>$0.45</td>
+      <td><a href="https://www.digikey.com/product-detail/en/kemet/C320C104J5R5TA7301/399-9867-1-ND/3726105">DigiKey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><ins>Total estimated cost:</ins></strong> $16.89 per team of 2<br />
+<em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $2.29 per team of 2</p>
+
+<h2 id="project-specification">Project Specification</h2>
+
+<p>One microcontroller (representing the stoplight) will flash one of the two red/green LEDs and the other microcontroller (representing the Car and its gas/brake pedals) will have two tactile switches (fancy word for buttons). Press the gas at green lights and the brake at red lights in order to score points and move to the next intersection. Get it wrong and you lose!</p>
+
+<p>The goal of this project is to teach you how to use Serial communication and give you your first experience with communication protocols before we move on to more sophisticated and complex protocols.</p>
+
+<h3 id="reference-material"><ins>Reference Material</ins></h3>
+<p>This lab requires reading documentation and datasheets. Here are some resources that you will reference throughout the project.</p>
+
+<ol>
+  <li><a href="https://docs.google.com/presentation/d/1LQoQPmcH95rTSIBplJn-w9iuIVvoQFx8bOY2leiMXvk/edit?usp=sharing">Lecture 7 Slides</a></li>
+  <li><a href="https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf">Arduino Nano DataSheet</a></li>
+  <li><a href="http://ops.ieeebruins.com/images/1/16/NanoPinout.png">Arduino Nano Pinout</a></li>
+  <li><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Arduino Serial Library</a></li>
+</ol>
+
+<h3 id="checkpoint-1-getting-your-mcusarduinos-talking-to-each-other-via-uart"><ins>Checkpoint 1: Getting your MCUs(Arduinos) talking to each other via UART</ins></h3>
+
+<p>This is a group project! Team up with a partner!</p>
+
+<ol>
+  <li>
+    <p><strong>Wire up your MCUs so that we can get them talking using the <a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Serial</a> library</strong>. To read and write between hardware devices, use the Serial library’s read and write functions. Also, make sure that you are first checking that there is available serial data before reading from Serial. To print text to the screen of your computer use the print or println functions as we have done before. Remember that data transmitted by one MCU is data received by the other. Connect the Tx of one device to the Rx of the other device and vice versa. Make sure you also connect GND pins on both devices to each other so they share a common ground.</p>
+
+    <blockquote>
+      <p><strong>NOTE</strong>: DO NOT CONNECT THE TX RX PINS WHEN UPLOADING A SKETCH TO YOUR ARDUINO. Disconnect these pins when uploading code and reconnect them after the code is done uploading.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Write two sketches, one for each Arduino.</strong> One sketch(transmitter) should send two different characters continuously in a loop with a small delay between sending each character. The other sketch(receiving) should turn on the onboard led (pin 13) when one of the characters is received and turn off the onboard led when the other character is received. Make sure to set the same baud rate for both sketches. Use 2 computers to observe the data going over more easily.</p>
+  </li>
+</ol>
+
+<h3 id="checkpoint-2-wiring-up-the-rest-of-the-hardware"><ins>Checkpoint 2: Wiring Up the rest of the Hardware</ins></h3>
+
+<p><strong>Arduino Device 1: Creating the green and red lights:</strong>
+You will need to hook up 2 different output LEDs (choose between red, yellow and/or green)** to your Stoplight Arduino. Remember, LEDs can burn out if more than 20mA of current passes through them, and usually you want to limit current to &lt;=5mA to save energy and to prevent the LED from being too bright. Make sure to include a current-limiting resistor in series with your LEDs. The digital pins output ~5V when you write HIGH.</p>
+
+<p><strong>Arduino Device 2: Pressing on the gas or break using buttons</strong>
+Your Carduino will have 2 push button inputs, one representing the gas pedal and one representing your brake. If the Green Light is flashed, you’ll press on the gas button. When the Red Light is flashed, you’ll press on the brake. Grab these buttons from the OPS parts drawers. Use this pinout to help you in selecting pins for your Arduino.</p>
+
+<blockquote>
+  <p><strong><ins>NOTE: Button Debouncing.</ins></strong><br />
+When you press or release a button, it will “bounce” several times before reaching its final state, which means several button presses will be registered. One way to avoid this is to put a capacitor in series with the button, so that the button release will not register until after the capacitor is fully discharged over time. If the capacitor’s value has been appropriately chosen, this will be after the button has finished bouncing, such that only one press will be registered. Below is the basic circuit for button debouncing:</p>
+</blockquote>
+
+<p align="center">
+<img width="350" height="350" src="../assets/images/button_config.png" />
+</p>
+
+<p>Vout is the voltage read by the microcontroller input pin, and Vdd is +5V. Use a 10k resistor and a 100nF capacitor for your debouncing circuit, so that you achieve an RC time constant of 1ms (time constant = resistance * capacitance).</p>
+
+<blockquote>
+  <p><strong><ins>NOTE:</ins></strong> This debouncing circuit also includes a pull-down resistor, so that Vout is HIGH when the button is pressed, and LOW otherwise. Also, the RC constant can be a complicated topic, but for now it is sufficient to understand that it is the product of resistance and capacitance, and corresponds to the amount of time the circuit debounces.</p>
+</blockquote>
+
+<ol>
+  <li>Draw the full schematic (on paper). After you get checked off, continue onto..</li>
+  <li>Write a sketch and build the circuit to light up each LED on one Arduino while its corresponding button on the other is pressed down. When a button is released, the LED should turn off.</li>
+</ol>
+
+<h3 id="checkpoint-3-implementing-the-game-red-light-green-light"><ins>Checkpoint 3: Implementing the game Red Light, Green Light</ins></h3>
+
+<p>The final objective of this lab is to write a complete implementation of the Red Light Green Light game. The expectations for this game are as follows:</p>
+
+<h3 id="game-requirements"><ins>Game Requirements</ins></h3>
+<ul>
+  <li>Two differently colored LEDs (Stoplight side; the game controller)</li>
+  <li>One white LED (Carduino side; the player)</li>
+  <li>The Stoplights (Game Controller) flashes one of the LEDs; the color chosen should be as random as possible (check the Appendix for help on this);</li>
+  <li>On the Carduino (Player Module), the player should press the button that matches the LED the Controller flashed (i.e. Gas for Green Light, Brake for Red Light)</li>
+  <li>The Stoplight (Game Controller) should wait until a button is pressed on the Carduino (Player Module). The player must press the correct button.</li>
+  <li>If the player presses the correct button, the white LED must blink and a point must be added to the player’s score. A new round must begin.</li>
+  <li>Should the player lose (by pressing the incorrect button), the white LED on the Car (Player Module) should turn on for 5 seconds, then start a new game (remember to reset score).</li>
+  <li>The serial monitor should print the player’s score at the end of every round (intersection). When the play loses, the serial monitor should show this with the reset score after the game starts again.</li>
+</ul>
+
+<blockquote>
+  <p><strong><ins>NOTE:</ins></strong> In checkpoint 2, you might have just checked if the input button pin was HIGH to test if it was pressed. However, if you happen to press down on a button and release it right away, your Arduino will register multiple button presses since the loop() function runs multiple iterations while you are pressing down on the button, no matter how quickly you release the button. A solution to this could be to keep track of the previous and current state of the button and only want to register a button press  when it goes from LOW to HIGH, rather than just checking if the pin is HIGH.</p>
+</blockquote>
+
+<p><strong><ins>Project Completion:</ins></strong> Implement the Red Light, Green Light game, adhering to the above requirements.</p>
+
+<h3 id="bonus-pizzazz"><ins>Bonus Pizzazz</ins></h3>
+<p>This part of the project, while strongly encouraged, is <em>optional</em>. If you have more pressing work to complete, you’re done! Feel free to skip this part.</p>
+
+<p>This is your chance to show us your game design skills by implementing whatever game elements you’d like in order to improve the Red Light, Green Light game. Here are a few ideas for features that can be implemented:</p>
+<ul>
+  <li>4 second time limit to successfully press the correct button</li>
+  <li>Scaling difficulty by gradually decreasing the time limit after successfully completing a round</li>
+  <li>Play a short jingle through your speaker upon success/failure of a round</li>
+  <li>Implement turn signals and a potentiometer steering wheel. Ex: if a right turn signal is displayed, turn your potentiometer steering wheel all the way to the right, and press gas.</li>
+  <li>Be creative!</li>
+</ul>
+
+<h2 id="appendix-troubleshootinghelpful-tips">Appendix: Troubleshooting/Helpful Tips</h2>
+
+<h3 id="generating-a-random-number"><ins>Generating a random number</ins></h3>
+<p>In setup(): randomSeed(analogRead(0));
+To get a random number: randNum = random(300); // random number from 0 to 299</p>
+
+<p>This will allow you to get a truly random number sequence because we are randomizing the seed of the random number generator. The seed being used is the reading of an analog pin that is not currently being used, which is essentially just constantly fluctuating noise.</p>
+
+<h3 id="timing"><ins>Timing</ins></h3>
+<p>millis(): returns the number of milliseconds that passed since program started</p>
+
+<h3 id="help-my-button-is-registering-multiple-button-presses"><ins>Help! My button is registering multiple button presses.</ins></h3>
+<p>It is important to note that if you hold down the button for too long (i.e. for multiple iterations of the loop() code), then it will read HIGH for every iteration of the loop. Thus, when checking if a button has been pressed, it is not ideal to simply check of the pin is HIGH; you should only register a button press if the pin has changed from previously being LOW to now being HIGH. Try implementing software debouncing!</p>
+
+<h3 id="how-do-i-begin-the-implementing-the-red-light-green-light-game"><ins>How do I begin the implementing the Red Light, Green Light game?</ins></h3>
+<p>Don’t jump right into programming the game. Rather, think about the general structure of the game first and write some pseudocode to nail down the logical flow of the program. Then, begin implementing sections of the program in discrete blocks based on your pseudocode.</p>
+
+<h2 id="check-off-questions">Check off Questions</h2>
+
+<ol>
+  <li>What are some advantages of parallel over serial, and why do we use serial?
+    <ul>
+      <li>Parallel can send more data at a time than serial</li>
+      <li>Parallel takes up more space and is more complex with more wires added so we opt to use high speed serial.</li>
+    </ul>
+  </li>
+  <li>What is baud rate? What does Serial.begin(9600) mean?
+    <ul>
+      <li>Rate at which information is transferred in a communication channel. It means a serial port is capable of sending a max of 9600 bits per second.</li>
+    </ul>
+  </li>
+  <li>What will happen if the baud rate is not the same for both Arduinos?
+    <ul>
+      <li>You might read gibberish values.</li>
+    </ul>
+  </li>
+  <li>Why is a pull-down resistor needed?
+    <ul>
+      <li>This ensures that when the button is not pressed, that a specific state is read by the MCU</li>
+    </ul>
+  </li>
+  <li>Why do we use a debouncing circuit?
+    <ul>
+      <li>To make sure multiple button presses are not registered; to make sure the button is correctly registered as pressed when you press it</li>
+    </ul>
+  </li>
+  <li>What voltage would a pull up resistor be connected to and what is the other end of the resistor connected to.
+    <ul>
+      <li>5V and MCU pin</li>
+    </ul>
+  </li>
+  <li>What is the voltage the pull down resistor is connected to and what is the other end of the resistor connected to.
+    <ul>
+      <li>GND and MCU pin</li>
+    </ul>
+  </li>
+  <li>Why does the MCU pin still read V even if there is a resistor?
+    <ul>
+      <li>The resistor value is so small compared to the input impedance of the Nano so there would essentially be no voltage drop.</li>
+    </ul>
+  </li>
+  <li>Why can’t we just connect 5V directly to the MCU and the button connected to the MCU and GND?
+    <ul>
+      <li>You will short 5V and GND if you press the button :(</li>
+    </ul>
+  </li>
+  <li>For a time constant of 1 ms, we had you use a 10k ohm resistor and a 100 nF capacitor. Why can’t we just use a 1 ohm resistor and a 1 mF capacitor instead if RC is the same?
+    <ul>
+      <li>Using Ohm’s law, if we are supplying a fixed voltage Vin  and lower the resistance from 10k ohms to 1 ohm, we are pulling a ton more current from the Arduino, far more than the 40 mA limit. The Arduino will fry.</li>
+    </ul>
+  </li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-05-14">May 14, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

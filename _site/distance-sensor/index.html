@@ -1,0 +1,519 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Arduino Distance Sensor - OPS 2.0</title>
+<meta name="description" content="Learn how to build an Arduino Distance Sensor">
+
+
+  <meta name="author" content="IEEE at UCLA">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="OPS 2.0">
+<meta property="og:title" content="Arduino Distance Sensor">
+<meta property="og:url" content="http://localhost:4000/distance-sensor/">
+
+
+  <meta property="og:description" content="Learn how to build an Arduino Distance Sensor">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/distance-sensor/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "IEEE at UCLA",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="OPS 2.0 Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/images/apple-touch-icon.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/images/favicon-32x32.png"
+/>
+<link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/images/favicon-16x16.png"
+/>
+<link rel="manifest" href="/assets/images/site.webmanifest" />
+<link rel="shortcut icon" href="/assets/images/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          OPS 2.0
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/archived-projects/">Archived Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Arduino Distance Sensor">
+    <meta itemprop="description" content="Learn how to build an Arduino Distance Sensor">
+    
+    <meta itemprop="dateModified" content="2020-04-28T11:07:54-07:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Arduino Distance Sensor
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#about-this-project">About this Project</a><ul><li><a href="#lecture-slides">Lecture Slides</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#skills-learned">Skills Learned</a></li></ul></li><li><a href="#parts-list">Parts List</a></li><li><a href="#project-specification">Project Specification</a><ul><li><a href="#checkpoint-1-reading-ir-values">Checkpoint 1: Reading IR Values</a></li><li><a href="#checkpoint-2-noise-calibration-and-led-output">Checkpoint 2: Noise Calibration and LED Output</a></li><li><a href="#final-pseudocode">Final Pseudocode</a></li><li><a href="#checkpoint-3-soldering">Checkpoint 3: Soldering</a></li></ul></li><li><a href="#checkoff-questions">Checkoff Questions</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p align="center">
+  <img src="../assets/images/DistanceSensor.png" width="350" />
+</p>
+
+<h2 id="about-this-project">About this Project</h2>
+
+<p>In this project, you will be making a distance sensor using a phototransistor (IR receiver), IR emitter, and an LED whose brightness will be adjusted based on how long the distance is from an object to the IR receiver and IR emitter pair.</p>
+
+<h3 id="lecture-slides"><a href="https://docs.google.com/presentation/d/1VUlLLkaEYgGI9jHbGtPi72Rsy_l05evFw3UaUrRYzW4/edit?usp=sharing">Lecture Slides</a></h3>
+
+<h3 id="prerequisites"><ins>Prerequisites</ins></h3>
+
+<ul>
+  <li><a href="../potentiometer-blink">Intro to Arduino: Potentiometer Blink</a></li>
+</ul>
+
+<h3 id="skills-learned"><ins>Skills Learned</ins></h3>
+
+<ul>
+  <li>Intermediate Arduino programming</li>
+  <li>Sensors</li>
+  <li>Transistors</li>
+</ul>
+
+<h2 id="parts-list">Parts List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th>Estimated Cost</th>
+      <th>Example Vendor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Nano</td>
+      <td>1</td>
+      <td>$4.00</td>
+      <td><a href="https://www.amazon.com/KOOKYE-Arduino-Nano-ATmega328P-Micro-controller/dp/B019SXNBQY/ref=sr_1_8?s=electronics&amp;ie=UTF8&amp;qid=1468042975&amp;sr=1-8&amp;keywords=arduino%20nano">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>Mini USB Cable</td>
+      <td>1</td>
+      <td>$1.80</td>
+      <td><a href="https://www.mouser.com/ProductDetail/Qualtek/3021003-03/?qs=sGAEpiMZZMsnDbBzJh6VGJdPZmg6V0p2">Mouser</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard</td>
+      <td>1</td>
+      <td>$1.50</td>
+      <td><a href="https://www.amazon.com/DEYUE-breadboard-Set-Prototype-Board/dp/B07LFD4LT6/ref=sr_1_3?dchild=1&amp;keywords=breadboard&amp;qid=1588123957&amp;s=electronics&amp;sr=1-3">Amazon</a></td>
+    </tr>
+    <tr>
+      <td>LED</td>
+      <td>1</td>
+      <td>$0.25</td>
+      <td><a href="https://www.digikey.com/product-detail/en/lite-on-inc/LTL-4233/160-1130-ND/217580">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>IR Receivers (Phototransistors)</td>
+      <td>1</td>
+      <td>$0.27</td>
+      <td><a href="https://www.digikey.com/product-detail/en/PT334-6C/1080-1159-ND/2675650?curr=usd&amp;WT.z_cid=ref_octopart_dkc_buynow&amp;site=us">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>IR Emitters (IR LEDs)</td>
+      <td>1</td>
+      <td>$0.60</td>
+      <td><a href="https://www.mouser.com/ProductDetail/OSRAM-Opto-Semiconductors/SFH-4545/?qs=VcOkZLzzaubOJpq6Xyji1A==">Pololu</a></td>
+    </tr>
+    <tr>
+      <td>130 Ohm Resistor (for LEDs)</td>
+      <td>2</td>
+      <td>$0.03</td>
+      <td><a href="https://www.digikey.com/product-detail/en/stackpole-electronics-inc/CFM12JT130R/S130HCT-ND/2617554">Digikey</a></td>
+    </tr>
+    <tr>
+      <td>10k Ohm Resistor (for IR Receiver)</td>
+      <td>1</td>
+      <td>$0.03</td>
+      <td><a href="https://www.digikey.com/product-detail/en/yageo/CFR-25JB-52-10K/10KQBK-ND/338">Digikey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><ins>Total estimated cost:</ins></strong> $8.66 per member<br />
+<em><ins>If reusing Arduino/MiniUSB/Breadboard:</ins></em> $1.36 per member</p>
+
+<h2 id="project-specification">Project Specification</h2>
+
+<p>The basis of this project is the interaction between two interesting and useful electronic components:</p>
+<ol>
+  <li>An Infrared (IR) light emitting LED. Looks like a black LED.</li>
+  <li>An IR phototransistor, or IR receiver. Looks like a clear LED (don’t mix them up!)<br />
+We will place these two components next to each other so that when an object is within a close enough proximity,
+IR light is reflected from the IR LED into the IR receiver.</li>
+</ol>
+
+<p>This can be seen in the image below:</p>
+
+<p align="center">
+  <img src="../assets/images/distance-sensor-1.png" width="350" />
+</p>
+
+<p>By designing our Arduino circuit properly, we’ll be able to tell when an object is in front of our
+Distance Sensor!</p>
+
+<h3 id="checkpoint-1-reading-ir-values"><ins>Checkpoint 1: Reading IR Values</ins></h3>
+<p><ins>Schematic:</ins></p>
+<p align="center">
+  <img src="../assets/images/distance-sensor-2.png" width="500" />
+</p>
+
+<p>Your first task is to build the schematic shown above on your breadboard. In order to power the circuit,
+we’ll be using a mini USB cable to provide power to our Arduino. Essentially, the IR Receiver
+acts as a variable resistor. When no IR light is sensed, it can be thought of as having a very <em>high</em> resistance.
+When a lot of IR light is sensed, it can be thought of as having a very <em>low</em> resistance. Since we are
+reading the voltage at the meeting point of the 10k Ohm Resistor and the IR receiver, we have essentially built
+a <strong>voltage divider</strong>! If we read the voltage at pin A4 with no object present, it will be near 0V. If we read
+it with an object present, it will be near 3.7V. We’ll use this to our advantage later.</p>
+
+<p>In order to get best results, make sure your <strong>IR LED</strong> and <strong>IR Receiver</strong> are located as close as possible
+to each other. Another thing to be wary of is the polarity of these various components, as they differ from
+regular LEDs. A summary is listed below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Positive(+)</th>
+      <th>Negative(-)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LED</td>
+      <td>Longer Lead<br />Round Edge</td>
+      <td>Shorter Lead<br />Flat Edge</td>
+    </tr>
+    <tr>
+      <td>IR Receiver/Phototransistor</td>
+      <td>Shorter Edge<br />Flat Edge</td>
+      <td>Longer Lead<br />Round Edge</td>
+    </tr>
+    <tr>
+      <td>IR Emitter/LED</td>
+      <td>Shorter Lead<br />Round Edge</td>
+      <td>Longer Lead<br />Flat Edge</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For the programming portion of this checkpoint, you will need to print out the value read by the IR Receiver to the serial monitor. As the object gets closer, the value that is read should increase.</p>
+
+<h3 id="checkpoint-2-noise-calibration-and-led-output"><ins>Checkpoint 2: Noise Calibration and LED Output</ins></h3>
+
+<p>By nature of the way we have set up our IR pair, there is <strong>noise</strong>, ambient IR light that is picked up despite no object being present. In order to account for this, we would like to get a new “zero” value by taking the average background value from our IR Receiver over 100 samples.</p>
+
+<p><ins>An example code snippet is provided below:</ins></p>
+
+<pre><code class="language-C++">#define IR 17
+long zero = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(IR, INPUT);
+  for (int i = 0; i &lt; 100; i++) {
+    zero += analogRead(IR);
+  }
+  zero /= 100;
+}
+</code></pre>
+
+<p>With this in mind, here are the main steps involved in our Arduino program:</p>
+<ol>
+  <li>First we read the raw IR receiver reading using analogRead()</li>
+  <li>Then we need to constrain this value to our new <em>calibrated</em> range. Our noise-adjusted “zero” value is our new minimum value. The high value will likely be around 1023, but should be adjusted for best results. The <strong>constrain()</strong> function will come in handy here.
+    <pre><code class="language-C++">  int new_reading = constrain(x, a, b);
+</code></pre>
+    <p>This will return:</p>
+    <ul>
+      <li>x <em>if a &lt; x &lt; b</em></li>
+      <li>a <em>if x &lt; a</em></li>
+      <li>b <em>if x &gt; b</em></li>
+    </ul>
+  </li>
+  <li>Finally, we will use the new constrained input reading to change our output LED brightness. When an object gets closer, we want the brightness to increase. However, analogWrite() takes a value from 0-255 while analogRead() returns a value from 0-1023. We’ll need to use the <strong>map()</strong> function to scale this down!
+    <pre><code class="language-C++">  mapped_value = map(raw_val, initial_min, initial_max, final_min, final_max);
+</code></pre>
+    <p>This returns <code class="language-plaintext highlighter-rouge">raw_val</code> scaled from the initial range to the final range.</p>
+  </li>
+</ol>
+
+<p><ins>Example: Map val from 0-1023 to 0-255</ins></p>
+<pre><code class="language-C++">  void loop()
+  {
+    int val = analogRead(0);
+    val = map(val, 0, 1023, 0, 255);
+    analogWrite(9, val);
+  }
+</code></pre>
+<h3 id="final-pseudocode"><ins>Final Pseudocode</ins></h3>
+<pre><code class="language-C++">// define the pins
+
+// for calibration
+long zero = 0;
+
+void setup() {
+  // Set the Serial baud rate
+  // Set the pin modes
+  // Set the variable zero to the average of 100 samples
+}
+
+void loop() {
+  // 0 is no IR light, 1023 is max IR light being reflected
+  // Step 1: Read IR Reading
+  // Step 2: Constrain the raw IR reading from "zero"-1023
+  // Step 3: Map the reading to an output value, from "zero"-1023 to 0-255
+  // Step 4: Adjust brightness of LED based on new mapped reading
+}
+</code></pre>
+
+<p><strong><ins>Project Completion</ins>:</strong><br />
+Show your fully functioning Distance Sensor, where the LED’s brightness smoothly scales from zero to full brightness as an object gets closer.</p>
+
+<h3 id="checkpoint-3-soldering"><ins>Checkpoint 3: Soldering</ins></h3>
+<p>In order to solder this project, you will need a perfboard, female headers, and a soldering station in addition to the parts listed in the <strong>Parts List</strong> section.</p>
+
+<p>Notes:</p>
+<ol>
+  <li>Don’t solder your Arduino directly to the perfboard! Use female headers instead, allowing us to insert and remove our Arduino.</li>
+</ol>
+
+<h2 id="checkoff-questions">Checkoff Questions</h2>
+<p>Here are some questions you can use to test understanding of the concepts involved in the Distance Sensor project:</p>
+
+<ol>
+  <li>What are the three terminals of a transistor called, and which one does the phototransistor
+use to take in light?</li>
+  <li>Why should you keep the emitter and receiver close together?</li>
+  <li>What are the parameters to the map function and what does it do with them?</li>
+  <li>Why do we need to sample 100 IR values in setup()?</li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-28">April 28, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="http://ieeebruins.com/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> IEEE at UCLA</a></li>
+        
+      
+        
+          <li><a href="https://www.facebook.com/ieeeatucla/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/uclaieee/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://github.com/bryanjwong/OPS2.0" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 IEEE at UCLA. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
