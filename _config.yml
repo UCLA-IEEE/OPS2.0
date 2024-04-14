@@ -25,8 +25,7 @@ url: https://openproject.space # the base hostname & protocol for your site, e.g
 locale: "en_US"
 
 # Build settings
-# `remote_theme` required for GitHub Pages (see https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#remote-theme-method)
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "dark"
 plugins:
   - jekyll-feed
