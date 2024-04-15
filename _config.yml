@@ -28,7 +28,6 @@ locale: "en_US"
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "dark"
 plugins:
-  - jekyll-feed
   - jekyll-include-cache
 include:
   - _pages
@@ -65,31 +64,37 @@ author:
     - label: "IEEE at UCLA"
       icon: "fas fa-fw fa-link"
       url: "https://ieeebruins.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook"
-      url: "https://www.facebook.com/ieeeatucla/"
+    - label: "Discord"
+      icon: "fab fa-fw fa-discord"
+      url: "https://discord.gg/RREtsea"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/uclaieee/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/ieeeatucla/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/bryanjwong/OPS2.0"
+      url: "https://github.com/UCLA-IEEE/OPS2.0"
 
 # Site Footer
 footer:
   links:
     - label: "IEEE at UCLA"
       icon: "fas fa-fw fa-link"
-      url: "http://ieeebruins.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook"
-      url: "https://www.facebook.com/ieeeatucla/"
+      url: "https://ieeebruins.com/"
+    - label: "Discord"
+      icon: "fab fa-fw fa-discord"
+      url: "https://discord.gg/RREtsea"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/uclaieee/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/ieeeatucla/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/bryanjwong/OPS2.0"
+      url: "https://github.com/UCLA-IEEE/OPS2.0"
 
 # Collections
 collections:
@@ -112,3 +117,6 @@ defaults:
     values:
       layout: single
       read_time: true
+
+atom_feed:
+  hide: true
