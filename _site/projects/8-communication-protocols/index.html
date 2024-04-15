@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-04-14T22:45:30-07:00">
+  <meta property="article:published_time" content="2024-04-14T23:00:26-07:00">
 
 
 
@@ -143,6 +143,11 @@
               <a href="/archived-projects/">Archived Projects</a>
             </li></ul>
         
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">Toggle menu</span>
           <div class="navicon"></div>
@@ -166,7 +171,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="8: Communication Protocols">
     <meta itemprop="description" content="Using a joystick, OLED display, and a whole lot of code you will get to create your very own GameBuino and video game to play with it!">
-    <meta itemprop="datePublished" content="2024-04-14T22:45:30-07:00">
+    <meta itemprop="datePublished" content="2024-04-14T23:00:26-07:00">
     
 
     <div class="page__inner-wrap">
@@ -539,7 +544,7 @@ LOOP:
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-04-14T22:45:30-07:00">April 14, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-04-14T23:00:26-07:00">April 14, 2024</time></p>
 
 
       </footer>
@@ -569,6 +574,17 @@ LOOP:
 
     </div>
 
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
     
 
     <div id="footer" class="page__footer">
@@ -618,6 +634,10 @@ LOOP:
 
 
 
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
 
 
 

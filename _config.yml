@@ -118,5 +118,11 @@ defaults:
       layout: single
       read_time: true
 
+# Docs: https://mmistakes.github.io/minimal-mistakes/docs/configuration/#site-search
+search: true
+search_full_content: true
+lunr:
+  search_within_pages: true
+
 atom_feed:
   hide: true
