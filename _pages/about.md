@@ -21,8 +21,7 @@ OPS remains a cornerstone of IEEE at UCLA, attracting and teaching over 100 new 
 
 If you are interested in bringing OPS to your school's IEEE chapter, please fill out the interest form below. Our team will contact you with details on how to apply.
 
-Questions? Feel free to contact our outreach directors, Eli Foerst and Nathan
-Nguyendinh: <outreach@ieeebruins.com>
+Questions? Feel free to contact our outreach directors, Joseph Kung and Landon Archuletta: <outreach@ieeebruins.com>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOSWum3EfZ7Lttogtaa2IrZrO22CP3bneSlE3UrruowJsPwA/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
