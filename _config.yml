@@ -76,6 +76,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/UCLA-IEEE/OPS2.0"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/company/ieee-student-branch-ucla/"
 
 # Site Footer
 footer:
