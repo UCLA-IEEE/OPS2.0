@@ -27,4 +27,6 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem "minimal-mistakes-jekyll", "~> 4.24"
 
-gem "html-proofer", "~> 5.0"
+group :test do
+    gem "html-proofer", "~> 5.0"
+end
